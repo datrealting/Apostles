@@ -5,7 +5,7 @@ public class NPCStats : MonoBehaviour
     // boilerplate, feel free to add/remove stats
     public float maxhp;
     public float currenthp;
-    public float minhp = 0;
+    private float minhp = 0;
 
     public float armour;
 
@@ -29,7 +29,6 @@ public class NPCStats : MonoBehaviour
             currenthp = maxhp;
         }
     }
-
     public virtual void AdjustHP(float hp)
     {
         currenthp = currenthp - hp;
@@ -38,6 +37,14 @@ public class NPCStats : MonoBehaviour
             currenthp = minhp;
             Die();
         }
+        if (currenthp > maxhp)
+        {
+            currenthp = maxhp;
+        }
+    }
+    public virtual void Heal(float hp)
+    {
+        currenthp += hp;
         if (currenthp > maxhp)
         {
             currenthp = maxhp;
