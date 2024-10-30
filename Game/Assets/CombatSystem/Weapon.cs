@@ -2,9 +2,12 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    public string weaponname;
-    public float damage;
+    public string weaponName;
+
     public GameObject projectilePrefab;
+    public Transform projectileSpawnPoint;
+
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -15,17 +18,26 @@ public class Weapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-    }
-
-    void fire()
-    {
-        GameObject projectileInstance = Instantiate(projectilePrefab, transform.position, transform.rotation);
-
-        Projectile projectile = projectileInstance.GetComponent<Projectile>();
-        if (projectile != null)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            projectile.Initialize(damage);
+            fire();
+
         }
+
     }
+
+
+
+    public void fire()
+    {
+        // Instantiate a new projectile
+        GameObject projectile = Instantiate(projectilePrefab, projectileSpawnPoint.position, projectileSpawnPoint.rotation);
+
+
+    }
+
+
+
+
 }
+

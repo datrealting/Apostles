@@ -5,46 +5,20 @@ public class Projectile : MonoBehaviour
     public float speed;
     public float damage;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     void Start()
     {
-        
+        // Set the velocity of the projectile
+        GetComponent<Rigidbody2D>().AddForce(transform.up * speed, ForceMode2D.Impulse);
     }
 
-    // Update is called once per frame
-    void Update()
+
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        // Move the projectile forward
-        transform.Translate(Vector3.forward * speed * Time.deltaTime);
+
+        // Destroy the projectile when it collides with something
+        Debug.Log("Projectile collided with " + collision.gameObject.name);
+        Destroy(gameObject);
     }
-
-
-    // Method to set the damage value
-    public void Initialize(float damageValue)
-    {
-        damage = damageValue;
-    }
-
-
-
-    void OnTriggerEnter(Collider other)
-    {
-        Debug.Log("Hit: " + other.name);
-
-        // Check if the collided object has an NPCStats component
-        NPCStats npcStats = other.GetComponent<NPCStats>();
-        if (npcStats != null)
-        {
-            // Call the TakeDamage method on the NPCStats component
-            npcStats.TakeDamage(damage);
-        }
-
-
-        
-        // Destroy the projectile
-        Destroy(gameObject);   
-    }
-
-    
 
 }
