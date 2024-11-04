@@ -33,3 +33,4 @@
 
 # Other files to ignore
 .DS_Store
+/Game/UserSettings
