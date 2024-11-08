@@ -61,11 +61,8 @@
     <Analyzer Include="D:\Programs\Unity\6000.0.23f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\CombatSystem\Player Stats.cs" />
-    <Compile Include="Assets\CombatSystem\PlayerControl.cs" />
-    <Compile Include="Assets\CombatSystem\NPC Stats.cs" />
-    <Compile Include="Assets\CombatSystem\Weapon.cs" />
-    <Compile Include="Assets\CombatSystem\Projectile.cs" />
+    <Compile Include="Assets\Room.cs" />
+    <Compile Include="Assets\Floor Generation\FloorGenerator.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
