@@ -8,12 +8,7 @@ public class TEMPAOESpawner : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.J))
         {
-            SpawnAOE();
+            AOEController.SpawnAOE(aoePrefab, gameObject.transform.position, 20);
         }
-    }
-
-    void SpawnAOE()
-    {
-        GameObject aoeIndicator = Instantiate(aoePrefab, gameObject.transform.position, Quaternion.identity);
     }
 }

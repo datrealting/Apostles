@@ -14,17 +14,16 @@ public class AOE : MonoBehaviour
 
     public float delay;     // how long until indicator disappears and AOE takes place?
     public float linger;      //  in seconds, how long AOE lasts. 0 for instantaneous.
-
-    void Start()
+    public void Create(float size)
     {
-        SetupIndicator();
+        SetupIndicator(size);
         StartCoroutine(DelayedAOE()); // Start the function to blowup. Function returns an IEnum. Don't ask
         // just use this whenever theres a delay
     }
 
-    void SetupIndicator()
+    void SetupIndicator(float size)
     {
-        size = 200f;
+        this.size = size;
         indicatorTransform = transform.Find("IndicatorSprite"); // find the sprite transform
         indicatorSprite = indicatorTransform.GetComponent<SpriteRenderer>();    // find the sprite visuals
         indicatorCollider = gameObject.GetComponent<Collider2D>();
