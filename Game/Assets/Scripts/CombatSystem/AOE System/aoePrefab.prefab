@@ -82,9 +82,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a576179e0a77db4aa1e6675ca2e223c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  size: 0
-  delay: 0
-  duration: 0
+  contactFilter:
+    useTriggers: 0
+    useLayerMask: 0
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 0
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
+  size: 200
+  delay: 2
+  linger: 0
 --- !u!1 &4981573935963995887
 GameObject:
   m_ObjectHideFlags: 0
