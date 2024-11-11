@@ -2,13 +2,17 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    public string weaponName;
+    [SerializeField]
+    private string weaponName;
 
-    public GameObject projectilePrefab;
-    public Transform projectileSpawnPoint;
+    [SerializeField]
+    private GameObject projectilePrefab;
+    [SerializeField]
+    private Transform projectileSpawnPoint;
 
-    [Min(0f)]
-    public float fireRate = 0.5f; // Time in seconds between shots
+    [Min(0.01f)]
+    [SerializeField]
+    private float fireRate = 0.5f; // Time in seconds between shots
     private float nextFireTime = 0f;
 
 
