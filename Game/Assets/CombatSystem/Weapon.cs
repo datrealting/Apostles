@@ -7,6 +7,9 @@ public class Weapon : MonoBehaviour
     public GameObject projectilePrefab;
     public Transform projectileSpawnPoint;
 
+    [Min(0f)]
+    public float fireRate = 0.5f; // Time in seconds between shots
+    private float nextFireTime = 0f;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -18,10 +21,10 @@ public class Weapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Mouse0) && Time.time >= nextFireTime)
         {
             fire();
-
+            nextFireTime = Time.time + fireRate;
         }
 
     }
