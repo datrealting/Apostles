@@ -104,7 +104,9 @@ MonoBehaviour:
   weaponName: 
   projectilePrefab: {fileID: 381423501142137705, guid: 8d3af5d5c2650efaebadf3c9c1afd0e0, type: 3}
   projectileSpawnPoint: {fileID: 4905686281418230434}
-  fireRate: 0.01
+  fireRate: 0.5
+  WeaponLevel: 1
+  MaxWeaponLevel: 5
 --- !u!1 &5728153109663062762
 GameObject:
   m_ObjectHideFlags: 0

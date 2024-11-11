@@ -16,6 +16,15 @@ public class Projectile : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
 
+        // Check if the collided object has the NPCStats component
+        NPCStats npcStats = collision.gameObject.GetComponent<NPCStats>();
+        if (npcStats != null)
+        {
+            // Call the TakeDamage function on the NPCStats component
+            npcStats.TakeDamage(damage);
+        }
+
+
         // Destroy the projectile when it collides with something
         Debug.Log("Projectile collided with " + collision.gameObject.name);
         Destroy(gameObject);

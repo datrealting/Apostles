@@ -69,7 +69,10 @@
     <Compile Include="Assets/CombatSystem/Player Stats.cs" />
     <Compile Include="Assets/CombatSystem/PlayerControl.cs" />
     <Compile Include="Assets/Floor Generation/FloorGenerator.cs" />
+    <Compile Include="Assets/CombatSystem/AOE System/AOEController.cs" />
     <Compile Include="Assets/CombatSystem/NPC Stats.cs" />
+    <Compile Include="Assets/CombatSystem/AOE System/TEMP AOE Spawner.cs" />
+    <Compile Include="Assets/CombatSystem/AOE System/AOE.cs" />
     <Compile Include="Assets/CombatSystem/Weapon.cs" />
     <Compile Include="Assets/CombatSystem/Projectile.cs" />
   </ItemGroup>
