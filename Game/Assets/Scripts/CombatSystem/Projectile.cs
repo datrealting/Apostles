@@ -15,10 +15,13 @@ public class Projectile : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-
         // Destroy the projectile when it collides with something
         Debug.Log("Projectile collided with " + collision.gameObject.name);
         Destroy(gameObject);
+
+        // Get stats of NPC hit, if any
+        NPCStats npcStats = collision.gameObject.GetComponent<NPCStats>();
+        npcStats.TakeDamage(damage);
     }
 
 }
