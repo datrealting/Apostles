@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rooms:
-  - {fileID: 2853377921505863747, guid: abd583c1ef082ed4b8353fa3caa2f776, type: 3}
+  - {fileID: 2853377921505863747, guid: 536536d5e2c654b46b5c067a92fb708e, type: 3}
   roomCount: 10
 --- !u!4 &1034013754
 Transform:

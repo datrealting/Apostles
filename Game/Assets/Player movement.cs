@@ -21,11 +21,11 @@ public class Playermovement : MonoBehaviour
         //Inputs and velocity
         _horizonatalInput = Input.GetAxisRaw("Horizontal");
         float horizontalMovement = _horizonatalInput * _speed * Time.deltaTime;
-        _rb.velocity = new Vector2(horizontalMovement, _rb.velocity.y);
+        _rb.linearVelocity = new Vector2(horizontalMovement, _rb.linearVelocity.y);
 
         _verticalInput = Input.GetAxisRaw("Vertical");
         float verticalMovement = _verticalInput * _speed * Time.deltaTime;
-        _rb.velocity = new Vector2(_rb.velocity.x, verticalMovement);
+        _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, verticalMovement);
 
     }
     // Update is called once per frame
