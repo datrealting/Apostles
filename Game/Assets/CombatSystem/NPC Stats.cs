@@ -7,8 +7,6 @@ public class NPCStats : MonoBehaviour
     public float currenthp;
     private float minhp = 0;
 
-    public float speed;
-
     public float armour;
 
     // use TakeDamage() for most gameplay interactions where armour will be factored in,
@@ -56,6 +54,5 @@ public class NPCStats : MonoBehaviour
     {
         // death logic goes here
         Debug.Log("Death has occured!");
-        Destroy(gameObject);
     }
 }
