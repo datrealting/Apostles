@@ -9,6 +9,8 @@ public class FloorGenerator : MonoBehaviour
     private GameObject[] rooms;
     [SerializeField]
     private int roomCount;
+    HashSet<Vector2> visited = new HashSet<Vector2>();
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -36,22 +38,38 @@ public class FloorGenerator : MonoBehaviour
         GameObject roomObject = rooms[Random.Range(0, rooms.Length)];
         Room room = roomObject.GetComponent<Room>();
 
-        HashSet<Vector2> visited = new HashSet<Vector2>();
+        int exit = 0;
+        int entrance = -1;
 
         for (int i = 0; i < roomCount; i++)
         {
-            Vector2 newDirection = directions[Random.Range(0, directions.Length)];
+            int dirIndex = Random.Range(0, directions.Length);
+            Vector2 newDirection = directions[dirIndex];
 
             while(newDirection * new Vector2(-1f,-1f) == direction)
             {
-                newDirection = directions[Random.Range(0, directions.Length)];
+                dirIndex = Random.Range(0, directions.Length);
+                newDirection = directions[dirIndex];
             }
             direction = newDirection;
 
+            GameObject createdRoom = Instantiate(roomObject, pos, Quaternion.identity);
 
-            Instantiate(roomObject, pos, Quaternion.identity);
+            if(dirIndex == 2)
+            {
+                exit = dirIndex+1;
+            }
+            else
+            {
+                exit = dirIndex;
+            }
+
+            createdRoom.GetComponent<Room>().SetEntranceExit(exit,entrance);
             pos += (room.roomDimensions * direction/2);
             visited.Add(pos);
+
+            entrance = (exit + 2) % 4;
+
 
             roomObject = rooms[Random.Range(0, rooms.Length)];
             room = roomObject.GetComponent<Room>();
