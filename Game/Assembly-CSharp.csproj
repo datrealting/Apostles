@@ -75,6 +75,7 @@
     <Compile Include="Assets\Scripts\CombatSystem\NPC Stats.cs" />
     <Compile Include="Assets\Scripts\CombatSystem\AOE System\AOE.cs" />
     <Compile Include="Assets\Scripts\CombatSystem\Projectile.cs" />
+    <Compile Include="Assets\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\CombatSystem\PlayerControl.cs" />
   </ItemGroup>
   <ItemGroup>
