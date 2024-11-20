@@ -1,17 +1,25 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\",
+  "WorkspaceRootPath": "D:\\Main\\University\\KV6002\\Apostles\\Game\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|c:\\users\\james\\documents\\github\\apostles\\game\\assets\\scripts\\combatsystem\\player stats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|d:\\main\\university\\kv6002\\apostles\\game\\assets\\scripts\\floor generation\\floorgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\floor generation\\floorgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|d:\\main\\university\\kv6002\\apostles\\game\\assets\\room.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|solutionrelative:assets\\room.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|d:\\main\\university\\kv6002\\apostles\\game\\assets\\scripts\\combatsystem\\player stats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\combatsystem\\player stats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\assets\\scripts\\playermove.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|D:\\Main\\University\\KV6002\\Apostles\\Game\\assets\\scripts\\playermove.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playermove.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|c:\\users\\james\\documents\\github\\apostles\\game\\assets\\scripts\\enemypathfind.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|D:\\Main\\University\\KV6002\\Apostles\\Game\\assets\\scripts\\enemypathfind.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemypathfind.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -22,15 +30,41 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Room.cs",
+              "DocumentMoniker": "D:\\Main\\University\\KV6002\\Apostles\\Game\\Assets\\Room.cs",
+              "RelativeDocumentMoniker": "Assets\\Room.cs",
+              "ToolTip": "D:\\Main\\University\\KV6002\\Apostles\\Game\\Assets\\Room.cs",
+              "RelativeToolTip": "Assets\\Room.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAACcAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-17T12:40:59.175Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "FloorGenerator.cs",
+              "DocumentMoniker": "D:\\Main\\University\\KV6002\\Apostles\\Game\\Assets\\Scripts\\Floor Generation\\FloorGenerator.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Floor Generation\\FloorGenerator.cs",
+              "ToolTip": "D:\\Main\\University\\KV6002\\Apostles\\Game\\Assets\\Scripts\\Floor Generation\\FloorGenerator.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Floor Generation\\FloorGenerator.cs",
+              "ViewState": "AQIAABgAAAAAAAAAAAAowEMAAAA3AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-17T12:34:10.702Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Player Stats.cs",
-              "DocumentMoniker": "C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\Assets\\Scripts\\CombatSystem\\Player Stats.cs",
+              "DocumentMoniker": "D:\\Main\\University\\KV6002\\Apostles\\Game\\Assets\\Scripts\\CombatSystem\\Player Stats.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\CombatSystem\\Player Stats.cs",
-              "ToolTip": "C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\Assets\\Scripts\\CombatSystem\\Player Stats.cs",
+              "ToolTip": "D:\\Main\\University\\KV6002\\Apostles\\Game\\Assets\\Scripts\\CombatSystem\\Player Stats.cs",
               "RelativeToolTip": "Assets\\Scripts\\CombatSystem\\Player Stats.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAALAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -39,29 +73,27 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "EnemyPathfind.cs",
-              "DocumentMoniker": "C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\Assets\\Scripts\\EnemyPathfind.cs",
+              "DocumentMoniker": "D:\\Main\\University\\KV6002\\Apostles\\Game\\Assets\\Scripts\\EnemyPathfind.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\EnemyPathfind.cs",
-              "ToolTip": "C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\Assets\\Scripts\\EnemyPathfind.cs",
+              "ToolTip": "D:\\Main\\University\\KV6002\\Apostles\\Game\\Assets\\Scripts\\EnemyPathfind.cs",
               "RelativeToolTip": "Assets\\Scripts\\EnemyPathfind.cs",
               "ViewState": "AQIAAAwAAAAAAAAAAAAmwBwAAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-07T18:48:37.34Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-07T18:48:37.34Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "PlayerMove.cs",
-              "DocumentMoniker": "C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\Assets\\Scripts\\PlayerMove.cs",
+              "DocumentMoniker": "D:\\Main\\University\\KV6002\\Apostles\\Game\\Assets\\Scripts\\PlayerMove.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerMove.cs",
-              "ToolTip": "C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\Assets\\Scripts\\PlayerMove.cs",
+              "ToolTip": "D:\\Main\\University\\KV6002\\Apostles\\Game\\Assets\\Scripts\\PlayerMove.cs",
               "RelativeToolTip": "Assets\\Scripts\\PlayerMove.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAB8AAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-07T18:13:29.728Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-07T18:13:29.728Z"
             }
           ]
         }
