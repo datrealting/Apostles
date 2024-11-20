@@ -1,42 +1,33 @@
 using UnityEngine;
 
-public class Weapon : MonoBehaviour
+public abstract class Weapon : MonoBehaviour
 {
-    [SerializeField]
-    private string weaponName;
+    public string Name;
+    [SerializeField] public int Damage;
+    [SerializeField][Min(0.01f)] public float AttackRate = 0.5f; // Time in seconds between attacks
 
-    [SerializeField]
-    private GameObject projectilePrefab;
-    [SerializeField]
-    private Transform projectileSpawnPoint;
-
-    [Min(0.01f)]
-    [SerializeField]
-    private float fireRate = 0.5f; // Time in seconds between shots
-    private float nextFireTime = 0f;
-
-    [SerializeField]
-    private float Damage = 10f;
+    public float Cooldown = 0f;
+    public int Level;
 
     private WeaponLevelHandler weaponLevelHandler = new WeaponLevelHandler();
 
-    // Update is called once per frame
-    void Update()
+    public abstract void Attack();
+
+    public void LevelUp()
     {
-        HandleFireInput();
-        HandleLevelUpInput();
+        // Increase the weapon level
+        weaponLevelHandler.LevelUp();
     }
 
 
-
-    private void HandleFireInput()
+    public void HandleAttackInput()
     {
         // Check if the player is pressing the fire button and if the time has passed since the last shot
-        if (Input.GetKey(KeyCode.Mouse0) && Time.time >= nextFireTime)
+        if (Input.GetKey(KeyCode.Mouse0) && Time.time >= Cooldown)
         {
-            Fire();
+            Attack();
             // Set the next fire time
-            nextFireTime = Time.time + fireRate;
+            Cooldown = Time.time + AttackRate;
         }
     }
 
@@ -52,38 +43,4 @@ public class Weapon : MonoBehaviour
         }
 #endif
     }
-
-
-    public void Fire()
-    {
-        // Instantiate a new projectile
-        GameObject projectile = Instantiate(projectilePrefab, projectileSpawnPoint.position, projectileSpawnPoint.rotation);
-
-
-        Projectile projectileScript = projectile.GetComponent<Projectile>();
-        if (projectileScript != null)
-        {
-            projectileScript.damage = Damage;
-        }
-
-    }
-
-    private void LevelUp()
-    {
-        // Increase the weapon level
-        weaponLevelHandler.LevelUp();
-    }
-
-    private void UpdateFireRate()
-    {
-        // Increase the fire rate by 10%
-        weaponLevelHandler.DecreaseFireRate(ref fireRate);
-    }
-
-    private void UpdateDamage()
-    {
-        // Set the new damage
-        weaponLevelHandler.CalculateDamage(ref Damage);
-    }
 }
-
