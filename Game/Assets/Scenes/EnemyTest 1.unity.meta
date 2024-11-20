@@ -1,5 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Game/Assets/Scenes/EnemyTest 1.unity.meta
 guid: 2f50bf29487c66ceca74336b6b74e613
+========
+guid: 577da881f0cf6f940973703b3cc9435c
+folderAsset: yes
+>>>>>>>> main:Game/Assets/Floor Generation.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
