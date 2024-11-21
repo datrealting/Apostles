@@ -11,6 +11,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MenuScreens/MainMenu.unity
     guid: 15e37ac3a46aa954fa660b052a023d01
+  - enabled: 1
+    path: Assets/Floor Generation/Test.unity
+    guid: b14abd71737fd6b43abbda26e153a742
+  - enabled: 1
+    path: Assets/Death/UpgradeMenu.unity
+    guid: 626b7c6856a0251438d779f27ff68c34
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
