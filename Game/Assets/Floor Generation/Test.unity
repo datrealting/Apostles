@@ -471,8 +471,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdefe6257edc7a24ba64a6c20ad3e1d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSouls: 0
-  weaponStats: {fileID: 0}
+  playerSouls: 30000
 --- !u!4 &996304213
 Transform:
   m_ObjectHideFlags: 0
