@@ -61,26 +61,26 @@
     <Analyzer Include="X:\Unity\6000.0.23f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\CombatSystem\Player Stats.cs" />
-    <Compile Include="Assets\Death\DEMOPLEASEDELETE death maker.cs" />
+    <Compile Include="Assets\Scripts\CombatSystem\Weapon System\PlayerControl.cs" />
     <Compile Include="Assets\Player movement.cs" />
     <Compile Include="Assets\Scripts\CombatSystem\AOE System\TEMP AOE Spawner.cs" />
-    <Compile Include="Assets\Death\GameManager.cs" />
+    <Compile Include="Assets\Scripts\CombatSystem\Weapon System\WeaponLevelHandler.cs" />
     <Compile Include="Assets\Room.cs" />
-    <Compile Include="Assets\Death\UpgradeMenuScript.cs" />
-    <Compile Include="Assets\Scripts\CombatSystem\Weapon.cs" />
     <Compile Include="Assets\UI\Scripts\MainMenu.cs" />
+    <Compile Include="Assets\Scripts\CombatSystem\Weapon System\MeleeWeapon.cs" />
     <Compile Include="Assets\Scripts\CombatSystem\AOE System\AOEController.cs" />
-    <Compile Include="Assets\Death\WeaponStats.cs" />
+    <Compile Include="Assets\Scripts\CombatSystem\Weapon System\NPC Stats.cs" />
+    <Compile Include="Assets\Scripts\CombatSystem\Weapon System\Projectile.cs" />
     <Compile Include="Assets\Scripts\Floor Generation\FloorGenerator.cs" />
     <Compile Include="Assets\Scripts\PlayerMove.cs" />
     <Compile Include="Assets\Player Health.cs" />
+    <Compile Include="Assets\Scripts\CombatSystem\Weapon System\HealthPickup.cs" />
     <Compile Include="Assets\Scripts\EnemyPathfind.cs" />
-    <Compile Include="Assets\Scripts\CombatSystem\NPC Stats.cs" />
+    <Compile Include="Assets\Scripts\CombatSystem\Weapon System\ProjectileWeapon.cs" />
+    <Compile Include="Assets\Scripts\CombatSystem\Weapon System\Player Stats.cs" />
     <Compile Include="Assets\Scripts\CombatSystem\AOE System\AOE.cs" />
-    <Compile Include="Assets\Scripts\CombatSystem\Projectile.cs" />
     <Compile Include="Assets\CameraFollow.cs" />
-    <Compile Include="Assets\Scripts\CombatSystem\PlayerControl.cs" />
+    <Compile Include="Assets\Scripts\CombatSystem\Weapon System\Weapon.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
