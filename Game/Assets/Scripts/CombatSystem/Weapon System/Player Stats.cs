@@ -27,5 +27,14 @@ public class PlayerStats : MonoBehaviour
         // death logic goes here
         Debug.Log("Death has occured!");
     }
+
+    public virtual void Heal(int healAmount)
+    {
+        currenthp += healAmount;
+        if (currenthp > maxhp)
+        {
+            currenthp = maxhp;
+        }
+    }
 }
 
