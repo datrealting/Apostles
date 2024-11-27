@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -26,6 +27,7 @@ public class PlayerStats : MonoBehaviour
     {
         // death logic goes here
         Debug.Log("Death has occured!");
+        SceneManager.LoadScene("UpgradeMenu");
     }
 
     public virtual void Heal(int healAmount)
