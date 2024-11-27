@@ -96,8 +96,8 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
-  size: 200
-  delay: 2
+  size: 20000
+  delay: 1
   linger: 0
 --- !u!1 &4981573935963995887
 GameObject:

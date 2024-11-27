@@ -1,6 +1,20 @@
 using UnityEngine;
 using System.Collections;
 
+/* HOW TO USE:
+ * 
+ * 1.  Call SpawnAOE(GameObject aoeprefab, Vector2 location, float size, float delay, float linger) 
+ * 2. 
+ * 
+ * AOE Prefab: the prefab to be used (default is Scripts/CombatSystem/AOE System/aoePrefab)
+ * Location: the vector2 position that it is centered on
+ * Size: the vague size of it
+ * Delay: the time before the AOE detonates after the indicator spawns
+ * Linger: NOT FUNCTIONING
+ */
+
+
+
 public class AOE : MonoBehaviour
 {
     // Variables
@@ -14,11 +28,17 @@ public class AOE : MonoBehaviour
 
     public float delay;     // how long until indicator disappears and AOE takes place?
     public float linger;      //  in seconds, how long AOE lasts. 0 for instantaneous.
-    public void Create(float size)
+
+    public IAoe caller;
+    public Collider2D[] hits;
+
+    public void Create(IAoe caller, float size, float delay, float linger)
     {
         SetupIndicator(size);
-        StartCoroutine(DelayedAOE()); // Start the function to blowup. Function returns an IEnum. Don't ask
-        // just use this whenever theres a delay
+        this.delay = delay;
+        this.linger = linger;
+        this.caller = caller;
+        StartCoroutine(DelayedAOE()); 
     }
 
     void SetupIndicator(float size)
@@ -37,7 +57,6 @@ public class AOE : MonoBehaviour
         {
             //Debug.Log("Circle spawned");
             circleCollider.radius = size / 100;  // Set radius for a circle collider
-            Debug.Log("Radius of collider: " + circleCollider.radius);
             indicatorTransform.localScale = new Vector3(size/100, size/100, 1);
         }
         else
@@ -45,7 +64,7 @@ public class AOE : MonoBehaviour
             Debug.LogWarning("AOE: Unsupported collider type. Complain to Alfie as he's broken something obviously.");
         }
     }
-    private IEnumerator DelayedAOE()
+    private IEnumerator DelayedAOE() 
     {
         // Wait for the delay time
         yield return new WaitForSeconds(delay);
@@ -63,27 +82,19 @@ public class AOE : MonoBehaviour
     private void TriggerAOEEffect()
     {
         // Code to activate the AOE effect
-        Debug.Log("AOE blows up at " + gameObject.transform.position.x + ", " + gameObject.transform.position.y + " with size: " + size);
+        // Debug.Log("AOE blows up at " + gameObject.transform.position.x + ", " + gameObject.transform.position.y + " with size: " + size);
         indicatorSprite.enabled = false; // Hide indicator when AOE takes place
         indicatorCollider.enabled = true; // Enable collider if needed for the effect
 
         // Code to get all hit
-        CheckObjectsInArea();
-
-        // Code to do an effect
+        hits = CheckObjectsInArea();
+        caller.AOEEffect(hits);
     }
-    private void CheckObjectsInArea()
+    private Collider2D[] CheckObjectsInArea()
     {
-        Collider2D[] results = new Collider2D[10]; // Adjust size as needed
+        Collider2D[] results = new Collider2D[20]; // Adjust size as needed
         int numObjects = indicatorCollider.Overlap(contactFilter, results);
-
-        for (int i = 0; i < numObjects; i++)
-        {
-            Collider2D obj = results[i];
-            Debug.Log("Object in AOE at detonation: " + obj.name);
-            // Example: Apply damage or effect to enemy
-            // obj.GetComponent<Enemy>().TakeDamage(damageAmount);
-        }
+        return results;
     }
     private void DisableAOE()
     {
