@@ -7,6 +7,8 @@ public class PlayerStats : MonoBehaviour
     public int maxhp = 5;
     public int currenthp = 5;
     private int minhp = 0;
+    public float bleedChance;
+    public float critChance;
 
     // After taking a hit, player should be invincible for a bit
     public float invincibilityTime = 1000; // in ms
@@ -38,5 +40,10 @@ public class PlayerStats : MonoBehaviour
             currenthp = maxhp;
         }
     }
-}
 
+
+    public virtual void bleedChanceIncrease(float bleedChanceIncrease)
+    {
+        bleedChance = bleedChance + bleedChanceIncrease;
+    }
+}
