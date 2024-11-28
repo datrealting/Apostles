@@ -10,6 +10,11 @@ public class EnemyChaseScript : MonoBehaviour
 
     public Behaviour curBehaviour;
 
+    private void Awake()
+    {
+        target = GameObject.Find("Player");
+    }
+
     void FixedUpdate()
     {
         Move();
