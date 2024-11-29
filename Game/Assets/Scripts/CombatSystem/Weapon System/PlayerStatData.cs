@@ -3,19 +3,27 @@ using UnityEngine;
 
 public class PlayerStatData
 {
-    public int maxhp = 3;
     public int currenthp = 3;
-    private int minhp = 0;
+    public int maxhp = 3;
+
+    private int hpincrement = 1;
+    public int hpUpgradeCost = 500;
+    public float hpUpgradeCostIncrease = 1.4f;
+
     public int speed;
+
     public float invincibilityTime = 0.5f; // in s
+
     public float bleedChance;
+
     public float critChance;
 
     public void UpgradeMaxHP()
     {
-        maxhp += 1;
-        currenthp += 1;
-        Debug.Log("Upgraded Max HP to " + maxhp.ToString() + "!");
+        maxhp += hpincrement;
+        currenthp += hpincrement;
+        //Debug.Log("Upgraded Max HP to " + maxhp.ToString() + "!");
+        hpUpgradeCost = Mathf.RoundToInt(hpUpgradeCost * hpUpgradeCostIncrease);
     }
 
 }

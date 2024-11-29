@@ -11,7 +11,6 @@ public class UpgradeMenuScript : MonoBehaviour
     public TMP_Text hpText;
 
     public Button hpUpgradeButton;
-    public int hpUpgradeCost = 500;
 
     public Button respawnButton;
 
@@ -33,9 +32,9 @@ public class UpgradeMenuScript : MonoBehaviour
     public void UpgradeHP()
     {
         Debug.Log("BUTTON IS WORKING");
-        if (GameManager.Instance.playerSouls >= hpUpgradeCost)
+        if (GameManager.Instance.playerSouls >= GameManager.Instance.psd.hpUpgradeCost)
         {
-            GameManager.Instance.playerSouls -= hpUpgradeCost;
+            GameManager.Instance.playerSouls -= GameManager.Instance.psd.hpUpgradeCost;
             GameManager.Instance.psd.UpgradeMaxHP();
             UpdateHPText();
             UpdateSoulsText();
