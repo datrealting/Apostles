@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class ProjectileBehavior : MonoBehaviour
@@ -44,6 +45,7 @@ public class ProjectileBehavior : MonoBehaviour
             }
 
             // Destroy the projectile on impact
+            Console.WriteLine("Impacted!");
             Destroy(gameObject);
         }
     }
