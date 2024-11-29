@@ -371,6 +371,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dmg: 6
   target: {fileID: 0}
+  arrow: {fileID: 100962225}
+  arrowDistance: 1.6
+  rotationOffset: 90
 --- !u!1 &428657882
 GameObject:
   m_ObjectHideFlags: 0
