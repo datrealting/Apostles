@@ -8,37 +8,37 @@ public class UpgradeMenuScript : MonoBehaviour
 {
     // All the text on screen that changes basically
     public TMP_Text soulsText;
-    public TMP_Text wepDmgText;
+    public TMP_Text hpText;
 
-    public Button damageUpgradeButton;
-    public int damageUpgradeCost = 50;
+    public Button hpUpgradeButton;
+    public int hpUpgradeCost = 500;
 
     public Button respawnButton;
 
     private void Start()
     {
         UpdateSoulsText();
-        UpdateDmgText();
+        UpdateHPText();
     }
 
     void UpdateSoulsText()
     {
         soulsText.text = $"Souls: {GameManager.Instance.playerSouls}";
     }
-    void UpdateDmgText()
+    void UpdateHPText()
     {
-        wepDmgText.text = GameManager.Instance.weaponStats.dmg.ToString();
+        hpText.text = GameManager.Instance.psd.maxhp.ToString();
     }
 
-    public void UpgradeDamage()
+    public void UpgradeHP()
     {
-        if (GameManager.Instance.playerSouls >= damageUpgradeCost)
+        Debug.Log("BUTTON IS WORKING");
+        if (GameManager.Instance.playerSouls >= hpUpgradeCost)
         {
-            GameManager.Instance.playerSouls -= damageUpgradeCost;
-            GameManager.Instance.weaponStats.LevelUpDmg();
-            UpdateDmgText();
+            GameManager.Instance.playerSouls -= hpUpgradeCost;
+            GameManager.Instance.psd.UpgradeMaxHP();
+            UpdateHPText();
             UpdateSoulsText();
-            Debug.Log($"Weapon damage upgraded to level {GameManager.Instance.weaponStats.dmgLevel}!");
         }
         else
         {

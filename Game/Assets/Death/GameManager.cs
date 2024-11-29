@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Diagnostics;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -7,6 +6,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     public int playerSouls = 0; // Persistent souls
+    public PlayerStatData psd;
     public WeaponStats weaponStats;
     public DangerState dangerState;
 
@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
             weaponStats = new WeaponStats();
+            psd = new PlayerStatData();
             DontDestroyOnLoad(gameObject); // Keeps this object across scenes
         }
         else
