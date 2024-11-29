@@ -46,7 +46,7 @@ public class EnemyAttackScript : MonoBehaviour, IAoe
             foreach (Collider2D obj in hits)
             {
                 if (obj == null) continue;
-                PlayerStats stats = obj.GetComponent<PlayerStats>();
+                PlayerControl stats = obj.GetComponent<PlayerControl>();
                 if (stats != null)
                 {
                     Debug.Log("I hit the player!");

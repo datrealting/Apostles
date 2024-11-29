@@ -7,7 +7,7 @@ public class HealthPickup : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("OnTriggerEnter2D called with: " + other.name);
-        PlayerStats player = other.GetComponent<PlayerStats>();
+        PlayerControl player = other.GetComponent<PlayerControl>();
 
         if (player != null)
         {
