@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -16,13 +17,16 @@ public class PlayerStats : MonoBehaviour
     // Movement, arbritrary (way too many r's in there btw) number for now
     public float movespeed = 10;
 
+    public AudioSource deathsound;
+
     public virtual void TakeDamage(int damage)
     {
         currenthp -= damage;
         if (currenthp <= minhp)
         {
             currenthp = 0;
-            Die();
+            deathsound.Play();
+            StartCoroutine(DelayedDeath(0.8f));
         }
     }
     protected virtual void Die()
@@ -31,7 +35,11 @@ public class PlayerStats : MonoBehaviour
         Debug.Log("Death has occured!");
         SceneManager.LoadScene("UpgradeMenu");
     }
-
+    private IEnumerator DelayedDeath(float delay)
+    {
+        yield return new WaitForSeconds(delay); // Wait for the specified delay
+        Die();
+    }
     public virtual void Heal(int healAmount)
     {
         currenthp += healAmount;
