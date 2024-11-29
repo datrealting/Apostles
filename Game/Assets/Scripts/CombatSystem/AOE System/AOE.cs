@@ -43,6 +43,28 @@ public class AOE : MonoBehaviour
 
     void SetupIndicator(float size)
     {
+        /*
+            this.size = size;
+            indicatorTransform = transform.Find("IndicatorSprite"); // find the sprite transform
+            indicatorSprite = indicatorTransform.GetComponent<SpriteRenderer>();    // find the sprite visuals
+            indicatorCollider = gameObject.GetComponent<Collider2D>();
+
+            // Configure size and set sprite to appropriate (Circle/Rectangle/Cone etc.)
+            if (indicatorCollider is BoxCollider2D boxCollider)
+            {
+                boxCollider.size = new Vector2(size, size);
+            }
+            else if (indicatorCollider is CircleCollider2D circleCollider)
+            {
+                //Debug.Log("Circle spawned");
+                circleCollider.radius = size / 100;  // Set radius for a circle collider
+                indicatorTransform.localScale = new Vector3(size/100, size/100, 1);
+            }
+            else
+            {
+                Debug.LogWarning("AOE: Unsupported collider type. Complain to Alfie as he's broken something obviously.");
+            }
+        */
         this.size = size;
         indicatorTransform = transform.Find("IndicatorSprite"); // find the sprite transform
         indicatorSprite = indicatorTransform.GetComponent<SpriteRenderer>();    // find the sprite visuals
@@ -52,12 +74,12 @@ public class AOE : MonoBehaviour
         if (indicatorCollider is BoxCollider2D boxCollider)
         {
             boxCollider.size = new Vector2(size, size);
+            indicatorTransform.localScale = new Vector3(size / 100f, size / 100f, 1); // Adjust visual size
         }
         else if (indicatorCollider is CircleCollider2D circleCollider)
         {
-            //Debug.Log("Circle spawned");
-            circleCollider.radius = size / 100;  // Set radius for a circle collider
-            indicatorTransform.localScale = new Vector3(size/100, size/100, 1);
+            circleCollider.radius = size / 2f; // Set radius for a circle collider
+            indicatorTransform.localScale = new Vector3(size, size, 1); // Adjust visual size
         }
         else
         {

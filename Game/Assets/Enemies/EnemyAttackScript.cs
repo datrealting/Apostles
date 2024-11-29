@@ -8,7 +8,7 @@ public class EnemyAttackScript : MonoBehaviour, IAoe
     public GameObject aoePrefab;
     
     public float attackCD = 2f;
-    public float attackSize = 500f;
+    public float attackSize = 5f;
     public float attackRange = 2f;
     public float attackDelay = 1f;
 
