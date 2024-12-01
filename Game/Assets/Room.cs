@@ -36,7 +36,13 @@ public class Room : MonoBehaviour
         Gizmos.DrawWireCube(center, new Vector3(roomDimensions.x,roomDimensions.y,0));
     }*/
 
-    public void SetEntranceExit(int exit,int entrance = -1)
+    public void SetEntrance(int dirIndex)
+    {
+        entrances[dirIndex].SetActive(true);
+        walls[dirIndex].SetActive(false);
+    }
+
+    public void SetEntranceExit(int exit=-1,int entrance = -1)
     {
         entrances[exit].SetActive(true);
         walls[exit].SetActive(false);
@@ -46,6 +52,12 @@ public class Room : MonoBehaviour
             walls[entrance].SetActive(false);
         }
 
-        Instantiate(obstacles[Random.Range(0,obstacles.Length)], this.transform.position, Quaternion.identity);
+        if (exit != -1)
+        {
+            entrances[exit].SetActive(true);
+            walls[exit].SetActive(false);
+        }
+
+        //Instantiate(obstacles[Random.Range(0,obstacles.Length)], this.transform.position, Quaternion.identity);
     }
 }

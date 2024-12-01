@@ -2,36 +2,92 @@ using System.Collections.Generic;
 //using UnityEditor.Tilemaps;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using static UnityEditor.PlayerSettings;
 
 public class FloorGenerator : MonoBehaviour
 {
     [SerializeField]
     private GameObject[] rooms;
     [SerializeField]
-    private int roomCount;
+    private int roomCount = 15;
+    [SerializeField]
+    private int maxDepth = 10;
+    private int currentDepth = 0;
+
     HashSet<Vector2> visited = new HashSet<Vector2>();
 
+    Vector2[] directions =
+    {
+        new Vector2(0f, 1f),   // Up
+        new Vector2(1f, 0f),   // Right
+        new Vector2(0f, -1f),   // down
+        new Vector2(-1f, 0f),  // Left
+    };
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    int[] allowedDirectionIndexes = { 0, 1, 2 };
+
+
     void Start()
     {
-        GeneratePath();
+        GenRoom(Vector2.zero, -1);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            GenRoom(Vector2.zero, -1);
+        }
+    }
+
+    private void GenRoom(Vector2 pos, int entranceDir)
+    {
+        if (roomCount <= 0) return;
+        if (visited.Contains(pos)) return;
+        if (currentDepth > maxDepth) return;
+
+        roomCount--;
+        visited.Add(pos);
+
+        GameObject roomObject = rooms[Random.Range(0, rooms.Length)];
+        GameObject roomInstance = Instantiate(roomObject, pos, Quaternion.identity);
+        roomInstance.transform.SetParent(transform);
         
+        Room roomComponent = roomInstance.GetComponent<Room>();
+
+        if(entranceDir != -1)
+        {
+            roomComponent.SetEntrance(entranceDir);
+        }
+
+        int roomConnections = Random.Range(1, 4);
+        HashSet<int> visitedDirections = new HashSet<int>();
+
+        currentDepth++;
+
+        for (int i = 0; i < roomConnections; i++)
+        {
+
+            int direction = allowedDirectionIndexes[Random.Range(0, allowedDirectionIndexes.Length)];
+
+            while (visitedDirections.Contains(direction))
+            {
+                direction = allowedDirectionIndexes[Random.Range(0, allowedDirectionIndexes.Length)];
+            }
+
+            roomComponent.SetEntrance(direction);
+            Vector2 newRoomPos = pos + (roomComponent.roomDimensions * directions[direction]);
+
+            GenRoom(newRoomPos, (direction + 2) % 4);
+
+            visitedDirections.Add(direction);
+        }
+
+        currentDepth--;
     }
 
     private void GeneratePath()
     {
-        Vector2[] directions =
-        {
-            new Vector2(0f, 1f),   // Up
-            new Vector2(1f, 0f),   // Right
-            new Vector2(-1f, 0f),  // Left
-        };
 
         Vector2 pos = new Vector2(0f,0f);
         Vector2 direction = directions[0];
