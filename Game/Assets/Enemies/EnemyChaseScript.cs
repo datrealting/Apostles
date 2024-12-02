@@ -1,3 +1,4 @@
+
 using System.Security.Cryptography;
 using UnityEngine;
 
@@ -31,7 +32,14 @@ public class EnemyChaseScript : MonoBehaviour
 
     void Chase()
     {
-        transform.position = Vector2.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
+        if (target == null)
+        {
+            Debug.Log("FUCKY");
+        }
+        else
+        {
+            transform.position = Vector2.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
+        }
     }
     
     Behaviour CheckState()

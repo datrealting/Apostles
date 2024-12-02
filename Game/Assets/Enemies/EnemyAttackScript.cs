@@ -8,7 +8,7 @@ public class EnemyAttackScript : MonoBehaviour, IAoe
     public GameObject aoePrefab;
     
     public float attackCD = 2f;
-    public float attackSize = 500f;
+    public float attackSize = 5f;
     public float attackRange = 2f;
     public float attackDelay = 1f;
 
@@ -18,6 +18,11 @@ public class EnemyAttackScript : MonoBehaviour, IAoe
 
     private float nextTime;
     public GameObject target;
+
+    private void Awake()
+    {
+        target = GameObject.Find("Player");
+    }
 
     void Update()
     {
@@ -29,18 +34,13 @@ public class EnemyAttackScript : MonoBehaviour, IAoe
     }
     void Swipe()
     {
-        Debug.Log("Swipe start...");
         AOEController.SpawnAOE(this, aoePrefab, (Vector2)transform.position + (GetVectorToTarget() * 2f), attackSize, attackDelay, 0);
         //Collider2D[] targetsHit = StartCoroutine(AOEController.SpawnAOE(aoePrefab, (Vector2)transform.position + (GetVectorToTarget()*2f), attackSize, attackDelay, 0));
-
         tempSpeedBefore = movement.speed;
-        Debug.Log("Speed OK");
         movement.speed *= movement.speed * attackSlow;
-
     }
     void SwipeEffect(Collider2D[] hits)
     {
-        Debug.Log("SWIIIIPPPPEE!!!!");
         try
         {
             foreach (Collider2D obj in hits)
@@ -50,6 +50,7 @@ public class EnemyAttackScript : MonoBehaviour, IAoe
                 if (stats != null)
                 {
                     Debug.Log("I hit the player!");
+                    stats.TakeDamage(1);
                 }
             }
         }
