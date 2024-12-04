@@ -1,7 +1,8 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 public class PlayerControl : MonoBehaviour
-{
+{ 
+
     public float dmg = 6;
     public GameObject target;
     public Transform arrow;
@@ -35,25 +36,26 @@ public class PlayerControl : MonoBehaviour
 
     void HandleArrowRotation()
     {
-        // Get the mouse position in world space
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePosition.z = 0f; // Set z to 0 for 2D
+        // Get the mouse position in world space (adjust z to match camera)
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -Camera.main.transform.position.z));
 
-        // Calculate the direction from the player to the mouse
+        // Ensure mousePosition.z is set to a fixed value (same as the player or the intended 2D depth)
+        mousePosition.z = transform.position.z; // Make sure the arrow stays on the same z plane as the player
+
+        // Calculate the direction vector from the player to the mouse
         Vector3 direction = (mousePosition - transform.position).normalized;
 
-        // Set the arrow's position at a fixed distance from the player
+        // Calculate arrow's new position (keeping a fixed distance from the player)
         arrow.position = transform.position + direction * arrowDistance;
 
-        // Calculate the angle from the player to the mouse
+        // Calculate the rotation angle in degrees
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-        // Apply the rotation to the arrow
-        arrow.rotation = Quaternion.Euler(0, 0, angle - rotationOffset);
-
-        // Ensure the arrow stays on top of the player sprite
-        arrow.position = new Vector3(arrow.position.x, arrow.position.y, transform.position.z - 1);
+        // Apply rotation with the offset
+        arrow.rotation = Quaternion.Euler(0f, 0f, angle - rotationOffset);
     }
+
+
 
     void HandlePlayerFlip()
     {

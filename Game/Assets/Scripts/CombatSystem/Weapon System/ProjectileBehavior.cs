@@ -11,19 +11,35 @@ public class ProjectileBehavior : MonoBehaviour
 
     void Start()
     {
-        // Calculate direction towards the cursor
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePosition.z = 0f;  // Ensure we're working in 2D space
-
-        direction = (mousePosition - transform.position).normalized;
-
-        // Destroy the projectile after a set time
-        Destroy(gameObject, lifeTime);
+        InitializeDirection();           // Calculate direction
+        ScheduleDestruction();           // Schedule to destroy after lifetime
     }
 
     void Update()
     {
-        // Move the projectile in the calculated direction
+        MoveProjectile();                // Handle movement
+    }
+
+    // Calculate direction towards the cursor
+    private void InitializeDirection()
+    {
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.transform.position.z));
+
+        // Use the current z position of the projectile to avoid moving behind the camera
+        mousePosition.z = transform.position.z;  // Keep the z value consistent with the projectile's initial position
+
+        direction = (mousePosition - transform.position).normalized;
+    }
+
+    // Schedule to destroy projectile after a set time
+    private void ScheduleDestruction()
+    {
+        Destroy(gameObject, lifeTime);
+    }
+
+    // Move the projectile in the calculated direction at a constant speed
+    private void MoveProjectile()
+    {
         transform.position += direction * speed * Time.deltaTime;
     }
 
@@ -32,21 +48,24 @@ public class ProjectileBehavior : MonoBehaviour
         // Check if the projectile hits an enemy or wall
         if (other.CompareTag("Enemy") || other.CompareTag("Wall"))
         {
-            // Optional: Apply damage if hitting an enemy
-            if (other.CompareTag("Enemy"))
-            {
-                other.GetComponent<NPCStats>()?.TakeDamage(10);  // Example damage value
-            }
-
-            // Optional: Instantiate an impact effect
-            if (impactEffect != null)
-            {
-                Instantiate(impactEffect, transform.position, transform.rotation);
-            }
-
-            // Destroy the projectile on impact
-            Console.WriteLine("Impacted!");
-            Destroy(gameObject);
+            HandleCollision(other);  // Handle collision logic
         }
+    }
+
+    // Handle collision effects
+    private void HandleCollision(Collider2D other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            other.GetComponent<NPCStats>()?.TakeDamage(10);  // Example damage value
+        }
+
+        if (impactEffect != null)
+        {
+            Instantiate(impactEffect, transform.position, transform.rotation);
+        }
+
+        Console.WriteLine("Impacted!");
+        Destroy(gameObject);  // Destroy the projectile on impact
     }
 }
