@@ -4,6 +4,7 @@ public class PlayerMove : MonoBehaviour
 {
     // Variables
 
+    public Animator animator;
     public float moveSpeed;
     public Rigidbody2D rb;
     private Vector2 moveDirection;
@@ -24,6 +25,10 @@ public class PlayerMove : MonoBehaviour
     {
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
+
+        float moveSpeed = Mathf.Sqrt(moveX * moveX + moveY * moveY);
+
+        animator.SetFloat("Speed", moveSpeed);
 
         moveDirection = new Vector2 (moveX, moveY).normalized;
     }
