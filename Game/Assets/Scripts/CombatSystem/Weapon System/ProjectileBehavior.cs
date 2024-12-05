@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class ProjectileBehavior : MonoBehaviour
 {
-    public float speed = 10f;           // Speed of the projectile
-    public float lifeTime = 5f;         // Time before the projectile is destroyed
+    public float speed = 20f;           // Speed of the projectile
+    public float range = 10f;         // Time before the projectile is destroyed
     public GameObject impactEffect;     // Optional effect on impact
 
     private Vector3 direction;          // Direction the projectile will move
@@ -12,7 +12,7 @@ public class ProjectileBehavior : MonoBehaviour
     void Start()
     {
         InitializeDirection();           // Calculate direction
-        ScheduleDestruction();           // Schedule to destroy after lifetime
+        ScheduleDestruction();           // Schedule to destroy after range
     }
 
     void Update()
@@ -34,7 +34,7 @@ public class ProjectileBehavior : MonoBehaviour
     // Schedule to destroy projectile after a set time
     private void ScheduleDestruction()
     {
-        Destroy(gameObject, lifeTime);
+        Destroy(gameObject, range);
     }
 
     // Move the projectile in the calculated direction at a constant speed

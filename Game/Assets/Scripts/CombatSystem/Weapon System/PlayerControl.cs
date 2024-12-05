@@ -1,27 +1,41 @@
+
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 public class PlayerControl : MonoBehaviour
-{ 
+{
+    public PlayerStatData psd;
 
     public float dmg = 6;
     public GameObject target;
     public Transform arrow;
     public float arrowDistance = 1.5f;
-    public float rotationOffset = 90f;
+    // public float rotationOffset = 90f;
 
     private Vector3 lastPosition;
     private Vector3 originalScale;  // Store the original scale
-    // HP / Hearts
+
+    // PSD stats (these stats persist over runs, see PSD functions below for explanation)
     public int maxhp = 5;
     public int currenthp = 5;
     private int minhp = 0;
+    public float invincibilityTime = 0.5f; // in s
     public float bleedChance;
     public float critChance;
 
     // After taking a hit, player should be invincible for a bit
-    public float invincibilityTime = 1000; // in ms
+    public GameObject shieldSprite;
+
+    public bool invincible = false;
+
+    // hehe death sound
+    public AudioSource deathsound;
+
     void Start()
     {
+        // Overwrite player PSD with PSD saved in GameManager
+        LoadFromGameManager();
+
         Cursor.lockState = CursorLockMode.Confined;
         lastPosition = transform.position;
         originalScale = transform.localScale;  // Save the original scale
@@ -33,7 +47,37 @@ public class PlayerControl : MonoBehaviour
         HandlePlayerFlip();
         HandleAttack();
     }
+    
+    // PSD things //
 
+    // * these functions handle the player stats being duplicated over scenes so you can meta progress
+    private void LoadFromGameManager()
+    {
+        if (GameManager.Instance != null && GameManager.Instance.psd != null)
+        {
+            Debug.LogWarning("PSD is found, loading from PSD...");
+            psd = GameManager.Instance.psd;
+            SetStatsFromPSD();
+        }
+        else
+        {
+            Debug.LogWarning("GameManager or PlayerStatsData is missing!");
+        }
+    }
+    private void SaveToGameManager()
+    {
+        // PROBABLY DONT NEED THIS UNLESS YOU'RE META-PROGRESSING INGAME
+    }
+    private void SetStatsFromPSD()
+    {
+        maxhp = psd.maxhp;
+        currenthp = psd.currenthp;
+        bleedChance = psd.bleedChance;
+        critChance = psd.critChance;
+        invincibilityTime = psd.invincibilityTime;
+
+        Debug.Log("Player stats successfully loaded from psd!");
+    }
     void HandleArrowRotation()
     {
         // Get the mouse position in world space (adjust z to match camera)
@@ -52,11 +96,8 @@ public class PlayerControl : MonoBehaviour
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
         // Apply rotation with the offset
-        arrow.rotation = Quaternion.Euler(0f, 0f, angle - rotationOffset);
+        arrow.rotation = Quaternion.Euler(0f, 0f, angle);
     }
-
-
-
     void HandlePlayerFlip()
     {
         Vector3 currentPosition = transform.position;
@@ -75,7 +116,6 @@ public class PlayerControl : MonoBehaviour
 
         lastPosition = currentPosition;  // Update last position
     }
-
     void HandleAttack()
     {
         if (Input.GetKeyDown(KeyCode.V))
@@ -93,11 +133,23 @@ public class PlayerControl : MonoBehaviour
     }
     public virtual void TakeDamage(int damage)
     {
-        currenthp -= damage;
-        if (currenthp <= minhp)
+        if (!invincible)
         {
-            currenthp = 0;
-            Die();
+            Debug.Log("AH DAMAGE");
+            currenthp -= damage;
+            if (currenthp <= minhp)
+            {
+                currenthp = 0;
+                deathsound.Play();
+                StartCoroutine(DelayedDeath(0.8f));
+            }
+            else
+            {
+                //Debug.Log("Starting invincibility frames");
+                invincible = true; // Set invincible immediately
+                shieldSprite.GetComponent<SpriteRenderer>().enabled = true;
+                StartCoroutine(iFrames());
+            }
         }
     }
     protected virtual void Die()
@@ -106,7 +158,18 @@ public class PlayerControl : MonoBehaviour
         Debug.Log("Death has occured!");
         SceneManager.LoadScene("UpgradeMenu");
     }
-
+    private IEnumerator DelayedDeath(float delay)
+    {
+        yield return new WaitForSeconds(delay); // Wait for the specified delay
+        Die();
+    }
+    private IEnumerator iFrames()
+    {
+        yield return new WaitForSeconds(invincibilityTime);
+        invincible = false; // Reset invincibility
+        shieldSprite.GetComponent<SpriteRenderer>().enabled = false;
+        //Debug.Log("Invincibility ended");
+    }
     public virtual void Heal(int healAmount)
     {
         currenthp += healAmount;

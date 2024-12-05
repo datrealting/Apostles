@@ -13,6 +13,6 @@ public class AOEController : MonoBehaviour
     {
         GameObject obj = Instantiate(prefab, spawnLocation, Quaternion.identity);
         AOE aoe = obj.GetComponent<AOE>();
-        aoe.Create(caller, size, delay, linger);
+        aoe.Create(obj, caller, size, delay, linger);
     }
 }

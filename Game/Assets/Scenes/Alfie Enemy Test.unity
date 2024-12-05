@@ -360,7 +360,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1372273094}
   - component: {fileID: 1372273093}
-  - component: {fileID: 1372273096}
   - component: {fileID: 1372273092}
   - component: {fileID: 1372273095}
   - component: {fileID: 1372273091}
@@ -431,6 +430,11 @@ MonoBehaviour:
   arrow: {fileID: 2120425631}
   arrowDistance: 1.5
   rotationOffset: 90
+  maxhp: 5
+  currenthp: 5
+  bleedChance: 0
+  critChance: 0
+  invincibilityTime: 1000
 --- !u!95 &1372273089
 Animator:
   serializedVersion: 7
@@ -492,6 +496,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71137765fcdb3f74bb1a6f3d78949376, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
   moveSpeed: 7
   rb: {fileID: 1372273090}
 --- !u!70 &1372273092
@@ -616,31 +621,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxhp: 5
   currenthp: 5
+  invincibilityTime: 1000
   bleedChance: 0
   critChance: 0
   shieldSprite: {fileID: 0}
-  invincibilityTime: 1000
-  invincible: 0
-  movespeed: 10
-  deathsound: {fileID: 0}
---- !u!114 &1372273096
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1372273084}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cc679b4d9e11f746a966799e2367219, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxhp: 5
-  currenthp: 5
-  bleedChance: 0
-  critChance: 0
-  shieldSprite: {fileID: 0}
-  invincibilityTime: 1000
   invincible: 0
   movespeed: 10
   deathsound: {fileID: 0}

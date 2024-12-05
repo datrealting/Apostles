@@ -133,13 +133,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 399162610}
+  - component: {fileID: 399162620}
   - component: {fileID: 399162617}
   - component: {fileID: 399162616}
-  - component: {fileID: 399162621}
   - component: {fileID: 399162615}
   - component: {fileID: 399162614}
   - component: {fileID: 399162613}
-  - component: {fileID: 399162620}
   - component: {fileID: 399162619}
   - component: {fileID: 399162611}
   - component: {fileID: 399162618}
@@ -377,32 +376,13 @@ MonoBehaviour:
   target: {fileID: 0}
   arrow: {fileID: 100962225}
   arrowDistance: 1.6
-  rotationOffset: 90
   maxhp: 5
   currenthp: 5
-  bleedChance: 0
-  critChance: 0
-  invincibilityTime: 1000
---- !u!114 &399162621
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 399162609}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cc679b4d9e11f746a966799e2367219, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxhp: 3
-  currenthp: 3
-  invincibilityTime: 0.5
+  invincibilityTime: 1
   bleedChance: 0
   critChance: 0
   shieldSprite: {fileID: 1035788324}
   invincible: 0
-  movespeed: 10
   deathsound: {fileID: 399162622}
 --- !u!82 &399162622
 AudioSource:
@@ -1388,6 +1368,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Weapon
       objectReference: {fileID: 0}
+    - target: {fileID: 1418962944766416549, guid: 9286dc8c23f960e40b1b66cd82b0469c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2973262541407747265, guid: 9286dc8c23f960e40b1b66cd82b0469c, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.061241224
@@ -1410,7 +1394,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2973262541407747265, guid: 9286dc8c23f960e40b1b66cd82b0469c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.035
       objectReference: {fileID: 0}
     - target: {fileID: 2973262541407747265, guid: 9286dc8c23f960e40b1b66cd82b0469c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1592,7 +1576,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &879796888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1707,7 +1691,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSouls: 30000
-  dangerState: 1
+  dangerState: 2
   bass1: {fileID: 600114256}
   bass2: {fileID: 594412607}
   dr1: {fileID: 428657884}
@@ -1780,6 +1764,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 531fafb6ecb8a7749a8770e46717fd88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  specialRooms:
+  - {fileID: 7395656425729254223, guid: 41bb6896d0d514a4ab28daf5c21a55ed, type: 3}
   rooms:
   - {fileID: 6331887278579643230, guid: cde9c740caf37f74c80703a2f2b2074f, type: 3}
   roomCount: 15
