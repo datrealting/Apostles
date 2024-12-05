@@ -40,11 +40,11 @@ public class FloorGenerator : MonoBehaviour
         }
     }
 
-    private void GenRoom(Vector2 pos, int entranceDir)
+    private bool GenRoom(Vector2 pos, int entranceDir)
     {
-        if (roomCount <= 0) return;
-        if (visited.Contains(pos)) return;
-        if (currentDepth > maxDepth) return;
+        if (roomCount <= 0) return false;
+        if (visited.Contains(pos)) return false;
+        if (currentDepth > maxDepth) return false;
 
         roomCount--;
         visited.Add(pos);
@@ -75,15 +75,19 @@ public class FloorGenerator : MonoBehaviour
                 direction = allowedDirectionIndexes[Random.Range(0, allowedDirectionIndexes.Length)];
             }
 
-            roomComponent.SetEntrance(direction);
+            Debug.Log("EXIT: " + direction);
             Vector2 newRoomPos = pos + (roomComponent.roomDimensions * directions[direction]);
 
-            GenRoom(newRoomPos, (direction + 2) % 4);
+            bool roomCreated = GenRoom(newRoomPos, (direction + 2) % 4);
+
+            if(roomCreated) roomComponent.SetEntrance(direction);
 
             visitedDirections.Add(direction);
         }
 
         currentDepth--;
+
+        return true;
     }
 
     private void GeneratePath()
