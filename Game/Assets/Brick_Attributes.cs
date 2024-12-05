@@ -9,7 +9,7 @@ public class Brick_Attributes : MonoBehaviour
         PlayerStats player = collision.GetComponent<PlayerStats>();
         if(player != null)
         {
-            player.
+            
         }
     }**/
 }
