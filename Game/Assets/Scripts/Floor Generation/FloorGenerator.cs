@@ -7,6 +7,8 @@ using static UnityEditor.PlayerSettings;
 public class FloorGenerator : MonoBehaviour
 {
     [SerializeField]
+    private GameObject[] specialRooms;
+    [SerializeField]
     private GameObject[] rooms;
     [SerializeField]
     private int roomCount = 15;
@@ -15,6 +17,9 @@ public class FloorGenerator : MonoBehaviour
     private int currentDepth = 0;
 
     HashSet<Vector2> visited = new HashSet<Vector2>();
+
+    List<GameObject> roomsList = new List<GameObject>();
+    public static Dictionary<Vector2,GameObject> roomMap = new Dictionary<Vector2,GameObject>();
 
     Vector2[] directions =
     {
@@ -26,7 +31,6 @@ public class FloorGenerator : MonoBehaviour
 
     int[] allowedDirectionIndexes = { 0, 1, 2 };
 
-
     void Start()
     {
         GenRoom(Vector2.zero, -1);
@@ -34,10 +38,6 @@ public class FloorGenerator : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            GenRoom(Vector2.zero, -1);
-        }
     }
 
     private bool GenRoom(Vector2 pos, int entranceDir)
@@ -50,6 +50,12 @@ public class FloorGenerator : MonoBehaviour
         visited.Add(pos);
 
         GameObject roomObject = rooms[Random.Range(0, rooms.Length)];
+
+        if(roomCount == 4)
+        {
+            roomObject = specialRooms[0];
+        }
+
         GameObject roomInstance = Instantiate(roomObject, pos, Quaternion.identity);
         roomInstance.transform.SetParent(transform);
         
@@ -63,6 +69,10 @@ public class FloorGenerator : MonoBehaviour
         int roomConnections = Random.Range(1, 4);
         HashSet<int> visitedDirections = new HashSet<int>();
 
+        //roomInstance.SetActive(false);
+        roomMap.Add(pos,roomInstance);
+        Debug.Log("ROOM POS: " + pos);
+
         currentDepth++;
 
         for (int i = 0; i < roomConnections; i++)
@@ -75,7 +85,6 @@ public class FloorGenerator : MonoBehaviour
                 direction = allowedDirectionIndexes[Random.Range(0, allowedDirectionIndexes.Length)];
             }
 
-            Debug.Log("EXIT: " + direction);
             Vector2 newRoomPos = pos + (roomComponent.roomDimensions * directions[direction]);
 
             bool roomCreated = GenRoom(newRoomPos, (direction + 2) % 4);

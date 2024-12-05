@@ -1388,6 +1388,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Weapon
       objectReference: {fileID: 0}
+    - target: {fileID: 1418962944766416549, guid: 9286dc8c23f960e40b1b66cd82b0469c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2973262541407747265, guid: 9286dc8c23f960e40b1b66cd82b0469c, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.061241224
@@ -1592,7 +1596,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &879796888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1780,6 +1784,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 531fafb6ecb8a7749a8770e46717fd88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  specialRooms:
+  - {fileID: 7395656425729254223, guid: 41bb6896d0d514a4ab28daf5c21a55ed, type: 3}
   rooms:
   - {fileID: 6331887278579643230, guid: cde9c740caf37f74c80703a2f2b2074f, type: 3}
   roomCount: 15

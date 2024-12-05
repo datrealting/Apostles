@@ -14,6 +14,7 @@ public class Room : MonoBehaviour
 
     private void Awake()
     {
+        Instantiate(obstacles[Random.Range(0, obstacles.Length)], this.transform.position, Quaternion.identity).transform.SetParent(this.transform);
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
