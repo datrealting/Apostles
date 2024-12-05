@@ -29,15 +29,18 @@ public class AOE : MonoBehaviour
     public float delay;     // how long until indicator disappears and AOE takes place?
     public float linger;      //  in seconds, how long AOE lasts. 0 for instantaneous.
 
+    public GameObject thePrefabItself;
+
     public IAoe caller;
     public Collider2D[] hits;
 
-    public void Create(IAoe caller, float size, float delay, float linger)
+    public void Create(GameObject obj, IAoe caller, float size, float delay, float linger)
     {
         SetupIndicator(size);
         this.delay = delay;
         this.linger = linger;
         this.caller = caller;
+        thePrefabItself = obj;
         StartCoroutine(DelayedAOE()); 
     }
 
@@ -111,6 +114,9 @@ public class AOE : MonoBehaviour
         // Code to get all hit
         hits = CheckObjectsInArea();
         caller.AOEEffect(hits);
+
+        // spaghetti code below oWo
+        Destroy(thePrefabItself);
     }
     private Collider2D[] CheckObjectsInArea()
     {
