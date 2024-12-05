@@ -7,7 +7,7 @@ public class PlayerControl : MonoBehaviour
     public GameObject target;
     public Transform arrow;
     public float arrowDistance = 1.5f;
-    public float rotationOffset = 90f;
+    // public float rotationOffset = 90f;
 
     private Vector3 lastPosition;
     private Vector3 originalScale;  // Store the original scale
@@ -52,7 +52,7 @@ public class PlayerControl : MonoBehaviour
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
         // Apply rotation with the offset
-        arrow.rotation = Quaternion.Euler(0f, 0f, angle - rotationOffset);
+        arrow.rotation = Quaternion.Euler(0f, 0f, angle);
     }
 
 

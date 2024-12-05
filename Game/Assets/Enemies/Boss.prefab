@@ -120,8 +120,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40279ebac81108947a2213f9d258adb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxhp: 50
-  currenthp: 50
+  maxhp: 500
+  currenthp: 500
   armour: 1
 --- !u!114 &3798396897403418243
 MonoBehaviour:
@@ -138,7 +138,7 @@ MonoBehaviour:
   movement: {fileID: 1358534702533663540}
   aoePrefab: {fileID: 3992563610131000863, guid: fe2a707090758264bba3a8f6b098f6db, type: 3}
   attackCD: 2
-  attackSize: 500
+  attackSize: 5
   attackRange: 2
   attackDelay: 1
   attackSlow: 0.05
