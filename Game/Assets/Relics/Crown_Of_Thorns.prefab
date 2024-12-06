@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7178350205912181509}
   - component: {fileID: 3585288760245561304}
   - component: {fileID: 3229391654500543301}
-  - component: {fileID: 4208888792370087804}
+  - component: {fileID: 3224154357431914358}
   m_Layer: 0
   m_Name: Crown_Of_Thorns
   m_TagString: Untagged
@@ -126,7 +126,7 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 5.71, y: 2.6}
   m_Direction: 1
---- !u!114 &4208888792370087804
+--- !u!114 &3224154357431914358
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -135,6 +135,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7593367885547311129}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 045552e08e8cb8d44b57b411b9450480, type: 3}
+  m_Script: {fileID: 11500000, guid: 8fe86605a827c0f4e8f611a64f441234, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemEffect: {fileID: 11400000, guid: 128901b530595b1479b55f346b36230e, type: 2}

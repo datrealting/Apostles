@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using UnityEditor.ShaderGraph;
 
 public class HPScript : MonoBehaviour
 {
@@ -15,5 +16,6 @@ public class HPScript : MonoBehaviour
     private void Update()
     {
         text.SetText("Hearts: " + player.GetComponent<PlayerControl>().currenthp.ToString() + " / " + player.GetComponent<PlayerControl>().maxhp.ToString());
+        text.color = Color.green;    
     }
 }
