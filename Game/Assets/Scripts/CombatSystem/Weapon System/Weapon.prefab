@@ -26,8 +26,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1418962944766416549}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.002128322, y: 0, z: -0, w: 0.99999774}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0.4286067, w: 0.9034912}
+  m_LocalPosition: {x: -1.821975, y: -0.2587465, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -101,13 +101,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fd5eae1643089905a050220f3e526b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: 
-  Damage: 10
-  AttackRate: 0.2
-  Cooldown: 0
-  Level: 0
   projectilePrefab: {fileID: 381423501142137705, guid: 8d3af5d5c2650efaebadf3c9c1afd0e0, type: 3}
   projectileSpawnPoint: {fileID: 4905686281418230434}
+  impactEffect: {fileID: 0}
+  projectileDamage: 10
+  projectileSpeed: 20
+  projectileRange: 10
 --- !u!1 &5728153109663062762
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,59 +1,45 @@
-
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
 public class PlayerControl : MonoBehaviour
 {
     public PlayerStatData psd;
 
     public float dmg = 6;
     public GameObject target;
-    public Transform arrow;
-    public float arrowDistance = 1.5f;
-    // public float rotationOffset = 90f;
+    public Transform weapon;
+    public float weaponDistance = 1f;
 
-    private Vector3 lastPosition;
     private Vector3 originalScale;  // Store the original scale
 
-    // PSD stats (these stats persist over runs, see PSD functions below for explanation)
     public int maxhp = 5;
     public int currenthp = 5;
     private int minhp = 0;
-    public float invincibilityTime = 0.5f; // in s
+    public float invincibilityTime = 0.5f;
     public float bleedChance;
     public float critChance;
 
-    // After taking a hit, player should be invincible for a bit
     public GameObject shieldSprite;
-
     public bool invincible = false;
 
-    // To do with soul drops
     public float soulDropMult = 1f;
-
-    // hehe death sound
     public AudioSource deathsound;
 
     void Start()
     {
-        // Overwrite player PSD with PSD saved in GameManager
         LoadFromGameManager();
-
         Cursor.lockState = CursorLockMode.Confined;
-        lastPosition = transform.position;
-        originalScale = transform.localScale;  // Save the original scale
+        originalScale = transform.localScale;
     }
 
     void Update()
     {
-        HandleArrowRotation();
-        HandlePlayerFlip();
+        RotateWeaponTowardCursor();
+        HandlePlayerFlipToCursor();
         HandleAttack();
     }
-    
-    // PSD things //
 
-    // * these functions handle the player stats being duplicated over scenes so you can meta progress
     private void LoadFromGameManager()
     {
         if (GameManager.Instance != null && GameManager.Instance.psd != null)
@@ -67,10 +53,7 @@ public class PlayerControl : MonoBehaviour
             Debug.LogWarning("GameManager or PlayerStatsData is missing!");
         }
     }
-    private void SaveToGameManager()
-    {
-        // PROBABLY DONT NEED THIS UNLESS YOU'RE META-PROGRESSING INGAME
-    }
+
     private void SetStatsFromPSD()
     {
         maxhp = psd.maxhp;
@@ -82,44 +65,62 @@ public class PlayerControl : MonoBehaviour
 
         Debug.Log("Player stats successfully loaded from psd!");
     }
-    void HandleArrowRotation()
+
+    void HandlePlayerFlipToCursor()
     {
-        // Get the mouse position in world space (adjust z to match camera)
+        // Get the mouse position in world space
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -Camera.main.transform.position.z));
+        mousePosition.z = transform.position.z;
 
-        // Ensure mousePosition.z is set to a fixed value (same as the player or the intended 2D depth)
-        mousePosition.z = transform.position.z; // Make sure the arrow stays on the same z plane as the player
+        // Determine if the mouse is to the left or right of the player
+        bool isMouseToLeft = mousePosition.x < transform.position.x;
 
-        // Calculate the direction vector from the player to the mouse
-        Vector3 direction = (mousePosition - transform.position).normalized;
-
-        // Calculate arrow's new position (keeping a fixed distance from the player)
-        arrow.position = transform.position + direction * arrowDistance;
-
-        // Calculate the rotation angle in degrees
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-
-        // Apply rotation with the offset
-        arrow.rotation = Quaternion.Euler(0f, 0f, angle);
-    }
-    void HandlePlayerFlip()
-    {
-        Vector3 currentPosition = transform.position;
-
-        // Check if moving left or right
-        if (currentPosition.x > lastPosition.x)
+        // Flip the player based on the mouse position
+        if (isMouseToLeft)
         {
-            // Moving right, ensure the scale is positive
-            transform.localScale = new Vector3(Mathf.Abs(originalScale.x), originalScale.y, originalScale.z);
-        }
-        else if (currentPosition.x < lastPosition.x)
-        {
-            // Moving left, flip only the x-axis
+            // Flip player to the left
             transform.localScale = new Vector3(-Mathf.Abs(originalScale.x), originalScale.y, originalScale.z);
         }
+        else
+        {
+            // Flip player to the right
+            transform.localScale = new Vector3(Mathf.Abs(originalScale.x), originalScale.y, originalScale.z);
+        }
 
-        lastPosition = currentPosition;  // Update last position
+        // Flip weapon 180 degrees when the player faces left (based on the player's facing direction)
+        if (isMouseToLeft)
+        {
+            weapon.localRotation = Quaternion.Euler(0f, 180f, 0f); // Flip weapon when facing left
+        }
+        else
+        {
+            weapon.localRotation = Quaternion.Euler(0f, 0f, 0f); // Reset weapon rotation when facing right
+        }
+
+        // Now rotate the weapon toward the cursor, regardless of facing direction
+        RotateWeaponTowardCursor();
     }
+
+    void RotateWeaponTowardCursor()
+    {
+        // Get the mouse position in world space
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -Camera.main.transform.position.z));
+        mousePosition.z = transform.position.z; // Ensure it's on the same Z-plane as the player and weapon
+
+        // Get direction from weapon to the mouse
+        Vector3 direction = (mousePosition - transform.position).normalized;
+
+        // Get the angle in degrees for the weapon's rotation
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+        // Apply the rotation to the weapon
+        weapon.rotation = Quaternion.Euler(0f, 0f, angle);
+    }
+
+
+
+
+
     void HandleAttack()
     {
         if (Input.GetKeyDown(KeyCode.V))
@@ -135,6 +136,7 @@ public class PlayerControl : MonoBehaviour
             }
         }
     }
+
     public virtual void TakeDamage(int damage)
     {
         if (!invincible)
@@ -149,31 +151,32 @@ public class PlayerControl : MonoBehaviour
             }
             else
             {
-                //Debug.Log("Starting invincibility frames");
-                invincible = true; // Set invincible immediately
+                invincible = true;
                 shieldSprite.GetComponent<SpriteRenderer>().enabled = true;
                 StartCoroutine(iFrames());
             }
         }
     }
+
     protected virtual void Die()
     {
-        // death logic goes here
-        Debug.Log("Death has occured!");
+        Debug.Log("Death has occurred!");
         SceneManager.LoadScene("NewUpgradeMenu");
     }
+
     private IEnumerator DelayedDeath(float delay)
     {
-        yield return new WaitForSeconds(delay); // Wait for the specified delay
+        yield return new WaitForSeconds(delay);
         Die();
     }
+
     private IEnumerator iFrames()
     {
         yield return new WaitForSeconds(invincibilityTime);
-        invincible = false; // Reset invincibility
+        invincible = false;
         shieldSprite.GetComponent<SpriteRenderer>().enabled = false;
-        //Debug.Log("Invincibility ended");
     }
+
     public virtual void Heal(int healAmount)
     {
         currenthp += healAmount;
@@ -183,9 +186,8 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
-
     public virtual void bleedChanceIncrease(float bleedChanceIncrease)
     {
-        bleedChance = bleedChance + bleedChanceIncrease;
+        bleedChance += bleedChanceIncrease;
     }
 }

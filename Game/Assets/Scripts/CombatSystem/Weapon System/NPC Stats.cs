@@ -1,21 +1,21 @@
-
 using UnityEngine;
 
 public class NPCStats : MonoBehaviour
 {
-    // boilerplate, feel free to add/remove stats
+    // Boilerplate, feel free to add/remove stats
     public float maxhp;
     public float currenthp;
     private float minhp = 0;
 
     public float armour;
+    public GameObject FloatingTextPrefab;
 
     public int soulsDropped;
     // The max is slightly higher than minimum just to promote higher soul drops
     public float soulRandomSpreadMin = 0.9f; // as a percentage
     public float soulRandomSpreadMax = 1.2f; // as a percentage
 
-    // use TakeDamage() for most gameplay interactions where armour will be factored in,
+    // Use TakeDamage() for most gameplay interactions where armour will be factored in,
     // and AdjustHP() for if you just need to change HP no bullshit 
     public virtual void TakeDamage(float damage)
     {
@@ -24,6 +24,13 @@ public class NPCStats : MonoBehaviour
         {
             actualdamage = 1;
         }
+
+        // Call the ShowFloatingText method and pass the actualdamage
+        if (FloatingTextPrefab)
+        {
+            ShowFloatingText(actualdamage);
+        }
+
         currenthp = currenthp - actualdamage;
         if (currenthp <= minhp)
         {
@@ -35,6 +42,14 @@ public class NPCStats : MonoBehaviour
             currenthp = maxhp;
         }
     }
+
+    // Pass actualdamage as a parameter to this method
+    void ShowFloatingText(float damageAmount)
+    {
+        var go = Instantiate(FloatingTextPrefab, transform.position, Quaternion.identity, transform);
+        go.GetComponent<TextMesh>().text = damageAmount.ToString();
+    }
+
     public virtual void AdjustHP(float hp)
     {
         currenthp = currenthp - hp;
@@ -48,6 +63,7 @@ public class NPCStats : MonoBehaviour
             currenthp = maxhp;
         }
     }
+
     public virtual void Heal(float hp)
     {
         currenthp += hp;
@@ -56,10 +72,12 @@ public class NPCStats : MonoBehaviour
             currenthp = maxhp;
         }
     }
+
     public int RandomSoulDrop()
     {
         return Mathf.RoundToInt(Random.Range(soulsDropped * soulRandomSpreadMin, soulsDropped * soulRandomSpreadMax));
     }
+
     protected virtual void Die()
     {
         if (GameManager.Instance != null)
@@ -68,5 +86,4 @@ public class NPCStats : MonoBehaviour
         }
         Destroy(gameObject);
     }
-
 }
