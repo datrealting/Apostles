@@ -437,6 +437,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSouls: 0
+  player: {fileID: 0}
   dangerState: 1
   bass1: {fileID: 0}
   bass2: {fileID: 0}
@@ -964,6 +965,7 @@ MonoBehaviour:
   critChance: 0
   shieldSprite: {fileID: 1426170181}
   invincible: 0
+  soulDropMult: 1
   deathsound: {fileID: 1525617379}
 --- !u!4 &1525617389
 Transform:
