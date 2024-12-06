@@ -95,6 +95,7 @@
     <Compile Include="Assets\Enemies\IEnemy.cs" />
     <Compile Include="Assets\Scripts\CombatSystem\Weapon System\ProjectileWeapon.cs" />
     <Compile Include="Assets\Enemies\EnemyScript.cs" />
+    <Compile Include="Assets\Relics\CrownController.cs" />
     <Compile Include="Assets\Scripts\CombatSystem\Weapon System\Player Stats.cs" />
     <Compile Include="Assets\UI\Scripts\HPScript.cs" />
     <Compile Include="Assets\Scripts\CombatSystem\AOE System\AOE.cs" />
