@@ -9,9 +9,13 @@ public class UpgradeMenuScript : MonoBehaviour
     // All the text on screen that changes basically
     public TMP_Text soulsText;
     public TMP_Text hpText;
+    public TMP_Text speedText;
 
     public Button hpUpgradeButton;
     public TMP_Text hpCost;
+
+    public Button speedUpgradeButton;
+    public TMP_Text speedCost;
 
     public Button respawnButton;
 
@@ -19,6 +23,7 @@ public class UpgradeMenuScript : MonoBehaviour
     {
         UpdateSoulsText();
         UpdateHPText();
+        UpdateSpeedText();
     }
 
     void UpdateSoulsText()
@@ -30,15 +35,35 @@ public class UpgradeMenuScript : MonoBehaviour
         hpText.text = GameManager.Instance.psd.maxhp.ToString();
         hpCost.text = GameManager.Instance.psd.hpUpgradeCost.ToString();
     }
+    void UpdateSpeedText()
+    {
+        speedText.text = GameManager.Instance.psd.speed.ToString();
+        speedCost.text = GameManager.Instance.psd.speedUpgradeCost.ToString();
+    }
 
     public void UpgradeHP()
     {
-        Debug.Log("BUTTON IS WORKING");
+        //Debug.Log("BUTTON IS WORKING");
         if (GameManager.Instance.playerSouls >= GameManager.Instance.psd.hpUpgradeCost)
         {
             GameManager.Instance.playerSouls -= GameManager.Instance.psd.hpUpgradeCost;
             GameManager.Instance.psd.UpgradeMaxHP();
             UpdateHPText();
+            UpdateSoulsText();
+        }
+        else
+        {
+            Debug.Log("Not enough souls!");
+        }
+    }
+    public void UpgradeSpeed()
+    {
+        //Debug.Log("BUTTON IS WORKING");
+        if (GameManager.Instance.playerSouls >= GameManager.Instance.psd.speedUpgradeCost)
+        {
+            GameManager.Instance.playerSouls -= GameManager.Instance.psd.speedUpgradeCost;
+            GameManager.Instance.psd.UpgradeSpeed();
+            UpdateSpeedText();
             UpdateSoulsText();
         }
         else

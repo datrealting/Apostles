@@ -1,3 +1,4 @@
+
 using UnityEngine;
 
 public class NPCStats : MonoBehaviour
@@ -8,6 +9,11 @@ public class NPCStats : MonoBehaviour
     private float minhp = 0;
 
     public float armour;
+
+    public int soulsDropped;
+    // The max is slightly higher than minimum just to promote higher soul drops
+    public float soulRandomSpreadMin = 0.9f; // as a percentage
+    public float soulRandomSpreadMax = 1.2f; // as a percentage
 
     // use TakeDamage() for most gameplay interactions where armour will be factored in,
     // and AdjustHP() for if you just need to change HP no bullshit 
@@ -50,10 +56,16 @@ public class NPCStats : MonoBehaviour
             currenthp = maxhp;
         }
     }
+    public int RandomSoulDrop()
+    {
+        return Mathf.RoundToInt(Random.Range(soulsDropped * soulRandomSpreadMin, soulsDropped * soulRandomSpreadMax));
+    }
     protected virtual void Die()
     {
-        // death logic goes here
-        Debug.Log("Death has occured!");
+        if (GameManager.Instance != null)
+        {
+            Debug.Log("Dropped: " + GameManager.Instance.AddSouls(RandomSoulDrop()).ToString() + " souls!");
+        }
         Destroy(gameObject);
     }
 

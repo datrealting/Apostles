@@ -1689,8 +1689,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdefe6257edc7a24ba64a6c20ad3e1d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSouls: 30000
-  dangerState: 2
+  playerSouls: 100
+  dangerState: 0
   bass1: {fileID: 600114256}
   bass2: {fileID: 594412607}
   dr1: {fileID: 428657884}

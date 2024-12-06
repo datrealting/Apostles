@@ -28,6 +28,9 @@ public class PlayerControl : MonoBehaviour
 
     public bool invincible = false;
 
+    // To do with soul drops
+    public float soulDropMult = 1f;
+
     // hehe death sound
     public AudioSource deathsound;
 
@@ -75,6 +78,7 @@ public class PlayerControl : MonoBehaviour
         bleedChance = psd.bleedChance;
         critChance = psd.critChance;
         invincibilityTime = psd.invincibilityTime;
+        gameObject.GetComponent<PlayerMove>().moveSpeed = psd.speed;
 
         Debug.Log("Player stats successfully loaded from psd!");
     }

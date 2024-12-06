@@ -9,7 +9,7 @@ public class DEMOPLEASEDELETEdeathmaker : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            SceneManager.LoadScene("UpgradeMenu");
+            SceneManager.LoadScene("NewUpgradeMenu");
         }
     }
 }

@@ -123,6 +123,7 @@ MonoBehaviour:
   maxhp: 50
   currenthp: 50
   armour: 1
+  soulsDropped: 100
 --- !u!114 &3798396897403418243
 MonoBehaviour:
   m_ObjectHideFlags: 0

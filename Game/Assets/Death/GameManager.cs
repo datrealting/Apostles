@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 
     public int playerSouls = 0; // Persistent souls
     public PlayerStatData psd;
+    public GameObject player;
     public WeaponStats weaponStats;
     public DangerState dangerState;
 
@@ -18,6 +19,9 @@ public class GameManager : MonoBehaviour
     public AudioSource dr3;
     public AudioSource g1;
     public AudioSource g2;
+
+    // Cheat variables
+    private int soulcheatincrease = 30000;
 
     private void Awake()
     {
@@ -32,7 +36,30 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject); // Ensures only one instance exists
         }
+        player = GameObject.Find("Player");
         HandleMusic(dangerState);
+    }
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            AddSouls(soulcheatincrease);
+        }
+    }
+    // AddSouls() takes the souls the enemy usually drops, multiplies it with the player's multipliers etc. and 
+    public int AddSouls(float amount)
+    {
+        if (player != null)
+        {
+            float mult = player.GetComponent<PlayerControl>().soulDropMult;
+            this.playerSouls += Mathf.RoundToInt(amount * mult);
+            return Mathf.RoundToInt(amount * mult);
+        }
+        else
+        {
+            this.playerSouls += Mathf.RoundToInt(amount);
+            return Mathf.RoundToInt(amount);
+        }
     }
     private void HandleMusic(DangerState dangerState)
     {
