@@ -74,6 +74,7 @@
     <Compile Include="Assets\Death\UpgradeMenuScript.cs" />
     <Compile Include="Assets\FloatingText.cs" />
     <Compile Include="Assets\Brick_Attributes.cs" />
+    <Compile Include="Assets\Enemies\ALFIEBossScript.cs" />
     <Compile Include="Assets\UI\Scripts\MainMenu.cs" />
     <Compile Include="Assets\Scripts\CombatSystem\Weapon System\MeleeWeapon.cs" />
     <Compile Include="Assets\Scripts\CombatSystem\Weapon System\PlayerStatData.cs" />
@@ -118,7 +119,9 @@
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
+    <None Include="Assets\Sprites\craftpix-net-879657-free-slime-mobs-pixel-art-top-down-sprite-pack\readme.txt" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+    <None Include="Assets\Sprites\craftpix-net-879657-free-slime-mobs-pixel-art-top-down-sprite-pack\License.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />

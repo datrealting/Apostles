@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ladyoffire_0: 4502507294982254271
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
