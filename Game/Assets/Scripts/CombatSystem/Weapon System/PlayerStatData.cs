@@ -22,7 +22,6 @@ public class PlayerStatData
     {
         maxhp += hpincrement;
         currenthp += hpincrement;
-        //Debug.Log("Upgraded Max HP to " + maxhp.ToString() + "!");
         hpUpgradeCost = Mathf.RoundToInt(hpUpgradeCost * hpUpgradeCostIncrease);
     }
 

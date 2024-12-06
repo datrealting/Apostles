@@ -156,7 +156,7 @@ public class PlayerControl : MonoBehaviour
     {
         // death logic goes here
         Debug.Log("Death has occured!");
-        SceneManager.LoadScene("UpgradeMenu");
+        SceneManager.LoadScene("NewUpgradeMenu");
     }
     private IEnumerator DelayedDeath(float delay)
     {

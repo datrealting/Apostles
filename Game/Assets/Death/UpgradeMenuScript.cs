@@ -11,6 +11,7 @@ public class UpgradeMenuScript : MonoBehaviour
     public TMP_Text hpText;
 
     public Button hpUpgradeButton;
+    public TMP_Text hpCost;
 
     public Button respawnButton;
 
@@ -27,6 +28,7 @@ public class UpgradeMenuScript : MonoBehaviour
     void UpdateHPText()
     {
         hpText.text = GameManager.Instance.psd.maxhp.ToString();
+        hpCost.text = GameManager.Instance.psd.hpUpgradeCost.ToString();
     }
 
     public void UpgradeHP()

@@ -14,6 +14,6 @@ public class HPScript : MonoBehaviour
 
     private void Update()
     {
-        text.SetText("Hearts: " + player.GetComponent<PlayerStats>().currenthp.ToString() + " / " + player.GetComponent<PlayerStats>().maxhp.ToString());
+        text.SetText("Hearts: " + player.GetComponent<PlayerControl>().currenthp.ToString() + " / " + player.GetComponent<PlayerControl>().maxhp.ToString());
     }
 }
