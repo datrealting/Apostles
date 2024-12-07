@@ -195,6 +195,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.005
       objectReference: {fileID: 0}
+    - target: {fileID: 6529328935614864116, guid: 9286dc8c23f960e40b1b66cd82b0469c, type: 3}
+      propertyPath: weaponAtkspeed
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -255,19 +259,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71cf6e4a637deca49a1144931aece8d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dmg: 6
+  dmg: 5
+  atkspeed: 5
+  relicDamageMult: 1
+  relicAtkspeedMult: 1
   target: {fileID: 0}
   weapon: {fileID: 2973262541407747265, guid: 9286dc8c23f960e40b1b66cd82b0469c, type: 3}
   weaponDistance: 1
-  maxhp: 5
-  currenthp: 5
+  maxhp: 3
+  currenthp: 3
   invincibilityTime: 0.5
   bleedChance: 0
   critChance: 0
-  shieldSprite: {fileID: 0}
+  shieldSprite: {fileID: 2019113058}
   invincible: 0
   soulDropMult: 1
-  deathsound: {fileID: 0}
+  deathsound: {fileID: 276675383}
 --- !u!82 &276675383
 AudioSource:
   m_ObjectHideFlags: 0

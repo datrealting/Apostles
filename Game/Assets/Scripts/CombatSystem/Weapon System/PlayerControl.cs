@@ -6,7 +6,12 @@ public class PlayerControl : MonoBehaviour
 {
     public PlayerStatData psd;
 
-    public float dmg = 6;
+    public float dmg = 5;
+    public float atkspeed = 100f;     // uses the inverse i.e. 1/x so increasing this does increase atk speed
+
+    public float relicDamageMult = 1f;
+    public float relicAtkspeedMult = 1f;
+
     public GameObject target;
     public Transform weapon;
     public float weaponDistance = 1f;
@@ -39,7 +44,6 @@ public class PlayerControl : MonoBehaviour
         HandlePlayerFlipToCursor();
         HandleAttack();
     }
-
     private void LoadFromGameManager()
     {
         if (GameManager.Instance != null && GameManager.Instance.psd != null)
@@ -53,7 +57,6 @@ public class PlayerControl : MonoBehaviour
             Debug.LogWarning("GameManager or PlayerStatsData is missing!");
         }
     }
-
     private void SetStatsFromPSD()
     {
         maxhp = psd.maxhp;
@@ -65,7 +68,6 @@ public class PlayerControl : MonoBehaviour
 
         Debug.Log("Player stats successfully loaded from psd!");
     }
-
     void HandlePlayerFlipToCursor()
     {
         // Get the mouse position in world space
@@ -100,7 +102,6 @@ public class PlayerControl : MonoBehaviour
         // Now rotate the weapon toward the cursor, regardless of facing direction
         RotateWeaponTowardCursor();
     }
-
     void RotateWeaponTowardCursor()
     {
         // Get the mouse position in world space
@@ -117,10 +118,15 @@ public class PlayerControl : MonoBehaviour
         weapon.rotation = Quaternion.Euler(0f, 0f, angle);
     }
 
-
-
-
-
+    // THE DAMAGE FORMULA
+    public int GetActualDamage(float damageMultiplier)
+    {
+        return Mathf.RoundToInt(dmg * damageMultiplier * relicDamageMult);
+    }
+    public float GetAtkSpeed(float atkspeedMultiplier)
+    {
+        return Mathf.RoundToInt(atkspeed * atkspeedMultiplier * relicAtkspeedMult);
+    }
     void HandleAttack()
     {
         if (Input.GetKeyDown(KeyCode.V))
@@ -136,7 +142,6 @@ public class PlayerControl : MonoBehaviour
             }
         }
     }
-
     public virtual void TakeDamage(int damage)
     {
         if (!invincible)
@@ -163,20 +168,17 @@ public class PlayerControl : MonoBehaviour
         Debug.Log("Death has occurred!");
         SceneManager.LoadScene("NewUpgradeMenu");
     }
-
     private IEnumerator DelayedDeath(float delay)
     {
         yield return new WaitForSeconds(delay);
         Die();
     }
-
     private IEnumerator iFrames()
     {
         yield return new WaitForSeconds(invincibilityTime);
         invincible = false;
         shieldSprite.GetComponent<SpriteRenderer>().enabled = false;
     }
-
     public virtual void Heal(int healAmount)
     {
         currenthp += healAmount;
@@ -185,7 +187,6 @@ public class PlayerControl : MonoBehaviour
             currenthp = maxhp;
         }
     }
-
     public virtual void bleedChanceIncrease(float bleedChanceIncrease)
     {
         bleedChance += bleedChanceIncrease;

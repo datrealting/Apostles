@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class ProjectileWeapon : MonoBehaviour
@@ -5,7 +6,9 @@ public class ProjectileWeapon : MonoBehaviour
     [SerializeField] private GameObject projectilePrefab; // Prefab for the projectile
     [SerializeField] private Transform projectileSpawnPoint; // Spawn point for the projectile
     [SerializeField] private GameObject impactEffect; // Impact effect prefab
-    [SerializeField] private int projectileDamage = 10; // Damage dealt by the projectile
+    [SerializeField] private float weaponDamage = 1f; // Damage multiplier for the weapon as a percentage
+    [SerializeField] private float weaponAtkspeed = 0.0001f; // ATKSpeed multiplier for the weapon as a percentage. Higher numbers means higher atk speed
+    private bool canAttack = true;
     [SerializeField] private float projectileSpeed = 20f; // Speed of the projectile
     [SerializeField] private float projectileRange = 10f; // Range of the projectile
 
@@ -13,9 +16,11 @@ public class ProjectileWeapon : MonoBehaviour
     private Transform weaponPosition; // Reference to the weapon holder
     private Vector3 localOffset; // Local offset to keep the weapon attached to the player
 
+    private PlayerControl playerControlReference;
     void Start()
     {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        playerControlReference = GameObject.Find("Player").GetComponent<PlayerControl>();
         weaponPosition = GameObject.FindGameObjectWithTag("weaponHolder").transform;
 
         // Calculate the initial offset from the player's position
@@ -36,9 +41,9 @@ public class ProjectileWeapon : MonoBehaviour
 
         // Assign the impact effect and damage to the projectile's impact behavior
         ProjectileImpact impactScript = projectile.GetComponent<ProjectileImpact>();
-        if (impactScript != null)
+        if (impactScript != null && playerControlReference != null)
         {
-            impactScript.Setup(impactEffect, projectileDamage); // Pass damage to the impact script
+            impactScript.Setup(impactEffect, playerControlReference.GetActualDamage(weaponDamage)); // Pass damage to the impact script
         }
 
         // Add projectile movement (direction and speed)
@@ -61,12 +66,22 @@ public class ProjectileWeapon : MonoBehaviour
     private void HandleAttackInput()
     {
         // Check if the player clicks the left mouse button
-        if (Input.GetMouseButtonDown(0)) // Left mouse button
+        if (canAttack)
         {
-            Attack(); // Trigger the attack
+            if (Input.GetMouseButton(0)) // Left mouse button
+            {
+                Debug.Log(1 / (playerControlReference.GetAtkSpeed(weaponAtkspeed)));
+                Attack(); // Trigger the attack
+                canAttack = false;
+                StartCoroutine(WeaponCD());
+            }
         }
     }
-
+    private IEnumerator WeaponCD()
+    {
+        yield return new WaitForSeconds(1 / (playerControlReference.GetAtkSpeed(weaponAtkspeed)));
+        canAttack = true;
+    }
     private void AdjustWeaponPosition()
     {
         // Attach the weapon to the player but keep its local rotation unaffected by the player's flip

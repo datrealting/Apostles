@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1418962944766416549}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0.4286067, w: 0.9034912}
+  m_LocalRotation: {x: 0, y: 0, z: 0.38572654, w: 0.9226132}
   m_LocalPosition: {x: -1.821975, y: -0.2587465, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -104,7 +104,8 @@ MonoBehaviour:
   projectilePrefab: {fileID: 381423501142137705, guid: 8d3af5d5c2650efaebadf3c9c1afd0e0, type: 3}
   projectileSpawnPoint: {fileID: 4905686281418230434}
   impactEffect: {fileID: 0}
-  projectileDamage: 10
+  weaponDamage: 5
+  weaponAtkspeed: 1
   projectileSpeed: 20
   projectileRange: 10
 --- !u!1 &5728153109663062762
