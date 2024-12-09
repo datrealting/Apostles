@@ -106,7 +106,9 @@ MonoBehaviour:
   AttackRate: 0.5
   Cooldown: 0
   Level: 0
-  range: 1.5
+  range: 1.75
+  quarterCircleAngle: 90
+  rayCount: 10
   attackTransform: {fileID: 8641269924545786935}
 --- !u!1 &8575216818776354653
 GameObject:
