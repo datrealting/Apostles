@@ -1,0 +1,31 @@
+
+using UnityEngine;
+
+public class Burning : BaseSE
+{
+    public override OverrideType overrideType => OverrideType.Refresh;
+
+    public override float duration { get; set; } = 5f;  // Settable in this class
+    public override float tickFrequency => 0.5f;
+
+    public float damagePerTick = 1f;
+    public override void OnApply()
+    {
+        Debug.Log("Additional logic for BURNING application!");
+    }
+    public override void OnTick()
+    {
+        if (targetStats != null)
+        {
+            targetStats.TakeDamage(damagePerTick);
+        }
+        if (targetStats == null)
+        {
+            Debug.Log("Something died with BURNING on");
+        }
+    }
+    public override void OnRemoval()
+    {
+        Debug.Log("Additional logic for BURNING removal!");
+    }
+}  
