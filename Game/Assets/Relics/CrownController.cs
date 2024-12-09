@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-[CreateAssetMenu(menuName = "ItemPickups")]
+[CreateAssetMenu(menuName = "ItemPickups/Crown")]
 public class CrownController : ItemEffect
 {
     public override void Apply(GameObject Target)

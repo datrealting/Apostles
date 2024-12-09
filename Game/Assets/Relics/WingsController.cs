@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-[CreateAssetMenu(menuName = "ItemPickups")]
+[CreateAssetMenu(menuName = "ItemPickups/Wings")]
 public class WingsController : ItemEffect
 {
     public override void Apply(GameObject Target)
