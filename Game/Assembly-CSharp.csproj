@@ -95,6 +95,7 @@
     <Compile Include="Assets\Scripts\EnemyPathfind.cs" />
     <Compile Include="Assets\Enemies\IEnemy.cs" />
     <Compile Include="Assets\Scripts\CombatSystem\Weapon System\ProjectileWeapon.cs" />
+    <Compile Include="Assets\Relics\WhetstoneController.cs" />
     <Compile Include="Assets\Enemies\EnemyScript.cs" />
     <Compile Include="Assets\Relics\CrownController.cs" />
     <Compile Include="Assets\Relics\BrickController.cs" />
