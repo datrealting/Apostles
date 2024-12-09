@@ -20,10 +20,12 @@ public abstract class BaseSE : MonoBehaviour, SEInterface
 
     protected float elapsed = 0f;
     protected float elapsedLastTick = 0f;   // time since last tick
+    protected GameObject target;
     protected NPCStats targetStats;
 
     public void Initialise(GameObject target)
     {
+        this.target = target;
         targetStats = target.GetComponent<NPCStats>();
         if (targetStats == null)
         {
