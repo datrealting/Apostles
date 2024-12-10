@@ -7,7 +7,7 @@ public class PlayerControl : MonoBehaviour
     public PlayerStatData psd;
 
     public float dmg = 5;
-    public float atkspeed = 100f;     // uses the inverse i.e. 1/x so increasing this does increase atk speed
+    public float atkspeed = 2f;     // uses the inverse i.e. 1/x so increasing this does increase atk speed
 
     public float relicDamageMult = 1f;
     public float relicAtkspeedMult = 1f;
@@ -40,7 +40,7 @@ public class PlayerControl : MonoBehaviour
 
     void Update()
     {
-        RotateWeaponTowardCursor();
+        //RotateWeaponTowardCursor();
         HandlePlayerFlipToCursor();
         HandleAttack();
     }
@@ -88,34 +88,6 @@ public class PlayerControl : MonoBehaviour
             // Flip player to the right
             transform.localScale = new Vector3(Mathf.Abs(originalScale.x), originalScale.y, originalScale.z);
         }
-
-        // Flip weapon 180 degrees when the player faces left (based on the player's facing direction)
-        if (isMouseToLeft)
-        {
-            weapon.localRotation = Quaternion.Euler(0f, 180f, 0f); // Flip weapon when facing left
-        }
-        else
-        {
-            weapon.localRotation = Quaternion.Euler(0f, 0f, 0f); // Reset weapon rotation when facing right
-        }
-
-        // Now rotate the weapon toward the cursor, regardless of facing direction
-        RotateWeaponTowardCursor();
-    }
-    void RotateWeaponTowardCursor()
-    {
-        // Get the mouse position in world space
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -Camera.main.transform.position.z));
-        mousePosition.z = transform.position.z; // Ensure it's on the same Z-plane as the player and weapon
-
-        // Get direction from weapon to the mouse
-        Vector3 direction = (mousePosition - transform.position).normalized;
-
-        // Get the angle in degrees for the weapon's rotation
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-
-        // Apply the rotation to the weapon
-        weapon.rotation = Quaternion.Euler(0f, 0f, angle);
     }
 
     // THE DAMAGE FORMULA

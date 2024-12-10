@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class ProjectileWeapon : MonoBehaviour
+public class ProjectileWeapon : Weapon
 {
     [SerializeField] private GameObject projectilePrefab; // Prefab for the projectile
     [SerializeField] private Transform projectileSpawnPoint; // Spawn point for the projectile
@@ -29,37 +29,59 @@ public class ProjectileWeapon : MonoBehaviour
 
     void Update()
     {
-        AdjustWeaponPosition(); // Keep weapon attached to the player
         RotateWeaponTowardCursor(); // Rotate the weapon toward the cursor
         HandleAttackInput();    // Handle attack input
     }
 
-    public void Attack()
+    public override void Attack()
     {
-        // Instantiate a new projectile at the spawn point
-        GameObject projectile = Instantiate(projectilePrefab, projectileSpawnPoint.position, projectileSpawnPoint.rotation);
 
-        // Assign the impact effect and damage to the projectile's impact behavior
-        ProjectileImpact impactScript = projectile.GetComponent<ProjectileImpact>();
-        if (impactScript != null && playerControlReference != null)
+        int numberOfProjectiles = weaponStats.projectilesCount; // Access projectileCount from weaponStats
+        float spreadAngle = weaponStats.spread; // Total spread angle
+
+        // Calculate the angle step between each projectile
+        float angleStep = spreadAngle / (numberOfProjectiles - 1);
+        // Calculate the starting angle for the spread
+        float startAngle = -spreadAngle / 2;
+
+        for (int i = 0; i < numberOfProjectiles; i++)
         {
-            impactScript.Setup(impactEffect, playerControlReference.GetActualDamage(weaponDamage)); // Pass damage to the impact script
-        }
+            // Calculate the angle for the current projectile
+            float currentAngle = startAngle + (angleStep * i);
 
-        // Add projectile movement (direction and speed)
-        Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
-        if (rb != null)
-        {
-            // Get the forward direction of the weapon using its rotation
-            Vector2 direction = transform.right;  // Use 'right' instead of 'up' for forward direction
+            // Calculate the rotation for the projectile
+            Quaternion rotation = Quaternion.Euler(new Vector3(0, 0, currentAngle)) * projectileSpawnPoint.rotation;
 
-            // Apply velocity to move the projectile forward
-            rb.linearVelocity = direction * projectileSpeed; // Apply speed to the projectile
+            /* // Instantiate a new projectile at the spawn point with the calculated rotation
+            GameObject projectile = Instantiate(projectilePrefab, projectileSpawnPoint.position, rotation); */
 
-            // Add range logic
-            Destroy(projectile, projectileRange / projectileSpeed); // Destroy the projectile after reaching its range
+            // Instantiate a new projectile at the spawn point
+            GameObject projectile = Instantiate(projectilePrefab, projectileSpawnPoint.position, rotation);
+
+            // Assign the impact effect and damage to the projectile's impact behavior
+            ProjectileImpact impactScript = projectile.GetComponent<ProjectileImpact>();
+            if (impactScript != null && playerControlReference != null)
+            {
+                impactScript.Setup(impactEffect, playerControlReference.GetActualDamage(weaponDamage)); // Pass damage to the impact script
+            }
+
+            // Add projectile movement (direction and speed)
+            Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                // Calculate the direction of the projectile
+                Vector2 direction = rotation * Vector2.right;  // Use 'right' instead of 'up' for forward direction
+
+                // Apply velocity to move the projectile forward
+                rb.linearVelocity = direction * projectileSpeed; // Apply speed to the projectile
+
+                // Add range logic
+                Destroy(projectile, projectileRange / projectileSpeed); // Destroy the projectile after reaching its range
+            }
         }
     }
+
+
 
 
 
@@ -82,17 +104,12 @@ public class ProjectileWeapon : MonoBehaviour
         yield return new WaitForSeconds(1 / (playerControlReference.GetAtkSpeed(weaponAtkspeed)));
         canAttack = true;
     }
-    private void AdjustWeaponPosition()
-    {
-        // Attach the weapon to the player but keep its local rotation unaffected by the player's flip
-        transform.position = weaponPosition.position + localOffset;
-    }
 
     private void RotateWeaponTowardCursor()
     {
         // Get the mouse position in world space
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.transform.position.z));
-        mousePosition.z = transform.position.z; // Make sure it stays in the same z-plane
+        mousePosition.z = transform.position.z; // Make sure it stays in the same z-plane (not invisible lol)
 
         // Calculate direction from weapon to the mouse
         Vector3 direction = (mousePosition - transform.position).normalized;
@@ -100,7 +117,32 @@ public class ProjectileWeapon : MonoBehaviour
         // Calculate the rotation angle in degrees
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
+        // Check if the player is flipped (facing left)
+        if (playerTransform.localScale.x < 0)
+        {
+            // Adjust the angle for the flipped orientation
+            angle += 180f; // Mirror the weapon's rotation when flipped
+        }
+
         // Apply rotation
         transform.rotation = Quaternion.Euler(0f, 0f, angle);
+
+        // Flip the weapon's sprite if necessary
+        bool shouldFlipWeaponSprite = playerTransform.localScale.x < 0;
+        GetComponent<SpriteRenderer>().flipY = shouldFlipWeaponSprite;
+
+        // Rotate the projectile spawn point if necessary
+        if (shouldFlipWeaponSprite)
+        {
+            projectileSpawnPoint.localRotation = Quaternion.Euler(0f, 0f, 180f);
+        }
+        else
+        {
+            projectileSpawnPoint.localRotation = Quaternion.identity;
+        
+        }
     }
+
+
+
 }

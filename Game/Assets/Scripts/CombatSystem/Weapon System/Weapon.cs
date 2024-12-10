@@ -9,14 +9,14 @@ public abstract class Weapon : MonoBehaviour
     public float Cooldown = 0f;
     public int Level;
 
-    private WeaponLevelHandler weaponLevelHandler = new WeaponLevelHandler();
+    protected WeaponStats weaponStats = new WeaponStats();
 
     public abstract void Attack();
 
     public void LevelUp()
     {
         // Increase the weapon level
-        weaponLevelHandler.LevelUp();
+        weaponStats.LevelUp();
     }
 
 
@@ -39,6 +39,7 @@ public abstract class Weapon : MonoBehaviour
         // Check if the player is pressing the L key
         if (Input.GetKeyDown(KeyCode.L))
         {
+            Debug.Log("Leveling up weapon");
             LevelUp();
         }
 #endif
