@@ -23,12 +23,16 @@ public abstract class BaseSE : MonoBehaviour, SEInterface
 
     protected float elapsed = 0f;
     protected float elapsedLastTick = 0f;   // time since last tick
+
+    protected GameObject caller;
+
     protected GameObject target;
     protected NPCStats targetStats;
 
-    public void Initialise(GameObject target, GameObject spritePrefab)
+    public void Initialise(GameObject target, GameObject caller, GameObject spritePrefab)
     {
         this.spritePrefab = spritePrefab;
+        this.caller = caller;
         this.target = target;
         targetStats = target.GetComponent<NPCStats>();
         if (targetStats == null)
@@ -76,6 +80,17 @@ public abstract class BaseSE : MonoBehaviour, SEInterface
                         }         
                     }
                 }
+                break;
+
+            case OverrideType.Maxwellian:
+                foreach (BaseSE effect in existingEffects)
+                {
+                    if (effect.GetType() == this.GetType())
+                    {
+                        effect.elapsed = 0f;         
+                    }    
+                }
+                OnApply();
                 break;
 
             case OverrideType.Stack:

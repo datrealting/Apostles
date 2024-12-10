@@ -9,6 +9,7 @@ using UnityEngine;
 public enum OverrideType
 {
     Stack,
+    Maxwellian,     // stack and refresh 
     Extend,
     Refresh,
     Nothing

@@ -76,7 +76,7 @@ public class Hellfire : BaseSE
         if (nextNPC != null)
         {
             Debug.Log("Closest NPC assigned: " + nextNPC.name);
-            StatusEffectManager.ApplyEffect(nextNPC, nextEffect, spritePrefab);
+            StatusEffectManager.ApplyEffect(nextNPC, caller,nextEffect, spritePrefab);
         }
         else
         {

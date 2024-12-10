@@ -8,6 +8,7 @@ public class EnemyChaseScript : MonoBehaviour
 
     public float maxSpeed = 3f;
     public float speed = 3f;
+    public float multipliers = 1f; // add percentages / subtract to increase decrease speed 
 
     public Behaviour curBehaviour;
 
@@ -19,6 +20,11 @@ public class EnemyChaseScript : MonoBehaviour
     void FixedUpdate()
     {
         Move();
+    }
+    
+    void CalculateSpeed()
+    { 
+        speed = maxSpeed * multipliers;
     }
 
     void Move()
