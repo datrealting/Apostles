@@ -1,4 +1,7 @@
 
+using System.Collections;
+using System.Runtime;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class Burning : BaseSE
@@ -9,9 +12,11 @@ public class Burning : BaseSE
     public override float tickFrequency => 0.5f;
 
     public float damagePerTick = 1f;
+
     public override void OnApply()
     {
         Debug.Log("Additional logic for BURNING application!");
+        sprite = Instantiate(spritePrefab, target.transform);
     }
     public override void OnTick()
     {
@@ -24,8 +29,12 @@ public class Burning : BaseSE
             Debug.Log("Something died with BURNING on");
         }
     }
-    public override void OnRemoval()
+    public override void OnExpire()
     {
         Debug.Log("Additional logic for BURNING removal!");
+    }
+    public override void OnDie()
+    {
+
     }
 }  

@@ -18,13 +18,17 @@ public abstract class BaseSE : MonoBehaviour, SEInterface
 
     public virtual float tickFrequency => 1f; // number of seconds between each tick (e.g., 0.5 for 2 ticks per second)
 
+    public GameObject spritePrefab; // ref to the sprite prefab
+    public GameObject sprite;   // ref to the sprite returned in the OnApply function.
+
     protected float elapsed = 0f;
     protected float elapsedLastTick = 0f;   // time since last tick
     protected GameObject target;
     protected NPCStats targetStats;
 
-    public void Initialise(GameObject target)
+    public void Initialise(GameObject target, GameObject spritePrefab)
     {
+        this.spritePrefab = spritePrefab;
         this.target = target;
         targetStats = target.GetComponent<NPCStats>();
         if (targetStats == null)
@@ -94,17 +98,17 @@ public abstract class BaseSE : MonoBehaviour, SEInterface
         this.duration += duration;
     }
 
-    public abstract void OnApply();
-    public abstract void OnTick();
-    public abstract void OnRemoval();
+    public abstract void OnApply();    // effect at the start
+    public abstract void OnTick();  // effect every tick
+    public abstract void OnExpire();   // effect if the duration runs out
+    public abstract void OnDie();   // effect specifically if the npc dies with the effect on
 
     // if you ever need to cleanse something, this is (probably) the function you want (e.g. GetComponent<Burning>().RemoveEffect())
     public void RemoveEffect()
     {
-        OnRemoval();
+        Destroy(sprite);
         Destroy(this);
     }
-
     void Update()
     {
         if (targetStats == null) return;
@@ -117,6 +121,8 @@ public abstract class BaseSE : MonoBehaviour, SEInterface
         }
         if (elapsed >= duration)
         {
+            Debug.Log("Effect run out");
+            OnExpire();
             RemoveEffect();
         }
 

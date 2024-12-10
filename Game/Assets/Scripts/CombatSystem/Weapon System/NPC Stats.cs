@@ -1,3 +1,4 @@
+
 using UnityEngine;
 
 public class NPCStats : MonoBehaviour
@@ -83,6 +84,12 @@ public class NPCStats : MonoBehaviour
         if (GameManager.Instance != null)
         {
             Debug.Log("Dropped: " + GameManager.Instance.AddSouls(RandomSoulDrop()).ToString() + " souls!");
+        }
+        BaseSE[] existingEffects = GetComponents<BaseSE>();
+        foreach (BaseSE effect in existingEffects)
+        {
+            Debug.Log(effect);
+            effect.OnDie();
         }
         Destroy(gameObject);
     }
