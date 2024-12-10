@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 1037
   m_ShowMode: 4
-  m_Title: Scene
+  m_Title: Project
   m_RootView: {fileID: 7}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -342,7 +342,7 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -4376
+  m_LastSelectedObjectID: -10052
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -384,7 +384,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 36f6ffffe6faffffa8b20000b4b20000c8b20000
+      m_ExpandedIDs: 64b7feff3237ffffcad8fffff0f6ffff68f7ffff2af8ffffe6faffff70b200007cb2000090b20000d2b70000f2b7000036ba00007cbc00009cbc0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -452,7 +452,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 0
+  m_LastVerticalScrollValue: 283
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:
@@ -505,7 +505,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/CombatSystem/Weapon System
+    - Assets/Relics/Relic_Sprite
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -515,16 +515,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts/CombatSystem/Weapon System
+  - Assets/Relics/Relic_Sprite
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\James Maxwell\Documents\GitHub\Apostles\Game
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 30}
-    m_SelectedIDs: 44b10000
-    m_LastClickedID: 45380
-    m_ExpandedIDs: 00000000cab00000ccb00000ceb00000d0b00000d2b00000d4b00000d6b00000d8b00000dab00000ffffff7f
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 64b10000
+    m_LastClickedID: 45412
+    m_ExpandedIDs: 00000000f0b00000f2b00000f4b00000f6b00000f8b00000fab00000fcb00000feb0000000b10000ffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -553,7 +553,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000cab00000ccb00000ceb00000d0b00000d2b00000d4b00000d6b00000d8b00000dab00000
+    m_ExpandedIDs: 00000000f0b00000f2b00000f4b00000f6b00000f8b00000fab00000fcb00000feb0000000b10000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1276,9 +1276,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: -1.1538315, y: -2.038771, z: 0.02602708}
+    m_Target: {x: 5.8926034, y: 0.73447865, z: -0.12614878}
     speed: 2
-    m_Value: {x: -1.2066565, y: -1.9387596, z: 0.024077302}
+    m_Value: {x: 5.760764, y: 0.23117256, z: -0.120296165}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1328,9 +1328,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 4.137862
+    m_Target: 13.591048
     speed: 2
-    m_Value: 4.33284
+    m_Value: 13.005788
   m_Ortho:
     m_Target: 1
     speed: 2

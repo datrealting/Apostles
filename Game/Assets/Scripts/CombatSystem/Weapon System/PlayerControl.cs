@@ -23,7 +23,7 @@ public class PlayerControl : MonoBehaviour
     private int minhp = 0;
     public float invincibilityTime = 0.5f;
     public float bleedChance;
-    public float critChance;
+    public float critChance = 0.01f;
 
     public GameObject shieldSprite;
     public bool invincible = false;
@@ -121,7 +121,13 @@ public class PlayerControl : MonoBehaviour
     // THE DAMAGE FORMULA
     public int GetActualDamage(float damageMultiplier)
     {
-        return Mathf.RoundToInt(dmg * damageMultiplier * relicDamageMult);
+        float isCrit = Random.Range(0.0f, 1.0f);
+        if (isCrit <= critChance){
+            return Mathf.RoundToInt(dmg * damageMultiplier * relicDamageMult *2);
+        }
+        else{
+            return Mathf.RoundToInt(dmg * damageMultiplier * relicDamageMult);
+        }
     }
     public float GetAtkSpeed(float atkspeedMultiplier)
     {
