@@ -130,6 +130,17 @@ public class ProjectileWeapon : Weapon
         // Flip the weapon's sprite if necessary
         bool shouldFlipWeaponSprite = playerTransform.localScale.x < 0;
         GetComponent<SpriteRenderer>().flipY = shouldFlipWeaponSprite;
+
+        // Rotate the projectile spawn point if necessary
+        if (shouldFlipWeaponSprite)
+        {
+            projectileSpawnPoint.localRotation = Quaternion.Euler(0f, 0f, 180f);
+        }
+        else
+        {
+            projectileSpawnPoint.localRotation = Quaternion.identity;
+        
+        }
     }
 
 
