@@ -3,24 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|c:\\users\\james\\documents\\github\\apostles\\game\\assets\\floatingtext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|solutionrelative:assets\\floatingtext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\assets\\scripts\\combatsystem\\weapon system\\npc stats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\combatsystem\\weapon system\\npc stats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\assets\\scripts\\combatsystem\\weapon system\\projectileweapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\combatsystem\\weapon system\\projectileweapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\assets\\scripts\\combatsystem\\weapon system\\playercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\combatsystem\\weapon system\\playercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\assets\\scripts\\combatsystem\\weapon system\\projectileweapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\combatsystem\\weapon system\\projectileweapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\assets\\scripts\\combatsystem\\weapon system\\projectileimpact.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\combatsystem\\weapon system\\projectileimpact.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|c:\\users\\james\\documents\\github\\apostles\\game\\assets\\floatingtext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|solutionrelative:assets\\floatingtext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,7 +38,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "FloatingText.cs",
               "DocumentMoniker": "C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\Assets\\FloatingText.cs",
               "RelativeDocumentMoniker": "Assets\\FloatingText.cs",
@@ -51,15 +51,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "NPC Stats.cs",
               "DocumentMoniker": "C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\Assets\\Scripts\\CombatSystem\\Weapon System\\NPC Stats.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\CombatSystem\\Weapon System\\NPC Stats.cs",
               "ToolTip": "C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\Assets\\Scripts\\CombatSystem\\Weapon System\\NPC Stats.cs",
               "RelativeToolTip": "Assets\\Scripts\\CombatSystem\\Weapon System\\NPC Stats.cs",
-              "ViewState": "AQIAABkAAAAAAAAAAAAgwCoAAAAJAAAA",
+              "ViewState": "AQIAABYAAAAAAAAAAAAgwD4AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-06T18:59:05.757Z"
+              "WhenOpened": "2024-12-06T18:59:05.757Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -69,13 +70,14 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\CombatSystem\\Weapon System\\ProjectileWeapon.cs",
               "ToolTip": "C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\Assets\\Scripts\\CombatSystem\\Weapon System\\ProjectileWeapon.cs",
               "RelativeToolTip": "Assets\\Scripts\\CombatSystem\\Weapon System\\ProjectileWeapon.cs",
-              "ViewState": "AQIAAC4AAAAAAAAAAAAowFsAAAAAAAAA",
+              "ViewState": "AQIAAB4AAAAAAAAAAAAowDMAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-06T15:48:56Z"
+              "WhenOpened": "2024-12-06T15:48:56Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "ProjectileImpact.cs",
               "DocumentMoniker": "C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\Assets\\Scripts\\CombatSystem\\Weapon System\\ProjectileImpact.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\CombatSystem\\Weapon System\\ProjectileImpact.cs",
@@ -83,23 +85,21 @@
               "RelativeToolTip": "Assets\\Scripts\\CombatSystem\\Weapon System\\ProjectileImpact.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAB4AAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-06T15:48:28.553Z"
+              "WhenOpened": "2024-12-06T15:48:28.553Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "PlayerControl.cs",
               "DocumentMoniker": "C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\Assets\\Scripts\\CombatSystem\\Weapon System\\PlayerControl.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\CombatSystem\\Weapon System\\PlayerControl.cs",
               "ToolTip": "C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\Assets\\Scripts\\CombatSystem\\Weapon System\\PlayerControl.cs",
               "RelativeToolTip": "Assets\\Scripts\\CombatSystem\\Weapon System\\PlayerControl.cs",
-              "ViewState": "AQIAAJUAAAAAAAAAAAAIwMAAAAABAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-28T15:45:39.889Z"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{93c5e7ad-af06-49e6-a756-b8f3eaca790d}"
+              "WhenOpened": "2024-11-28T15:45:39.889Z",
+              "EditorCaption": ""
             }
           ]
         }
