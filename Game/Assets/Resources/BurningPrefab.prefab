@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1600222809065771708}
   - component: {fileID: 17056681685898123}
   m_Layer: 0
-  m_Name: Burning
+  m_Name: BurningPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 6438112948763051086}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.890388, y: 1.7974918, z: 0.020724995}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -45,7 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af4503478448fff4b9e6087d4e3cfb0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  overrideType: 0
+  spritePrefab: {fileID: 0}
+  sprite: {fileID: 0}
   damagePerTick: 5
 --- !u!1 &6640194635537353795
 GameObject:
@@ -73,8 +74,8 @@ Transform:
   m_GameObject: {fileID: 6640194635537353795}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.451128, y: 0, z: -0.020724995}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 0.4, y: 0.8, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1600222809065771708}
@@ -122,9 +123,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: 6669560127030847859, guid: 4ca71d0f2815a5f49a9864ecc4bf7ee4, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 8334651344603559088, guid: cc8791d13ba6262489114db0ae1417bf, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.59607846}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

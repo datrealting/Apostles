@@ -1,3 +1,4 @@
+
 using UnityEngine;
 
 public class NPCStats : MonoBehaviour
@@ -43,12 +44,26 @@ public class NPCStats : MonoBehaviour
         }
     }
 
-    // Pass actualdamage as a parameter to this method
+    [SerializeField] private Vector3 floatingTextOffset = new Vector3(0f, 1f, 0f); // Offset to control position
+    [SerializeField] private Vector3 floatingTextScale = new Vector3(1f, 1f, 1f); // Scale to control size
+
     void ShowFloatingText(float damageAmount)
     {
-        var go = Instantiate(FloatingTextPrefab, transform.position, Quaternion.identity, transform);
+        // Add the offset to the enemy's position
+        Vector3 spawnPosition = transform.position + floatingTextOffset;
+
+        // Instantiate the floating text without attaching it to the enemy
+        var go = Instantiate(FloatingTextPrefab, spawnPosition, Quaternion.identity);
+
+        // Set the text to show the damage amount
         go.GetComponent<TextMesh>().text = damageAmount.ToString();
+
+        // Set the scale of the floating text in world space
+        go.transform.localScale = floatingTextScale;
     }
+
+
+
 
     public virtual void AdjustHP(float hp)
     {
@@ -83,6 +98,12 @@ public class NPCStats : MonoBehaviour
         if (GameManager.Instance != null)
         {
             Debug.Log("Dropped: " + GameManager.Instance.AddSouls(RandomSoulDrop()).ToString() + " souls!");
+        }
+        BaseSE[] existingEffects = GetComponents<BaseSE>();
+        foreach (BaseSE effect in existingEffects)
+        {
+            Debug.Log(effect);
+            effect.OnDie();
         }
         Destroy(gameObject);
     }
