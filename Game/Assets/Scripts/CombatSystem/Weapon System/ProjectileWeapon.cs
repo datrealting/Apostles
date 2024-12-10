@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class ProjectileWeapon : MonoBehaviour
+public class ProjectileWeapon : Weapon
 {
     [SerializeField] private GameObject projectilePrefab; // Prefab for the projectile
     [SerializeField] private Transform projectileSpawnPoint; // Spawn point for the projectile
@@ -34,30 +34,51 @@ public class ProjectileWeapon : MonoBehaviour
         HandleAttackInput();    // Handle attack input
     }
 
-    public void Attack()
+    public override void Attack()
     {
-        // Instantiate a new projectile at the spawn point
-        GameObject projectile = Instantiate(projectilePrefab, projectileSpawnPoint.position, projectileSpawnPoint.rotation);
 
-        // Assign the impact effect and damage to the projectile's impact behavior
-        ProjectileImpact impactScript = projectile.GetComponent<ProjectileImpact>();
-        if (impactScript != null && playerControlReference != null)
+        int numberOfProjectiles = weaponStats.projectilesCount; // Access projectileCount from weaponStats
+        float spreadAngle = weaponStats.spread; // Total spread angle
+
+        // Calculate the angle step between each projectile
+        float angleStep = spreadAngle / (numberOfProjectiles - 1);
+        // Calculate the starting angle for the spread
+        float startAngle = -spreadAngle / 2;
+
+        for (int i = 0; i < numberOfProjectiles; i++)
         {
-            impactScript.Setup(impactEffect, playerControlReference.GetActualDamage(weaponDamage)); // Pass damage to the impact script
-        }
+            // Calculate the angle for the current projectile
+            float currentAngle = startAngle + (angleStep * i);
 
-        // Add projectile movement (direction and speed)
-        Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
-        if (rb != null)
-        {
-            // Get the forward direction of the weapon using its rotation
-            Vector2 direction = transform.right;  // Use 'right' instead of 'up' for forward direction
+            // Calculate the rotation for the projectile
+            Quaternion rotation = Quaternion.Euler(new Vector3(0, 0, currentAngle)) * projectileSpawnPoint.rotation;
 
-            // Apply velocity to move the projectile forward
-            rb.linearVelocity = direction * projectileSpeed; // Apply speed to the projectile
+            /* // Instantiate a new projectile at the spawn point with the calculated rotation
+            GameObject projectile = Instantiate(projectilePrefab, projectileSpawnPoint.position, rotation); */
 
-            // Add range logic
-            Destroy(projectile, projectileRange / projectileSpeed); // Destroy the projectile after reaching its range
+            // Instantiate a new projectile at the spawn point
+            GameObject projectile = Instantiate(projectilePrefab, projectileSpawnPoint.position, rotation);
+
+            // Assign the impact effect and damage to the projectile's impact behavior
+            ProjectileImpact impactScript = projectile.GetComponent<ProjectileImpact>();
+            if (impactScript != null && playerControlReference != null)
+            {
+                impactScript.Setup(impactEffect, playerControlReference.GetActualDamage(weaponDamage)); // Pass damage to the impact script
+            }
+
+            // Add projectile movement (direction and speed)
+            Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                // Calculate the direction of the projectile
+                Vector2 direction = rotation * Vector2.right;  // Use 'right' instead of 'up' for forward direction
+
+                // Apply velocity to move the projectile forward
+                rb.linearVelocity = direction * projectileSpeed; // Apply speed to the projectile
+
+                // Add range logic
+                Destroy(projectile, projectileRange / projectileSpeed); // Destroy the projectile after reaching its range
+            }
         }
     }
 
@@ -103,4 +124,7 @@ public class ProjectileWeapon : MonoBehaviour
         // Apply rotation
         transform.rotation = Quaternion.Euler(0f, 0f, angle);
     }
+
+
+
 }

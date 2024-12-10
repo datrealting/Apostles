@@ -22,6 +22,24 @@ public class WeaponStats
     public float firingSpeed = 1f;
     public float firingSpeedIncrement = 0.1f;
 
+    // # of projectiles
+    public int projectilesLevel = 1;
+    public int baseProjectilesCount = 1;
+    public int projectilesCount = 5;
+    public int projectilesLevelIncrement = 1;
+
+    // Projectile spread
+    public int spreadLevel = 1;
+    public float baseSpread = 10f;
+    public float spread = 10f;
+    public float spreadLevelIncrement = 0.1f;
+
+    public void LevelUp()
+    {
+        Debug.Log("Not yet implemented");
+        projectilesCount = projectilesLevelIncrement + projectilesLevel;
+    }
+
     public void LevelUpDmg()
     {
         dmgLevel++;
@@ -34,3 +52,4 @@ public class WeaponStats
     }
 
 }
+
