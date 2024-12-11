@@ -9,6 +9,7 @@ public class ProjectileImpact : MonoBehaviour
     {
         impactEffect = effect;
         damage = projectileDamage; // Set the damage when the projectile is created
+        
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -18,6 +19,7 @@ public class ProjectileImpact : MonoBehaviour
             if (other.CompareTag("Enemy"))
             {
                 other.GetComponent<NPCStats>()?.TakeDamage(damage);  // Use the damage passed from the weapon
+                GameObject.Find("Player").GetComponent<PlayerControl>().onStrike?.Invoke(other.gameObject);
             }
 
             if (impactEffect != null)

@@ -8,8 +8,9 @@ public class Item : MonoBehaviour
         // Check if the collision is with the player
         if (collision.CompareTag("Player"))
         {
+            collision.gameObject.GetComponent<PlayerRelicsHeld>().AddRelic(itemEffect);
             Destroy(gameObject);
-            itemEffect.Apply(collision.gameObject);
+            itemEffect.Apply(collision.gameObject);         
         }
     }
 }

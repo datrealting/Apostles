@@ -18,6 +18,8 @@ public class PlayerControl : MonoBehaviour
 
     private Vector3 originalScale;  // Store the original scale
 
+    public OnStrike onStrike;
+
     public int maxhp = 5;
     public int currenthp = 5;
     private int minhp = 0;
@@ -105,6 +107,9 @@ public class PlayerControl : MonoBehaviour
     {
         return Mathf.RoundToInt(atkspeed * atkspeedMultiplier * relicAtkspeedMult);
     }
+    
+    // Delegates + Event stuff
+    public delegate void OnStrike(GameObject target);
     void HandleAttack()
     {
         if (Input.GetKeyDown(KeyCode.V))
