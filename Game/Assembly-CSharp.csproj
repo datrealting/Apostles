@@ -65,6 +65,7 @@
     <Analyzer Include="/mnt/u/Unity/6000.0.23f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets/Scripts/CombatSystem/StatusEffectSystem/Effects/Bleeding.cs" />
     <Compile Include="Assets/Scripts/CombatSystem/Weapon System/PlayerControl.cs" />
     <Compile Include="Assets/Death/DEMOPLEASEDELETE death maker.cs" />
     <Compile Include="Assets/Relics/Relic_Scripts/itemEffect.cs" />
@@ -83,6 +84,7 @@
     <Compile Include="Assets/Scripts/CombatSystem/StatusEffectSystem/Effects/Burning.cs" />
     <Compile Include="Assets/FloatingText.cs" />
     <Compile Include="Assets/Brick_Attributes.cs" />
+    <Compile Include="Assets/Scripts/CombatSystem/StatusEffectSystem/Effects/Bloodspark.cs" />
     <Compile Include="Assets/Enemies/ALFIEBossScript.cs" />
     <Compile Include="Assets/UI/Scripts/MainMenu.cs" />
     <Compile Include="Assets/Scripts/CombatSystem/Weapon System/MeleeWeapon.cs" />
@@ -94,6 +96,7 @@
     <Compile Include="Assets/Scripts/CombatSystem/AOE System/IAoe.cs" />
     <Compile Include="Assets/Death/WeaponStats.cs" />
     <Compile Include="Assets/Scripts/CombatSystem/StatusEffectSystem/Effects/Hellfire.cs" />
+    <Compile Include="Assets/Relics/PlayerRelicsHeld.cs" />
     <Compile Include="Assets/Relics/Relic_Scripts/CrownController.cs" />
     <Compile Include="Assets/Relics/Relic_Scripts/ItemPickupEffect.cs" />
     <Compile Include="Assets/Scripts/Floor Generation/FloorGenerator.cs" />

@@ -31,6 +31,7 @@ public class ProjectileWeapon : Weapon
     {
         RotateWeaponTowardCursor(); // Rotate the weapon toward the cursor
         HandleAttackInput();    // Handle attack input
+        HandleLevelUpInput();
     }
 
     public override void Attack()
@@ -39,10 +40,17 @@ public class ProjectileWeapon : Weapon
         int numberOfProjectiles = weaponStats.projectilesCount; // Access projectileCount from weaponStats
         float spreadAngle = weaponStats.spread; // Total spread angle
 
-        // Calculate the angle step between each projectile
-        float angleStep = spreadAngle / (numberOfProjectiles - 1);
-        // Calculate the starting angle for the spread
-        float startAngle = -spreadAngle / 2;
+
+        float angleStep = 0;
+        float startAngle = 0;
+
+        if (numberOfProjectiles > 1)
+        {
+            // Calculate the angle step between each projectile
+            angleStep = spreadAngle / (numberOfProjectiles - 1);
+            // Calculate the starting angle for the spread
+            startAngle = -spreadAngle / 2;
+        }
 
         for (int i = 0; i < numberOfProjectiles; i++)
         {
@@ -139,7 +147,7 @@ public class ProjectileWeapon : Weapon
         else
         {
             projectileSpawnPoint.localRotation = Quaternion.identity;
-        
+
         }
     }
 

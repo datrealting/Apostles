@@ -25,19 +25,19 @@ public class WeaponStats
     // # of projectiles
     public int projectilesLevel = 1;
     public int baseProjectilesCount = 1;
-    public int projectilesCount = 5;
+    public int projectilesCount = 10;
     public int projectilesLevelIncrement = 1;
 
     // Projectile spread
     public int spreadLevel = 1;
     public float baseSpread = 10f;
     public float spread = 10f;
-    public float spreadLevelIncrement = 0.1f;
+    public float spreadLevelIncrement = 1f;
 
     public void LevelUp()
     {
         Debug.Log("Not yet implemented");
-        projectilesCount = projectilesLevelIncrement + projectilesLevel;
+        LevelUpSpread();
     }
 
     public void LevelUpDmg()
@@ -49,6 +49,18 @@ public class WeaponStats
     {
         firingSpeedLevel++;
         firingSpeed = firingSpeedIncrement * firingSpeedLevel + baseFiringSpeed;
+    }
+
+    public void LevelUpProjectiles()
+    {
+        projectilesLevel++;
+        projectilesCount = projectilesLevelIncrement * projectilesLevel + baseProjectilesCount;
+    }
+
+    public void LevelUpSpread()
+    {
+        spreadLevel++;
+        spread = spreadLevelIncrement * spreadLevel + baseSpread;
     }
 
 }

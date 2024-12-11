@@ -32,7 +32,7 @@ public abstract class Weapon : MonoBehaviour
     }
 
 
-    private void HandleLevelUpInput()
+    protected void HandleLevelUpInput()
     {
         //
 #if UNITY_EDITOR
