@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -95,7 +96,7 @@ public class PlayerControl : MonoBehaviour
     // THE DAMAGE FORMULA
     public int GetActualDamage(float damageMultiplier)
     {
-        float isCrit = Random.Range(0.0f, 1.0f);
+        float isCrit = UnityEngine.Random.Range(0.0f, 1.0f);
         if (isCrit <= critChance){
             return Mathf.RoundToInt(dmg * damageMultiplier * relicDamageMult *2);
         }
@@ -110,6 +111,7 @@ public class PlayerControl : MonoBehaviour
     
     // Delegates + Event stuff
     public delegate void OnStrike(GameObject target);
+    
     void HandleAttack()
     {
         if (Input.GetKeyDown(KeyCode.V))
@@ -174,4 +176,5 @@ public class PlayerControl : MonoBehaviour
     {
         bleedChance += bleedChanceIncrease;
     }
+
 }
