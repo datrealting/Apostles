@@ -19,12 +19,13 @@ public class TBController : ItemEffect
         Target.GetComponent<PlayerMove>().AddRelicAddSpeed(3f);
         Target.GetComponent<PlayerMove>().AdjustMoveSpeed();
         Target.GetComponent<PlayerControl>().relicAtkspeedMult += 1f;
+
         GameObject.Find("Player").GetComponent<PlayerControl>().onStrike += IncreaseSpeed;
     }
     
     public void IncreaseSpeed(GameObject target)
     {
-        owner.GetComponent<PlayerMove>().AddRelicMultSpeed(0.02f);
-        owner.GetComponent<PlayerControl>().relicAtkspeedMult += 0.02f;
+        owner.GetComponent<PlayerMove>().AddRelicMultSpeed(0.001f);
+        owner.GetComponent<PlayerControl>().relicAtkspeedMult += 0.001f;
     }
 }

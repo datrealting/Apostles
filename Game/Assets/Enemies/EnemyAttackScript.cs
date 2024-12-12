@@ -41,28 +41,17 @@ public class EnemyAttackScript : MonoBehaviour, IAoe
     }
     void SwipeEffect(Collider2D[] hits)
     {
-        try
+        foreach (Collider2D obj in hits)
         {
-            foreach (Collider2D obj in hits)
+            if (obj == null) continue;
+            PlayerControl stats = obj.GetComponent<PlayerControl>();
+            if (stats != null)
             {
-                if (obj == null) continue;
-                PlayerControl stats = obj.GetComponent<PlayerControl>();
-                if (stats != null)
-                {
-                    Debug.Log("I hit the player!");
-                    stats.TakeDamage(1);
-                }
+                Debug.Log("I hit the player!");
+                stats.TakeDamage(1);
             }
         }
-        catch
-        {
-            Debug.Log("Exception has occured");
-        }
-        finally
-        {
-            movement.speed = tempSpeedBefore;
-        }
-        
+        movement.speed = tempSpeedBefore;
     }
     public void AOEEffect(Collider2D[] hits)
     {

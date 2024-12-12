@@ -8,14 +8,27 @@ public class UpgradeMenuScript : MonoBehaviour
 {
     // All the text on screen that changes basically
     public TMP_Text soulsText;
+
+    // Text
+    public TMP_Text damageText;
+    public TMP_Text atkspeedText;
+
     public TMP_Text hpText;
     public TMP_Text speedText;
 
+
+    // Buttons
     public Button hpUpgradeButton;
     public TMP_Text hpCost;
 
     public Button speedUpgradeButton;
     public TMP_Text speedCost;
+
+    public Button damageUpgradeButton;
+    public TMP_Text damageCost;
+
+    public Button atkspeedUpgradeButton;
+    public TMP_Text atkspeedCost;
 
     public Button respawnButton;
 
@@ -24,6 +37,8 @@ public class UpgradeMenuScript : MonoBehaviour
         UpdateSoulsText();
         UpdateHPText();
         UpdateSpeedText();
+        UpdateDamageText();
+        UpdateAtkspeedText();
     }
 
     void UpdateSoulsText()
@@ -40,10 +55,19 @@ public class UpgradeMenuScript : MonoBehaviour
         speedText.text = GameManager.Instance.psd.speed.ToString();
         speedCost.text = GameManager.Instance.psd.speedUpgradeCost.ToString();
     }
+    void UpdateDamageText()
+    {
+        damageText.text = GameManager.Instance.psd.damage.ToString();
+        damageCost.text = GameManager.Instance.psd.damageUpgradeCost.ToString();
+    }
+    void UpdateAtkspeedText()
+    {
+        atkspeedText.text = GameManager.Instance.psd.atkspeed.ToString();
+        atkspeedCost.text = GameManager.Instance.psd.atkspeedUpgradeCost.ToString();
+    }
 
     public void UpgradeHP()
     {
-        //Debug.Log("BUTTON IS WORKING");
         if (GameManager.Instance.playerSouls >= GameManager.Instance.psd.hpUpgradeCost)
         {
             GameManager.Instance.playerSouls -= GameManager.Instance.psd.hpUpgradeCost;
@@ -58,7 +82,6 @@ public class UpgradeMenuScript : MonoBehaviour
     }
     public void UpgradeSpeed()
     {
-        //Debug.Log("BUTTON IS WORKING");
         if (GameManager.Instance.playerSouls >= GameManager.Instance.psd.speedUpgradeCost)
         {
             GameManager.Instance.playerSouls -= GameManager.Instance.psd.speedUpgradeCost;
@@ -70,6 +93,40 @@ public class UpgradeMenuScript : MonoBehaviour
         {
             Debug.Log("Not enough souls!");
         }
+    }
+    public void UpgradeDamage()
+    {
+        Debug.Log("Button pressed");
+        if (GameManager.Instance.playerSouls >= GameManager.Instance.psd.damageUpgradeCost)
+        {
+            GameManager.Instance.playerSouls -= GameManager.Instance.psd.damageUpgradeCost;
+            GameManager.Instance.psd.UpgradeDamage();
+            UpdateDamageText();
+            UpdateSoulsText();
+        }
+        else
+        {
+            Debug.Log("Not enough souls!");
+        }
+    }
+    public void UpgradeAttackSpeed()
+    {
+        if (GameManager.Instance.playerSouls >= GameManager.Instance.psd.atkspeedUpgradeCost)
+        {
+            GameManager.Instance.playerSouls -= GameManager.Instance.psd.atkspeedUpgradeCost;
+            GameManager.Instance.psd.UpgradeAtkspeed();
+            UpdateAtkspeedText();
+            UpdateSoulsText();
+        }
+        else
+        {
+            Debug.Log("Not enough souls!");
+        }
+    }
+
+    public void TestButton()
+    {
+        Debug.Log("Test button");
     }
 
     // SCENE TRANSITIONS

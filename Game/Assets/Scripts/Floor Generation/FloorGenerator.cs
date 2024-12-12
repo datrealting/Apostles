@@ -16,10 +16,9 @@ public class FloorGenerator : MonoBehaviour
     private int maxDepth = 10;
     private int currentDepth = 0;
 
-    HashSet<Vector2> visited = new HashSet<Vector2>();
+    HashSet<Vector2> visited;
 
     List<GameObject> roomsList = new List<GameObject>();
-    public static Dictionary<Vector2,GameObject> roomMap = new Dictionary<Vector2,GameObject>();
 
     Vector2[] directions =
     {
@@ -33,6 +32,7 @@ public class FloorGenerator : MonoBehaviour
 
     void Start()
     {
+        visited = new HashSet<Vector2>();
         GenRoom(Vector2.zero, -1);
     }
 
@@ -68,10 +68,6 @@ public class FloorGenerator : MonoBehaviour
 
         int roomConnections = Random.Range(1, 4);
         HashSet<int> visitedDirections = new HashSet<int>();
-
-        //roomInstance.SetActive(false);
-        roomMap.Add(pos,roomInstance);
-        Debug.Log("ROOM POS: " + pos);
 
         currentDepth++;
 

@@ -7,7 +7,7 @@ public class PlayerControl : MonoBehaviour
 {
     public PlayerStatData psd;
 
-    public float dmg = 5;
+    public float dmg = 5f;
     public float atkspeed = 2f;     // uses the inverse i.e. 1/x so increasing this does increase atk speed
 
     public float relicDamageMult = 1f;
@@ -62,6 +62,8 @@ public class PlayerControl : MonoBehaviour
     }
     private void SetStatsFromPSD()
     {
+        dmg = psd.damage;
+        atkspeed = psd.atkspeed;
         maxhp = psd.maxhp;
         currenthp = psd.currenthp;
         bleedChance = psd.bleedChance;

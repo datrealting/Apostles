@@ -12,9 +12,21 @@ public class Room : MonoBehaviour
     [SerializeField]
     private GameObject[] obstacles;
 
+    private GameObject obstacle;
+
     private void Awake()
     {
-        Instantiate(obstacles[Random.Range(0, obstacles.Length)], this.transform.position, Quaternion.identity).transform.SetParent(this.transform);
+        obstacle = Instantiate(obstacles[Random.Range(0, obstacles.Length)], this.transform.position, Quaternion.identity);
+        obstacle.transform.SetParent(this.transform);
+        obstacle.SetActive(false);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            obstacle.SetActive(true);
+        }
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

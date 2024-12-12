@@ -1,9 +1,14 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+
+    protected bool gamePaused = false;
+    public GameObject menuscreen;
+    public GameObject sureScreen;
 
     public int playerSouls = 0; // Persistent souls
     public PlayerStatData psd;
@@ -45,7 +50,53 @@ public class GameManager : MonoBehaviour
         {
             AddSouls(soulcheatincrease);
         }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (gamePaused)
+            {
+                Unpause();
+            }
+            else
+            {
+                Pause();
+            }
+        }
     }
+
+    void Pause()
+    {
+        Time.timeScale = 0;
+        menuscreen.SetActive(true);
+        gamePaused = true;
+    }
+    void Unpause()
+    {
+        Time.timeScale = 1;
+        menuscreen.SetActive(false);
+        gamePaused = false; 
+    }
+
+    public void Resume()
+    {
+        Unpause();
+    }
+    public void MainMenuQuit()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+    public void DesktopQuit()
+    {
+        sureScreen.SetActive(true);
+    }
+    public void NotSure()
+    {
+        sureScreen.SetActive(false);
+    }
+    public void Sure()
+    {
+        Application.Quit();
+    }
+
     // AddSouls() takes the souls the enemy usually drops, multiplies it with the player's multipliers etc. and 
     public int AddSouls(float amount)
     {
