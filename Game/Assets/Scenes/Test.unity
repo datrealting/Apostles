@@ -329,6 +329,10 @@ PrefabInstance:
       value: 0.005
       objectReference: {fileID: 0}
     - target: {fileID: 6529328935614864116, guid: 9286dc8c23f960e40b1b66cd82b0469c, type: 3}
+      propertyPath: weaponDamage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6529328935614864116, guid: 9286dc8c23f960e40b1b66cd82b0469c, type: 3}
       propertyPath: weaponAtkspeed
       value: 1
       objectReference: {fileID: 0}

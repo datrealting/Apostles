@@ -61,6 +61,8 @@ public class PlayerControl : MonoBehaviour
     }
     private void SetStatsFromPSD()
     {
+        dmg = psd.damage;
+        atkspeed = psd.atkspeed;
         maxhp = psd.maxhp;
         currenthp = psd.currenthp;
         bleedChance = psd.bleedChance;

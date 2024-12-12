@@ -6,24 +6,24 @@ public class PlayerStatData
     // a number that is added to all stat increases for balance
     private static float statIncreaseBias = 1f;
 
-    public int currenthp = 3;
+    public int currenthp;
 
-    public float damage = 5f;
+    public float damage;
     private float damageIncrement = 2f;
     public int damageUpgradeCost = 100;
     public float damageUpgradeCostIncrease = 0.5f + statIncreaseBias;
 
-    public float atkspeed = 2f;
+    public float atkspeed;
     private float atkspeedIncrement = 1f;
     public int atkspeedUpgradeCost = 100;
     public float atkspeedUpgradeCostIncrease = 0.5f + statIncreaseBias;
 
-    public int maxhp = 3;
+    public int maxhp;
     private int hpincrement = 1;
     public int hpUpgradeCost = 1200;
     public float hpUpgradeCostIncrease = 4.5f + statIncreaseBias;
 
-    public float speed = 3;
+    public float speed;
     private float speedIncrement = 0.2f;
     public int speedUpgradeCost = 150;
     public float speedUpgradeCostIncrease = 0.9f + statIncreaseBias;
@@ -34,6 +34,17 @@ public class PlayerStatData
 
     public float critChance;
     
+    public PlayerStatData()
+    {
+        Debug.Log("PSD formed from inspector player settings: " + GameObject.Find("Player"));
+        PlayerControl pc = GameObject.Find("Player").GetComponent<PlayerControl>();
+        PlayerMove pm = GameObject.Find("Player").GetComponent<PlayerMove>();
+        damage = pc.dmg;
+        atkspeed = pc.atkspeed;
+        maxhp = pc.maxhp;
+        currenthp = pc.maxhp;
+        speed = pm.moveSpeed;
+    }
     public void UpgradeDamage()
     {
         damage += damageIncrement;
