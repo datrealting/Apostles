@@ -5,6 +5,9 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+    protected bool gamePaused = false;
+    public GameObject menuscreen;
+
     public int playerSouls = 0; // Persistent souls
     public PlayerStatData psd;
     public GameObject player;
@@ -45,7 +48,33 @@ public class GameManager : MonoBehaviour
         {
             AddSouls(soulcheatincrease);
         }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (gamePaused)
+            {
+                Unpause();
+            }
+            else
+            {
+                Pause();
+            }
+        }
     }
+
+    void Pause()
+    {
+        Time.timeScale = 0;
+        menuscreen.SetActive(true);
+        gamePaused = true;
+    }
+    void Unpause()
+    {
+        Time.timeScale = 1;
+        menuscreen.SetActive(false);
+        gamePaused = false; 
+    }
+
+
     // AddSouls() takes the souls the enemy usually drops, multiplies it with the player's multipliers etc. and 
     public int AddSouls(float amount)
     {
