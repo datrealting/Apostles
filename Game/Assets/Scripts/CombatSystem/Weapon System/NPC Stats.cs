@@ -7,6 +7,7 @@ public class NPCStats : MonoBehaviour
     public float maxhp;
     public float currenthp;
     private float minhp = 0;
+    public bool dead = false;
 
     public float armour;
     public GameObject FloatingTextPrefab;
@@ -95,15 +96,19 @@ public class NPCStats : MonoBehaviour
 
     protected virtual void Die()
     {
-        if (GameManager.Instance != null)
+        if (!dead)
         {
-            Debug.Log("Dropped: " + GameManager.Instance.AddSouls(RandomSoulDrop()).ToString() + " souls!");
-        }
-        BaseSE[] existingEffects = GetComponents<BaseSE>();
-        foreach (BaseSE effect in existingEffects)
-        {
-            Debug.Log(effect);
-            effect.OnDie();
+            dead = true;
+            if (GameManager.Instance != null)
+            {
+                Debug.Log("Dropped: " + GameManager.Instance.AddSouls(RandomSoulDrop()).ToString() + " souls!");
+            }
+            BaseSE[] existingEffects = GetComponents<BaseSE>();
+            foreach (BaseSE effect in existingEffects)
+            {
+                Debug.Log(effect);
+                effect.OnDie();
+            }
         }
         Destroy(gameObject);
     }

@@ -8,6 +8,16 @@ public class PlayerStatData
 
     public int currenthp = 3;
 
+    public float damage = 5f;
+    private float damageIncrement = 2f;
+    public int damageUpgradeCost = 100;
+    public float damageUpgradeCostIncrease = 0.5f + statIncreaseBias;
+
+    public float atkspeed = 2f;
+    private float atkspeedIncrement = 1f;
+    public int atkspeedUpgradeCost = 100;
+    public float atkspeedUpgradeCostIncrease = 0.5f + statIncreaseBias;
+
     public int maxhp = 3;
     private int hpincrement = 1;
     public int hpUpgradeCost = 1200;
@@ -23,7 +33,17 @@ public class PlayerStatData
     public float bleedChance;
 
     public float critChance;
-
+    
+    public void UpgradeDamage()
+    {
+        damage += damageIncrement;
+        damageUpgradeCost = Mathf.RoundToInt(damageUpgradeCost * damageUpgradeCostIncrease);
+    }
+    public void UpgradeAtkspeed()
+    {
+        atkspeed += atkspeedIncrement;
+        atkspeedUpgradeCost = Mathf.RoundToInt(atkspeedUpgradeCost * atkspeedUpgradeCostIncrease);
+    }
     public void UpgradeMaxHP()
     {
         maxhp += hpincrement;
