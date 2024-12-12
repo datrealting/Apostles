@@ -471,7 +471,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 276675387}
+  baseMoveSpeed: 3
   moveSpeed: 25
+  moveSpeedAdd: 0
+  moveSpeedMult: 1
+  relicMoveSpeedAdd: 0
+  relicMoveSpeedMult: 1
   rb: {fileID: 276675388}
 --- !u!70 &276675390
 CapsuleCollider2D:
@@ -1944,7 +1949,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1349936155}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a160d838ff8b4b4693ac20007e008c7, type: 3}
   m_Name: 
