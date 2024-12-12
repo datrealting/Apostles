@@ -5,9 +5,11 @@ using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
-[CreateAssetMenu(menuName = "ItemPickups/TempoBlade")]
-public class TBController : ItemEffect
+[CreateAssetMenu(menuName = "ItemPickups/BurningBrand")]
+public class BurningBrand : ItemEffect
 {
+    public GameObject effect;
+    public GameObject effectSprite;
     void Awake()
     {
         vName = "Tempo Blade";
@@ -19,7 +21,6 @@ public class TBController : ItemEffect
         Target.GetComponent<PlayerMove>().AddRelicAddSpeed(3f);
         Target.GetComponent<PlayerMove>().AdjustMoveSpeed();
         Target.GetComponent<PlayerControl>().relicAtkspeedMult += 1f;
-
         GameObject.Find("Player").GetComponent<PlayerControl>().onStrike += IncreaseSpeed;
     }
     

@@ -1,48 +1,45 @@
 using System.Collections;
 using System.Runtime;
+using System.Security.Cryptography;
 using UnityEngine;
 
-public class Hellfire : BaseSE
+// LIGHTNING BOLT
+/*
+ * 1. Strikes target with lightning, dealing high damage and potentially spawning a tracer that chases another target.
+ * 2. The tracer bounces to up to bounceCount targets, dealing low damage but each time having a chance to spawn another Lightning Bolt effect.
+ * 3. This has potential to cause ridiculously huge chains of lightning bolts and tracers.
+ */
+
+
+public class LightningBolt : BaseSE
 {
     public override OverrideType overrideType => OverrideType.Stack;
 
-    public override float duration { get; set; } = 2f;  // Settable in this class
-    public override float tickFrequency => 0.1f;
+    public override float duration { get; set; } = 0.4f;  // Settable in this class
+    public override float tickFrequency => 0.5f;
 
-    public float damagePerTick = 2f;
-    public float searchRadius = 200f;
-
-    private GameObject nextNPC;
+    public float damage = 50f;
+    public float boltDamage = 10f;
+    public int bounceCount = 3;
+    public GameObject nextNPC;
     private BaseSE nextEffect = null;
     private GameObject spritePrefab = null;
-
-
+    public float searchRadius = 500f;
     void Awake()
     {
-        nextEffect = new Hellfire();
-        spritePrefab = Resources.Load<GameObject>("HellfirePrefab");
+        nextEffect = new LightningBolt();
+        spritePrefab = Resources.Load<GameObject>("LightningBoltPrefab");
     }
     public override void OnApply()
     {
-        Debug.Log("Additional logic for BURNING application!");
         sprite = Instantiate(spritePrefab, target.transform);
+        targetStats.TakeDamage(damage);
     }
     public override void OnTick()
     {
-        if (targetStats != null)
-        {
-            targetStats.TakeDamage(damagePerTick);
-        }
-        if (targetStats == null)
-        {
-            Debug.Log("Something died with BURNING on");
-        }
+
     }
     public override void OnExpire()
-    {
-        Debug.Log("Additional logic for BURNING running out!");
-    }
-    public override void OnDie()
     {
         // Find all colliders within the search radius
         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, searchRadius);
@@ -76,17 +73,21 @@ public class Hellfire : BaseSE
         if (nextNPC != null)
         {
             Debug.Log("Closest NPC assigned: " + nextNPC.name);
-            StatusEffectManager.ApplyEffect(nextNPC, caller, nextEffect, spritePrefab);
+            GameObject bolt = Instantiate(Resources.Load<GameObject>("PROJECTILELightningBolt"), transform.position, Quaternion.identity);
+            bolt.GetComponent<BoltMovement>().nextNPC = nextNPC;
+            bolt.GetComponent<BoltMovement>().damage = 10f;
+            bolt.GetComponent<BoltMovement>().caller = gameObject;
+            bolt.GetComponent<BoltMovement>().prevNPC = gameObject;
+            bolt.GetComponent<BoltMovement>().nextEffect = nextEffect;
+            bolt.GetComponent<BoltMovement>().spritePrefab = spritePrefab;
         }
         else
         {
             Debug.Log("No NPCs found within the radius.");
         }
     }
-    private void OnDrawGizmosSelected()
+    public override void OnDie()
     {
-        // Draw the search radius in the editor for debugging
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, searchRadius);
+
     }
-}  
+}
