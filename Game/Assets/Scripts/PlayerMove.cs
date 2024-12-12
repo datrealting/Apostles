@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
@@ -9,7 +10,7 @@ public class PlayerMove : MonoBehaviour
     public float baseMoveSpeed = 3f;
     public float moveSpeed;
 
-    public float moveSpeedAdd = 0f;  
+    public float moveSpeedAdd = 0f;
     public float moveSpeedMult = 1f;
     public float relicMoveSpeedAdd = 0f;
     public float relicMoveSpeedMult = 1f;
@@ -17,19 +18,22 @@ public class PlayerMove : MonoBehaviour
     public Rigidbody2D rb;
     private Vector2 moveDirection;
 
+    private bool isIdle = false; // Tracks if the character is in Idle state
+    private Coroutine blinkCoroutine; // Reference to the blinking coroutine
 
     // Update is called once per frame
     void Update()
     {
         Inputs();
+        HandleBlinking();
     } // Update based on FPS (variable)
 
-    void FixedUpdate () 
+    void FixedUpdate()
     {
         Move();
     } // Update based on physics (constant)
 
-    void Inputs ()
+    void Inputs()
     {
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
@@ -38,12 +42,50 @@ public class PlayerMove : MonoBehaviour
 
         animator.SetFloat("Speed", moveSpeed);
 
-        moveDirection = new Vector2 (moveX, moveY).normalized;
+        moveDirection = new Vector2(moveX, moveY).normalized;
     }
 
     void Move()
     {
         rb.linearVelocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
+    }
+
+    // Handle idle state and blinking
+    void HandleBlinking()
+    {
+        // Check if the character is idle
+        float speed = animator.GetFloat("Speed");
+        if (speed < 0.01f)
+        {
+            if (!isIdle)
+            {
+                isIdle = true;
+                blinkCoroutine = StartCoroutine(BlinkRoutine());
+            }
+        }
+        else
+        {
+            if (isIdle && blinkCoroutine != null)
+            {
+                isIdle = false;
+                StopCoroutine(blinkCoroutine);
+            }
+        }
+    }
+
+    IEnumerator BlinkRoutine()
+    {
+        while (isIdle)
+        {
+            // Wait for a random duration between 6 and 10 seconds
+            float randomDelay = Random.Range(6f, 10f);
+            yield return new WaitForSeconds(randomDelay);
+
+            // Trigger the BlinkTime animation
+            animator.SetFloat("BlinkTime", 1f); // Set the BlinkTime parameter to indicate blinking
+            yield return null; // Allow the animation to play for one frame
+            animator.SetFloat("BlinkTime", 0f); // Reset the BlinkTime parameter
+        }
     }
 
     // Call every time you want to adjust movement speed. Feed in the buff/debuff as flat percentage
@@ -59,7 +101,7 @@ public class PlayerMove : MonoBehaviour
     }
     public void AddRelicAddSpeed(float speed)
     {
-        relicMoveSpeedAdd += speed; 
+        relicMoveSpeedAdd += speed;
         AdjustMoveSpeed();
     }
     public void AddRelicMultSpeed(float speed)
