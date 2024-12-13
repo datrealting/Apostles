@@ -1,17 +1,31 @@
+using System.Collections;
 using UnityEngine;
 
 public abstract class Weapon : MonoBehaviour
 {
     public string Name;
-    [SerializeField] public int Damage;
-    [SerializeField][Min(0.01f)] public float AttackRate = 0.5f; // Time in seconds between attacks
-
-    public float Cooldown = 0f;
-    public int Level;
 
     [SerializeField] protected WeaponStats weaponStats;
 
     public abstract void Attack();
+    protected PlayerControl playerControlReference;
+    private bool canAttack = true;
+    protected Transform playerTransform; // Reference to the player
+    private Transform weaponPosition; // Reference to the weapon holder
+    private Vector3 localOffset; // Local offset to keep the weapon attached to the player
+
+
+
+    // Start is called before the first frame update
+    protected virtual void Start()
+    {
+        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        playerControlReference = GameObject.Find("Player").GetComponent<PlayerControl>();
+        weaponPosition = GameObject.FindGameObjectWithTag("weaponHolder").transform;
+
+        // Calculate the initial offset from the player's position
+        localOffset = transform.localPosition;
+    }
 
     public void LevelUp()
     {
@@ -22,14 +36,24 @@ public abstract class Weapon : MonoBehaviour
 
     public void HandleAttackInput()
     {
-        // Check if the player is pressing the fire button and if the time has passed since the last shot
-        if (Input.GetKey(KeyCode.Mouse0) && Time.time >= Cooldown)
+        // Check if the player clicks the left mouse button
+        if (canAttack)
         {
-            Attack();
-            // Set the next fire time
-            Cooldown = Time.time + AttackRate;
+            if (Input.GetMouseButton(0)) // Left mouse button
+            {
+                Debug.Log(1 / (playerControlReference.GetAtkSpeed(weaponStats.atkSpeed)));
+                Attack(); // Trigger the attack
+                canAttack = false;
+                StartCoroutine(WeaponCD());
+            }
         }
     }
+    private IEnumerator WeaponCD()
+    {
+        yield return new WaitForSeconds(1 / (playerControlReference.GetAtkSpeed(weaponStats.atkSpeed)));
+        canAttack = true;
+    }
+
 
 
     protected void HandleLevelUpInput()

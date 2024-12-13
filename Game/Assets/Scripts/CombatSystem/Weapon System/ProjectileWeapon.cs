@@ -6,23 +6,6 @@ public class ProjectileWeapon : Weapon
     [SerializeField] private GameObject projectilePrefab; // Prefab for the projectile
     [SerializeField] private Transform projectileSpawnPoint; // Spawn point for the projectile
     [SerializeField] private GameObject impactEffect; // Impact effect prefab
-    private bool canAttack = true;
-
-
-    private Transform playerTransform; // Reference to the player
-    private Transform weaponPosition; // Reference to the weapon holder
-    private Vector3 localOffset; // Local offset to keep the weapon attached to the player
-
-    private PlayerControl playerControlReference;
-    void Start()
-    {
-        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-        playerControlReference = GameObject.Find("Player").GetComponent<PlayerControl>();
-        weaponPosition = GameObject.FindGameObjectWithTag("weaponHolder").transform;
-
-        // Calculate the initial offset from the player's position
-        localOffset = transform.localPosition;
-    }
 
     void Update()
     {
@@ -86,29 +69,6 @@ public class ProjectileWeapon : Weapon
         }
     }
 
-
-
-
-
-    private void HandleAttackInput()
-    {
-        // Check if the player clicks the left mouse button
-        if (canAttack)
-        {
-            if (Input.GetMouseButton(0)) // Left mouse button
-            {
-                Debug.Log(1 / (playerControlReference.GetAtkSpeed(weaponStats.atkSpeed)));
-                Attack(); // Trigger the attack
-                canAttack = false;
-                StartCoroutine(WeaponCD());
-            }
-        }
-    }
-    private IEnumerator WeaponCD()
-    {
-        yield return new WaitForSeconds(1 / (playerControlReference.GetAtkSpeed(weaponStats.atkSpeed)));
-        canAttack = true;
-    }
 
     private void RotateWeaponTowardCursor()
     {
