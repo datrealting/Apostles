@@ -16,7 +16,8 @@ public class Burning : BaseSE
     public override void OnApply()
     {
         Debug.Log("Additional logic for BURNING application!");
-        sprite = Instantiate(spritePrefab, target.transform);
+        //sprite = Instantiate(spritePrefab, target.transform);
+        targetHUD.AddStatusIcon(this);
     }
     public override void OnTick()
     {

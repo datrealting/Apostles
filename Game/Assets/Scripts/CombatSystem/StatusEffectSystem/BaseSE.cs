@@ -3,6 +3,7 @@ using System.Threading;
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public abstract class BaseSE : MonoBehaviour, SEInterface
 {
@@ -18,29 +19,33 @@ public abstract class BaseSE : MonoBehaviour, SEInterface
 
     public virtual float tickFrequency => 1f; // number of seconds between each tick (e.g., 0.5 for 2 ticks per second)
 
-    public GameObject spritePrefab; // ref to the sprite prefab
-    public GameObject sprite;   // ref to the sprite returned in the OnApply function.
-
     protected float elapsed = 0f;
     protected float elapsedLastTick = 0f;   // time since last tick
+
+    public GameObject spritePrefab; // ref to the sprite prefab
+    public GameObject sprite;   // ref to the sprite returned in the OnApply function.
 
     protected GameObject caller;
 
     protected GameObject target;
     protected NPCStats targetStats;
 
+    protected EnemyUI targetHUD;
+    public Sprite effectSprite;
+
     public void Initialise(GameObject target, GameObject caller, GameObject spritePrefab)
     {
         this.spritePrefab = spritePrefab;
         this.caller = caller;
         this.target = target;
+        this.targetHUD = target.GetComponentInChildren<EnemyUI>();
+        this.effectSprite = spritePrefab.GetComponent<SpriteRenderer>().sprite;
         targetStats = target.GetComponent<NPCStats>();
         if (targetStats == null)
         {
             Debug.Log("I've fucked up sorry");
             Destroy(this);
         }
-
         BaseSE[] existingEffects = target.GetComponents<BaseSE>();
         switch (overrideType)
         {
@@ -49,7 +54,8 @@ public abstract class BaseSE : MonoBehaviour, SEInterface
                 foreach (BaseSE effect in existingEffects)
                 {
                     if (effect.GetType() == this.GetType())
-                    { 
+                    {
+                        Debug.Log($"Existing effects of type {this.GetType()}: {existingEffects.Length}");
                         if (effect.initialised)
                         {
                             effect.IncreaseDuration(this.duration); // Extend the duration
@@ -72,10 +78,12 @@ public abstract class BaseSE : MonoBehaviour, SEInterface
                         if (effect.initialised)
                         {
                             effect.elapsed = 0f;  // Extend the duration
+                            Debug.Log("DURATION REFRESHED");
                             Destroy(this);
                         }
                         else
                         {
+                            Debug.Log("NEW EFFECT APPLIED");
                             OnApply();
                         }         
                     }
@@ -122,6 +130,7 @@ public abstract class BaseSE : MonoBehaviour, SEInterface
     public void RemoveEffect()
     {
         Destroy(sprite);
+        targetHUD.RemoveStatusIcon(this);
         Destroy(this);
     }
     void Update()
