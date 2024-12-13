@@ -106,12 +106,28 @@ MonoBehaviour:
   AttackRate: 0.5
   Cooldown: 0
   Level: 0
+  weaponStats:
+    baseDamage: 3
+    dmg: 3
+    dmgLevelIncrement: 2
+    baseProjectilesCount: 1
+    projectilesCount: 1
+    projectilesLevelIncrement: 1
+    baseSpread: 10
+    spread: 10
+    spreadLevelIncrement: 5
+    baseAtkSpeed: 1
+    atkSpeed: 0.3
+    atkSpeedIncrement: 1
+    baseProjectileSpeed: 20
+    projectileSpeed: 20
+    projectileSpeedIncrement: 5
+    baseProjectileRange: 10
+    projectileRange: 10
+    projectileRangeIncrement: 5
   projectilePrefab: {fileID: 381423501142137705, guid: 8d3af5d5c2650efaebadf3c9c1afd0e0, type: 3}
   projectileSpawnPoint: {fileID: 4905686281418230434}
   impactEffect: {fileID: 0}
-  weaponDamage: 5
-  weaponAtkspeed: 1
-  projectileSpeed: 20
   projectileRange: 10
 --- !u!1 &5728153109663062762
 GameObject:

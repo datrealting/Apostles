@@ -9,7 +9,7 @@ public abstract class Weapon : MonoBehaviour
     public float Cooldown = 0f;
     public int Level;
 
-    protected WeaponStats weaponStats = new WeaponStats();
+    [SerializeField] protected WeaponStats weaponStats;
 
     public abstract void Attack();
 

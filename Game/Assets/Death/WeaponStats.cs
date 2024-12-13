@@ -1,6 +1,7 @@
 
 using UnityEngine;
 
+[System.Serializable]
 public class WeaponStats
 {
     /* Format:
@@ -11,28 +12,50 @@ public class WeaponStats
     */
 
     // Damage
-    public int dmgLevel = 1;
-    public int baseDamage = 3;
-    public int dmg = 3; 
-    public int dmgLevelIncrement = 2;
+    [Header("Damage")]
+    private int dmgLevel = 1;
+    [SerializeField] private int baseDamage = 3;
+    [SerializeField] public int dmg = 3;// Damage multiplier for the weapon as a percentage
+    [SerializeField] public int dmgLevelIncrement = 2;
 
-    // Firing speed (percentage %)
-    public int firingSpeedLevel = 1;
-    public float baseFiringSpeed = 1f;
-    public float firingSpeed = 1f;
-    public float firingSpeedIncrement = 0.1f;
+
 
     // # of projectiles
-    public int projectilesLevel = 1;
-    public int baseProjectilesCount = 1;
-    public int projectilesCount = 10;
-    public int projectilesLevelIncrement = 1;
+    [Header("Projectile Count")]
+    private int projectilesLevel = 1;
+    [SerializeField] public int baseProjectilesCount = 1;
+    [SerializeField] public int projectilesCount = 1;
+    [SerializeField] public int projectilesLevelIncrement = 1;
 
     // Projectile spread
-    public int spreadLevel = 1;
-    public float baseSpread = 10f;
-    public float spread = 10f;
-    public float spreadLevelIncrement = 1f;
+    [Header("Spread")]
+    private int spreadLevel = 1;
+    [SerializeField] public float baseSpread = 10f;
+    [SerializeField] public float spread = 10f;
+    [SerializeField] public float spreadLevelIncrement = 5f;
+
+
+    // Attack speed
+    [Header("Attack Speed")]
+    private int atkSpeedLevel = 1;
+    [SerializeField] public float baseAtkSpeed = 1f;
+    [SerializeField] public float atkSpeed = 0.0001f; // ATKSpeed multiplier for the weapon as a percentage. Higher numbers means higher atk speed
+    [SerializeField] public float atkSpeedIncrement = 1f;
+
+    // Projectile speed
+    [Header("Projectile Speed")]
+    private int projectileSpeedLevel = 1;
+    [SerializeField] public float baseProjectileSpeed = 20f;
+    [SerializeField] public float projectileSpeed = 20f;
+    [SerializeField] public float projectileSpeedIncrement = 5f;
+
+    // Projectile range
+    [Header("Projectile Range")]
+    private int projectileRangeLevel = 1;
+    [SerializeField] public float baseProjectileRange = 10f;
+    [SerializeField] public float projectileRange = 10f;
+    [SerializeField] public float projectileRangeIncrement = 5f;
+
 
     public void LevelUp()
     {
@@ -45,11 +68,6 @@ public class WeaponStats
         dmgLevel++;
         dmg = dmgLevelIncrement * dmgLevel + baseDamage;
     }
-    public void LevelUpFiringSpeed()
-    {
-        firingSpeedLevel++;
-        firingSpeed = firingSpeedIncrement * firingSpeedLevel + baseFiringSpeed;
-    }
 
     public void LevelUpProjectiles()
     {
@@ -61,6 +79,24 @@ public class WeaponStats
     {
         spreadLevel++;
         spread = spreadLevelIncrement * spreadLevel + baseSpread;
+    }
+
+    public void LevelUpAtkSpeed()
+    {
+        atkSpeedLevel++;
+        atkSpeed = atkSpeedIncrement * atkSpeedLevel + baseAtkSpeed;
+    }
+
+    public void LevelUpProjectileSpeed()
+    {
+        projectileSpeedLevel++;
+        projectileSpeed = projectileSpeedIncrement * projectileSpeedLevel + baseProjectileSpeed;
+    }
+
+    public void LevelUpProjectileRange()
+    {
+        projectileRangeLevel++;
+        projectileRange = projectileRangeIncrement * projectileRangeLevel + baseProjectileRange;
     }
 
 }

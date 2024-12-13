@@ -6,11 +6,8 @@ public class ProjectileWeapon : Weapon
     [SerializeField] private GameObject projectilePrefab; // Prefab for the projectile
     [SerializeField] private Transform projectileSpawnPoint; // Spawn point for the projectile
     [SerializeField] private GameObject impactEffect; // Impact effect prefab
-    [SerializeField] private float weaponDamage = 1f; // Damage multiplier for the weapon as a percentage
-    [SerializeField] private float weaponAtkspeed = 0.0001f; // ATKSpeed multiplier for the weapon as a percentage. Higher numbers means higher atk speed
     private bool canAttack = true;
-    [SerializeField] private float projectileSpeed = 20f; // Speed of the projectile
-    [SerializeField] private float projectileRange = 10f; // Range of the projectile
+
 
     private Transform playerTransform; // Reference to the player
     private Transform weaponPosition; // Reference to the weapon holder
@@ -70,7 +67,7 @@ public class ProjectileWeapon : Weapon
             ProjectileImpact impactScript = projectile.GetComponent<ProjectileImpact>();
             if (impactScript != null && playerControlReference != null)
             {
-                impactScript.Setup(impactEffect, playerControlReference.GetActualDamage(weaponDamage)); // Pass damage to the impact script
+                impactScript.Setup(impactEffect, playerControlReference.GetActualDamage(weaponStats.dmg)); // Pass damage to the impact script
             }
 
             // Add projectile movement (direction and speed)
@@ -81,10 +78,10 @@ public class ProjectileWeapon : Weapon
                 Vector2 direction = rotation * Vector2.right;  // Use 'right' instead of 'up' for forward direction
 
                 // Apply velocity to move the projectile forward
-                rb.linearVelocity = direction * projectileSpeed; // Apply speed to the projectile
+                rb.linearVelocity = direction * weaponStats.projectileSpeed; // Apply speed to the projectile
 
                 // Add range logic
-                Destroy(projectile, projectileRange / projectileSpeed); // Destroy the projectile after reaching its range
+                Destroy(projectile, weaponStats.projectileRange / weaponStats.projectileSpeed); // Destroy the projectile after reaching its range
             }
         }
     }
@@ -100,7 +97,7 @@ public class ProjectileWeapon : Weapon
         {
             if (Input.GetMouseButton(0)) // Left mouse button
             {
-                Debug.Log(1 / (playerControlReference.GetAtkSpeed(weaponAtkspeed)));
+                Debug.Log(1 / (playerControlReference.GetAtkSpeed(weaponStats.atkSpeed)));
                 Attack(); // Trigger the attack
                 canAttack = false;
                 StartCoroutine(WeaponCD());
@@ -109,7 +106,7 @@ public class ProjectileWeapon : Weapon
     }
     private IEnumerator WeaponCD()
     {
-        yield return new WaitForSeconds(1 / (playerControlReference.GetAtkSpeed(weaponAtkspeed)));
+        yield return new WaitForSeconds(1 / (playerControlReference.GetAtkSpeed(weaponStats.atkSpeed)));
         canAttack = true;
     }
 
