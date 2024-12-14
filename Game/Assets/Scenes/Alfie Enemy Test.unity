@@ -2139,6 +2139,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1542017952431879017, guid: ee328388bc2b66b478eade6a68a7d170, type: 3}
+      propertyPath: itemEffect
+      value: 
+      objectReference: {fileID: 11400000, guid: f2067efdd82a6cd4fa570342b71debd4, type: 2}
     - target: {fileID: 9093704425621658516, guid: ee328388bc2b66b478eade6a68a7d170, type: 3}
       propertyPath: m_Name
       value: TempoBlade
