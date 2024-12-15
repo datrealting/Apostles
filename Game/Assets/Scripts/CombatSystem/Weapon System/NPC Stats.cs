@@ -1,5 +1,6 @@
 
 using UnityEngine;
+using UnityEngine.Rendering.UI;
 
 public class NPCStats : MonoBehaviour
 {
@@ -19,8 +20,16 @@ public class NPCStats : MonoBehaviour
 
     // Use TakeDamage() for most gameplay interactions where armour will be factored in,
     // and AdjustHP() for if you just need to change HP no bullshit 
+
+
+    [SerializeField] EnemyUI enemyUI;
+    private void Awake()
+    {
+        enemyUI = GetComponentInChildren<EnemyUI>();
+    }
     public virtual void TakeDamage(float damage)
     {
+
         float actualdamage = damage - armour;
         if (actualdamage < 1)
         {
@@ -32,8 +41,8 @@ public class NPCStats : MonoBehaviour
         {
             ShowFloatingText(actualdamage);
         }
-
         currenthp = currenthp - actualdamage;
+        enemyUI.UpdateHealthBar(currenthp, maxhp);
         if (currenthp <= minhp)
         {
             currenthp = minhp;

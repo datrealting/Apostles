@@ -6,6 +6,7 @@ public class Interact : MonoBehaviour
     [SerializeField] private Vector3 floatingTextOffset = new Vector3(0f, 1f, 0f); // Offset for floating text position
     [SerializeField] private Vector3 floatingTextScale = new Vector3(1f, 1f, 1f); // Scale for floating text
 
+
     private GameObject floatingTextInstance;
     public Animator animator;
 
@@ -28,9 +29,7 @@ public class Interact : MonoBehaviour
             {
                 animator.SetTrigger("TextDie");
 
-                // Call DestroyFloatingText after the "TextDie" animation duration
-                float animationLength = animator.GetCurrentAnimatorStateInfo(0).length;
-                Invoke("DestroyFloatingText", animationLength); // Invoke delay before destroying
+                Destroy(floatingTextInstance);
             }
         }
     }
@@ -54,11 +53,5 @@ public class Interact : MonoBehaviour
 
         // Set the scale of the floating text
         floatingTextInstance.transform.localScale = floatingTextScale;
-    }
-
-    // Destroy the floating text
-    void DestroyFloatingText()
-    {
-        Destroy(floatingTextInstance);
     }
 }

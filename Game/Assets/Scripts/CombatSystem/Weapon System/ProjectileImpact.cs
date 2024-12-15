@@ -20,6 +20,7 @@ public class ProjectileImpact : MonoBehaviour
             {
                 other.GetComponent<NPCStats>()?.TakeDamage(damage);  // Use the damage passed from the weapon
                 GameObject.Find("Player").GetComponent<PlayerControl>().onStrike?.Invoke(other.gameObject);
+
             }
 
             if (impactEffect != null)

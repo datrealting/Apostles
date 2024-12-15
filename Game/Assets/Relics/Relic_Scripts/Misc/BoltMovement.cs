@@ -18,7 +18,10 @@ public class BoltMovement : MonoBehaviour
     public float searchRadius = 500f;
     void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, nextNPC.transform.position, speed * Time.deltaTime);
+        if (nextNPC != null)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, nextNPC.transform.position, speed * Time.deltaTime);
+        }
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
