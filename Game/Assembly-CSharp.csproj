@@ -75,7 +75,7 @@
     <Compile Include="Assets\Scripts\CombatSystem\StatusEffectSystem\SE Interface.cs" />
     <Compile Include="Assets\Relics\Relic_Scripts\TBController.cs" />
     <Compile Include="Assets\Enemies\EnemyAttackScript.cs" />
-    <Compile Include="Assets\ChestOpening.cs" />
+    <Compile Include="Assets\EnemyGFX.cs" />
     <Compile Include="Assets\Scripts\CombatSystem\AOE System\TEMP AOE Spawner.cs" />
     <Compile Include="Assets\Death\GameManager.cs" />
     <Compile Include="Assets\Scripts\Crown_Of_Thorns_Behaivour.cs" />
@@ -84,9 +84,11 @@
     <Compile Include="Assets\Room.cs" />
     <Compile Include="Assets\Death\UpgradeMenuScript.cs" />
     <Compile Include="Assets\Scripts\CombatSystem\StatusEffectSystem\Effects\Burning.cs" />
+    <Compile Include="Assets\ProjectileRotation.cs" />
     <Compile Include="Assets\FloatingText.cs" />
     <Compile Include="Assets\Brick_Attributes.cs" />
     <Compile Include="Assets\Scripts\CombatSystem\StatusEffectSystem\Effects\Bloodspark.cs" />
+    <Compile Include="Assets\Relics\ChestOpening.cs" />
     <Compile Include="Assets\Enemies\ALFIEBossScript.cs" />
     <Compile Include="Assets\UI\Scripts\MainMenu.cs" />
     <Compile Include="Assets\Scripts\CombatSystem\Weapon System\MeleeWeapon.cs" />
@@ -94,6 +96,7 @@
     <Compile Include="Assets\Scripts\CombatSystem\Weapon System\PlayerStatData.cs" />
     <Compile Include="Assets\Scripts\CombatSystem\AOE System\AOEController.cs" />
     <Compile Include="Assets\Scripts\CombatSystem\Weapon System\NPC Stats.cs" />
+    <Compile Include="Assets\PathFindingInitialiser.cs" />
     <Compile Include="Assets\Relics\Relic_Scripts\BrickController.cs" />
     <Compile Include="Assets\Scripts\CombatSystem\AOE System\IAoe.cs" />
     <Compile Include="Assets\Death\WeaponStats.cs" />
@@ -112,6 +115,7 @@
     <Compile Include="Assets\Scripts\CombatSystem\StatusEffectSystem\DEMOPLSDELETE gimmethestatus.cs" />
     <Compile Include="Assets\Player Health.cs" />
     <Compile Include="Assets\Scripts\Interact.cs" />
+    <Compile Include="Assets\EnemyAI.cs" />
     <Compile Include="Assets\Relics\Relic_Scripts\Misc\BoltMovement.cs" />
     <Compile Include="Assets\Scripts\CombatSystem\Weapon System\HealthPickup.cs" />
     <Compile Include="Assets\Scripts\EnemyPathfind.cs" />
@@ -119,14 +123,20 @@
     <Compile Include="Assets\Scripts\CombatSystem\StatusEffectSystem\BaseSE.cs" />
     <Compile Include="Assets\Scripts\CombatSystem\Weapon System\ProjectileWeapon.cs" />
     <Compile Include="Assets\Enemies\EnemyScript.cs" />
+    <Compile Include="Assets\enemyBullet.cs" />
     <Compile Include="Assets\Scripts\CombatSystem\Weapon System\Player Stats.cs" />
     <Compile Include="Assets\Scripts\CombatSystem\StatusEffectSystem\OverrideType.cs" />
     <Compile Include="Assets\UI\Scripts\HPScript.cs" />
     <Compile Include="Assets\Scripts\CombatSystem\AOE System\AOE.cs" />
     <Compile Include="Assets\Enemies\EnemyChaseScript.cs" />
+    <Compile Include="Assets\ShooterBehavior.cs" />
     <Compile Include="Assets\Scripts\CombatSystem\Weapon System\ProjectileImpact.cs" />
     <Compile Include="Assets\CameraFollow.cs" />
+    <Compile Include="Assets\Scripts\CombatSystem\Weapon System\EnemyProjectileImpact1.cs" />
     <Compile Include="Assets\Scripts\CombatSystem\Weapon System\Weapon.cs" />
+    <Compile Include="Assets\EnemyInitialiser.cs" />
+    <Compile Include="Assets\Relics\Chest_interaction.cs" />
+    <Compile Include="Assets\UI\Scripts\EnemyUI.cs" />
     <Compile Include="Assets\Crown_Of_Thorns_Behaivour.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -635,6 +645,10 @@
     </Reference>
     <Reference Include="Mono.Cecil">
       <HintPath>Library\PackageCache\com.unity.nuget.mono-cecil\Mono.Cecil.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Pathfinding.Ionic.Zip.Reduced">
+      <HintPath>Assets\AstarPathfindingProject\Plugins\DotNetZip\Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="netstandard">
@@ -1391,6 +1405,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="AstarPathfindingProjectEditor.csproj" />
+    <ProjectReference Include="AstarPathfindingProject.csproj" />
+    <ProjectReference Include="PackageToolsEditor.csproj" />
   </ItemGroup>
   <Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk" />
   <ItemGroup>
