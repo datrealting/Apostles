@@ -66,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\CombatSystem\StatusEffectSystem\Effects\Bleeding.cs" />
+    <Compile Include="Assets\Relics\RelicHandlerScript.cs" />
     <Compile Include="Assets\Scripts\CombatSystem\Weapon System\PlayerControl.cs" />
     <Compile Include="Assets\Death\DEMOPLEASEDELETE death maker.cs" />
     <Compile Include="Assets\Relics\Relic_Scripts\itemEffect.cs" />
@@ -89,6 +90,7 @@
     <Compile Include="Assets\Brick_Attributes.cs" />
     <Compile Include="Assets\Scripts\CombatSystem\StatusEffectSystem\Effects\Bloodspark.cs" />
     <Compile Include="Assets\Relics\ChestOpening.cs" />
+    <Compile Include="Assets\UI\Scripts\DEMOPLEASEDELET Elootboxscreen.cs" />
     <Compile Include="Assets\Enemies\ALFIEBossScript.cs" />
     <Compile Include="Assets\UI\Scripts\MainMenu.cs" />
     <Compile Include="Assets\Scripts\CombatSystem\Weapon System\MeleeWeapon.cs" />
@@ -100,6 +102,7 @@
     <Compile Include="Assets\Relics\Relic_Scripts\BrickController.cs" />
     <Compile Include="Assets\Scripts\CombatSystem\AOE System\IAoe.cs" />
     <Compile Include="Assets\Death\WeaponStats.cs" />
+    <Compile Include="Assets\UI\Scripts\LootboxScript.cs" />
     <Compile Include="Assets\Scripts\CombatSystem\StatusEffectSystem\Effects\Hellfire.cs" />
     <Compile Include="Assets\Sparking_Book_Controller.cs" />
     <Compile Include="Assets\Relics\Relic_Scripts\Brew_Controller.cs" />
@@ -117,6 +120,8 @@
     <Compile Include="Assets\Scripts\Interact.cs" />
     <Compile Include="Assets\EnemyAI.cs" />
     <Compile Include="Assets\Relics\Relic_Scripts\Misc\BoltMovement.cs" />
+    <Compile Include="Assets\Scripts\CombatSystem\AOE System\EffectScript.cs" />
+    <Compile Include="Assets\Relics\Relic_Scripts\Rarity.cs" />
     <Compile Include="Assets\Scripts\CombatSystem\Weapon System\HealthPickup.cs" />
     <Compile Include="Assets\Scripts\EnemyPathfind.cs" />
     <Compile Include="Assets\Enemies\IEnemy.cs" />
@@ -132,6 +137,7 @@
     <Compile Include="Assets\ShooterBehavior.cs" />
     <Compile Include="Assets\Scripts\CombatSystem\Weapon System\ProjectileImpact.cs" />
     <Compile Include="Assets\CameraFollow.cs" />
+    <Compile Include="Assets\Relics\Relic_Scripts\Enum_Rarity.cs" />
     <Compile Include="Assets\Scripts\CombatSystem\Weapon System\EnemyProjectileImpact1.cs" />
     <Compile Include="Assets\Scripts\CombatSystem\Weapon System\Weapon.cs" />
     <Compile Include="Assets\EnemyInitialiser.cs" />
