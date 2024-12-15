@@ -69,6 +69,14 @@ MonoBehaviour:
   - {fileID: 972745451700097996, guid: efebc0416d0ae994f8dd77a1afecadf1, type: 3}
   - {fileID: 4080340503184733614, guid: 81c41cdf336009f42af9bbe30d722d9b, type: 3}
   - {fileID: 5409390759219617396, guid: 7bbaeccec6a5907499a6da727012ad65, type: 3}
+  - {fileID: 5409390759219617396, guid: 3ab48a159ec32b144b502b229cffb19e, type: 3}
+  enemies:
+  - {fileID: 4603703936657999577, guid: b4f72c292870b5044a299d69017d30ad, type: 3}
+  - {fileID: 7712677544684804097, guid: f33076c70863ff944beaa120f924031b, type: 3}
+  - {fileID: 1993939142623378662, guid: 8304b3b9347dff145865072f8cf61ea9, type: 3}
+  - {fileID: 1908922564349282745, guid: 52dc419caea6c4d439507d8cb8ded4a9, type: 3}
+  - {fileID: 8896798829890649286, guid: 6e677153d7972a84d83e3a8750d3fc9a, type: 3}
+  - {fileID: 1420553655108253582, guid: bf447bb202285624e904da4fd1508d82, type: 3}
 --- !u!212 &6820682283104964349
 SpriteRenderer:
   m_ObjectHideFlags: 0

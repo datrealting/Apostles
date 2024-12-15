@@ -1,3 +1,4 @@
+using UnityEditor.Tilemaps;
 using UnityEngine;
 //using static UnityEditor.PlayerSettings;
 
@@ -11,21 +12,27 @@ public class Room : MonoBehaviour
     private GameObject[] entrances = new GameObject[4];
     [SerializeField]
     private GameObject[] obstacles;
+    [SerializeField]
+    private GameObject[] enemies;
 
     private GameObject obstacle;
+    private GameObject enemy;
 
     private void Awake()
     {
         obstacle = Instantiate(obstacles[Random.Range(0, obstacles.Length)], this.transform.position, Quaternion.identity);
         obstacle.transform.SetParent(this.transform);
-        obstacle.SetActive(false);
+
+        enemy = Instantiate(enemies[Random.Range(0, enemies.Length)], this.transform.position, Quaternion.identity);
+        enemy.transform.SetParent(this.transform);
+        enemy.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            obstacle.SetActive(true);
+            enemy.SetActive(true);
         }
     }
 

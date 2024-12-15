@@ -30,7 +30,7 @@ public class FloorGenerator : MonoBehaviour
 
     int[] allowedDirectionIndexes = { 0, 1, 2 };
 
-    void Start()
+    void Awake()
     {
         visited = new HashSet<Vector2>();
         GenRoom(Vector2.zero, -1);
