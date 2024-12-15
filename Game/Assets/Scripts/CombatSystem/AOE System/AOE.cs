@@ -115,6 +115,9 @@ public class AOE : MonoBehaviour
         hits = CheckObjectsInArea();
         caller.AOEEffect(hits);
 
+        // Do particle effect
+        Instantiate(Resources.Load("HitEffect"), transform.position, Quaternion.identity);
+
         // spaghetti code below oWo
         Destroy(thePrefabItself);
     }

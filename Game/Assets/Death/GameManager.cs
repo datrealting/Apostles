@@ -6,7 +6,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    protected bool gamePaused = false;
+    public bool gamePaused = false;
+    public bool pauseLocked = false;    // locks the screen such that it can't be double paused etc. 
     public GameObject menuscreen;
     public GameObject sureScreen;
 
@@ -52,7 +53,7 @@ public class GameManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (gamePaused)
+            if (gamePaused && !pauseLocked)
             {
                 Unpause();
             }
@@ -63,13 +64,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void Pause()
+    public void Pause()
     {
         Time.timeScale = 0;
         menuscreen.SetActive(true);
         gamePaused = true;
     }
-    void Unpause()
+    public void Unpause()
     {
         Time.timeScale = 1;
         menuscreen.SetActive(false);
