@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 740475382862280554}
   - component: {fileID: 2562402055625212517}
   - component: {fileID: 6210314418020057991}
-  - component: {fileID: 7322027130413310109}
+  - component: {fileID: 2383744944756297342}
   - component: {fileID: 994199936535576342}
   - component: {fileID: 2989327416580714184}
   m_Layer: 0
@@ -103,7 +103,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4822270797679627774}
   m_CullTransparentMesh: 1
---- !u!114 &7322027130413310109
+--- !u!114 &2383744944756297342
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -112,31 +112,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 4822270797679627774}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Script: {fileID: 11500000, guid: 9536286170ad1324b8c7903eb81cd6f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
-    m_FontSize: 14
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
-    m_Alignment: 0
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: Press E to Open
+  FloatingTextPrefab: {fileID: 3550586233752989236, guid: 026544b266003c9459835010b0128e5a, type: 3}
+  floatingTextOffset: {x: 0, y: 1, z: 0}
+  floatingTextScale: {x: 1, y: 1, z: 1}
+  animator: {fileID: 6122529333875642345, guid: 026544b266003c9459835010b0128e5a, type: 3}
 --- !u!114 &994199936535576342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,7 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b07a9784d63585f438a8201d6f47c411, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TextUI: {fileID: 7322027130413310109}
+  TextUI: {fileID: 0}
   OffSetPosY: -1
   itemToDrop: {fileID: 9093704425621658516, guid: af58bcfab43c87a4eb09350320b21e3f, type: 3}
 --- !u!58 &2989327416580714184
