@@ -16,7 +16,7 @@ public class EnemyUI : MonoBehaviour
     }
     public void AddStatusIcon(BaseSE effectToAdd)
     {
-        Debug.Log("Adding effect: " + effectToAdd);
+        //Debug.Log("Adding effect: " + effectToAdd);
         GameObject icon = Instantiate(Resources.Load<GameObject>("IconHolder"), statusEffectHolder.transform);
         icon.GetComponent<SpriteRenderer>().sprite = effectToAdd.effectSprite;
 
@@ -24,17 +24,13 @@ public class EnemyUI : MonoBehaviour
     }
     public void RemoveStatusIcon(BaseSE effectToRemove)
     {
-        if (statusIcons.TryGetValue(effectToRemove, out GameObject icon))
+        try
         {
-            // Destroy the icon GameObject
-            Destroy(icon);
-
-            // Remove the reference from the dictionary
-            statusIcons.Remove(effectToRemove);
+            Destroy(statusIcons[effectToRemove]);
         }
-        else
+        catch
         {
-            Debug.LogWarning("Effect not found: " + effectToRemove);
+            //Debug.LogWarning("Effect not found: " + effectToRemove);
         }
     }
 }

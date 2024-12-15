@@ -47,19 +47,21 @@ public abstract class BaseSE : MonoBehaviour, SEInterface
             Destroy(this);
         }
         BaseSE[] existingEffects = target.GetComponents<BaseSE>();
+        bool alreadyFound = false;
         switch (overrideType)
         {
             case OverrideType.Extend:
-                Debug.Log("TYPE: EXTEND");
+                //Debug.Log("TYPE: EXTEND");
                 foreach (BaseSE effect in existingEffects)
                 {
                     if (effect.GetType() == this.GetType())
                     {
-                        Debug.Log($"Existing effects of type {this.GetType()}: {existingEffects.Length}");
+                        //Debug.Log($"Existing effects of type {this.GetType()}: {existingEffects.Length}");
                         if (effect.initialised)
                         {
                             effect.IncreaseDuration(this.duration); // Extend the duration
-                            Destroy(this);
+                            RemoveEffect();
+                            alreadyFound = true;
                         }
                         else
                         {
@@ -70,7 +72,7 @@ public abstract class BaseSE : MonoBehaviour, SEInterface
                 break;
 
             case OverrideType.Refresh:
-                Debug.Log("TYPE: REFRESH");
+               // Debug.Log("TYPE: REFRESH");
                 foreach (BaseSE effect in existingEffects)
                 {
                     if (effect.GetType() == this.GetType())
@@ -78,12 +80,13 @@ public abstract class BaseSE : MonoBehaviour, SEInterface
                         if (effect.initialised)
                         {
                             effect.elapsed = 0f;  // Extend the duration
-                            Debug.Log("DURATION REFRESHED");
-                            Destroy(this);
+                           // Debug.Log("DURATION REFRESHED");
+                            RemoveEffect();
+                            alreadyFound = true;
                         }
                         else
                         {
-                            Debug.Log("NEW EFFECT APPLIED");
+                           // Debug.Log("NEW EFFECT APPLIED");
                             OnApply();
                         }         
                     }
@@ -102,18 +105,23 @@ public abstract class BaseSE : MonoBehaviour, SEInterface
                 break;
 
             case OverrideType.Stack:
-                Debug.Log("TYPE: STACK");
+                //Debug.Log("TYPE: STACK");
                 // Stack the effect (apply another one)
                 OnApply();
                 break;
 
             case OverrideType.Nothing:
-                Debug.Log("TYPE: NOTHING");
+                //Debug.Log("TYPE: NOTHING");
                 // Destroy this effect if no action is needed
                 Destroy(this);
                 break;
         }
         this.initialised = true;
+        if (!alreadyFound)
+        {
+            targetHUD.AddStatusIcon(this);
+        }
+
     }
 
     public void IncreaseDuration(float duration)

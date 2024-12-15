@@ -9,15 +9,15 @@ public class Burning : BaseSE
     public override OverrideType overrideType => OverrideType.Refresh;
 
     public override float duration { get; set; } = 5f;  // Settable in this class
-    public override float tickFrequency => 0.5f;
+    public override float tickFrequency => 1f;
 
-    public float damagePerTick = 1f;
+    public float damagePerTick = 6f;
 
     public override void OnApply()
     {
-        Debug.Log("Additional logic for BURNING application!");
+        //Debug.Log("Additional logic for BURNING application!");
         //sprite = Instantiate(spritePrefab, target.transform);
-        targetHUD.AddStatusIcon(this);
+
     }
     public override void OnTick()
     {
@@ -27,12 +27,12 @@ public class Burning : BaseSE
         }
         if (targetStats == null)
         {
-            Debug.Log("Something died with BURNING on");
+            //Debug.Log("Something died with BURNING on");
         }
     }
     public override void OnExpire()
     {
-        Debug.Log("Additional logic for BURNING removal!");
+        //Debug.Log("Additional logic for BURNING removal!");
     }
     public override void OnDie()
     {

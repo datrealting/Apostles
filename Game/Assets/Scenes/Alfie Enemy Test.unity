@@ -710,9 +710,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cafb3b37d8024d14da13d679bf1083ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  effect: {fileID: 5725087024917783585, guid: ef908ad593634204e9a7d5a28897307d, type: 3}
-  spritePrefab: {fileID: 3402773521503651499, guid: ef908ad593634204e9a7d5a28897307d, type: 3}
+  target: {fileID: 1810178825}
+  effect: {fileID: 17056681685898123, guid: 3274d8b0482811d49adc742c2eb5e14c, type: 3}
+  spritePrefab: {fileID: 6438112948763051086, guid: 3274d8b0482811d49adc742c2eb5e14c, type: 3}
 --- !u!114 &791012494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1096,6 +1096,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 768395687322533354, guid: 58b2caef07623ac47901a944c683e8a4, type: 3}
+      propertyPath: maxhp
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 768395687322533354, guid: 58b2caef07623ac47901a944c683e8a4, type: 3}
+      propertyPath: currenthp
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 2721154579837058487, guid: 58b2caef07623ac47901a944c683e8a4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.2675877
@@ -1234,6 +1242,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9286dc8c23f960e40b1b66cd82b0469c, type: 3}
+--- !u!1 &1810178825 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6879185989415679882, guid: 58b2caef07623ac47901a944c683e8a4, type: 3}
+  m_PrefabInstance: {fileID: 1627222444}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4245263060004931887
 PrefabInstance:
   m_ObjectHideFlags: 0
