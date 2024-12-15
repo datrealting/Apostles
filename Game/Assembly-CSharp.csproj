@@ -69,6 +69,7 @@
     <Compile Include="Assets\Scripts\CombatSystem\Weapon System\PlayerControl.cs" />
     <Compile Include="Assets\Death\DEMOPLEASEDELETE death maker.cs" />
     <Compile Include="Assets\Relics\Relic_Scripts\itemEffect.cs" />
+    <Compile Include="Assets\Relics\Relic_Scripts\BurningBrand.cs" />
     <Compile Include="Assets\Scripts\CombatSystem\StatusEffectSystem\StatusEffectManager.cs" />
     <Compile Include="Assets\Player movement.cs" />
     <Compile Include="Assets\Scripts\CombatSystem\StatusEffectSystem\SE Interface.cs" />
@@ -104,11 +105,14 @@
     <Compile Include="Assets\Relics\Relic_Scripts\CrownController.cs" />
     <Compile Include="Assets\Relics\Relic_Scripts\Sparking_Book_Controller.cs" />
     <Compile Include="Assets\Relics\Relic_Scripts\ItemPickupEffect.cs" />
+    <Compile Include="Assets\Scripts\CombatSystem\StatusEffectSystem\Effects\LightningBolt.cs" />
     <Compile Include="Assets\Scripts\Floor Generation\FloorGenerator.cs" />
     <Compile Include="Assets\Scripts\PlayerMove.cs" />
     <Compile Include="Assets\BrickController.cs" />
     <Compile Include="Assets\Scripts\CombatSystem\StatusEffectSystem\DEMOPLSDELETE gimmethestatus.cs" />
     <Compile Include="Assets\Player Health.cs" />
+    <Compile Include="Assets\Scripts\Interact.cs" />
+    <Compile Include="Assets\Relics\Relic_Scripts\Misc\BoltMovement.cs" />
     <Compile Include="Assets\Scripts\CombatSystem\Weapon System\HealthPickup.cs" />
     <Compile Include="Assets\Scripts\EnemyPathfind.cs" />
     <Compile Include="Assets\Enemies\IEnemy.cs" />
