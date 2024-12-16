@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: dfa7c3a88724a814ea3591c9b0f26f53
+guid: 95062f9aebe812f2a8ba8f8eb317a576
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -621015903330714899
-    second: bleeding 1_0
+      213: 1872732258777413398
+    second: dagger_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bleeding 1_0
+      name: dagger_0
       rect:
         serializedVersion: 2
-        x: 137
-        y: 33
-        width: 252
-        height: 440
+        x: 0
+        y: 0
+        width: 828
+        height: 287
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: deaba128355b167f0800000000000000
-      internalID: -621015903330714899
+      spriteID: 617b7d331184df910800000000000000
+      internalID: 1872732258777413398
       vertices: []
       indices: 
       edges: []
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      bleeding 1_0: -621015903330714899
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
