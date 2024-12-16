@@ -21,6 +21,9 @@ public class NPCStats : MonoBehaviour
     // Use TakeDamage() for most gameplay interactions where armour will be factored in,
     // and AdjustHP() for if you just need to change HP no bullshit 
 
+    // Delegate shit. Subscribe to onEnemyDamage to be notified and told how much damage the enemy takes whenever it does.
+    public OnEnemyDamage onEnemyDamage;
+    public delegate void OnEnemyDamage(float damage);
 
     [SerializeField] EnemyUI enemyUI;
     private void Awake()
@@ -42,6 +45,7 @@ public class NPCStats : MonoBehaviour
             ShowFloatingText(actualdamage);
         }
         currenthp = currenthp - actualdamage;
+        onEnemyDamage?.Invoke(actualdamage);
         enemyUI.UpdateHealthBar(currenthp, maxhp);
         if (currenthp <= minhp)
         {

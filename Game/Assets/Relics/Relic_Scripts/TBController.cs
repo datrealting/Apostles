@@ -8,6 +8,9 @@ using static UnityEngine.GraphicsBuffer;
 [CreateAssetMenu(menuName = "ItemPickups/TempoBlade")]
 public class TBController : ItemEffect
 {
+    float atkspeed = 0f;
+    float speed = 0f;
+    float increment = 0.002f;
     void Awake()
     {
         vName = "Tempo Blade";
@@ -25,7 +28,16 @@ public class TBController : ItemEffect
     
     public void IncreaseSpeed(GameObject target)
     {
-        owner.GetComponent<PlayerMove>().AddRelicMultSpeed(0.001f);
-        owner.GetComponent<PlayerControl>().relicAtkspeedMult += 0.001f;
+        if (speed < 1)
+        {
+            owner.GetComponent<PlayerMove>().AddRelicMultSpeed(increment);
+            speed += increment;
+        }
+        if (atkspeed < 1)
+        {
+            owner.GetComponent<PlayerControl>().relicAtkspeedMult += increment;
+            atkspeed += increment;
+        }
+
     }
 }
