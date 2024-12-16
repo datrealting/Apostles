@@ -12,6 +12,8 @@ public class UpgradeMenuScript : MonoBehaviour
     // Text
     public TMP_Text damageText;
     public TMP_Text atkspeedText;
+    public TMP_Text projcountText;
+    public TMP_Text projspeedText;
 
     public TMP_Text hpText;
     public TMP_Text speedText;
@@ -30,7 +32,15 @@ public class UpgradeMenuScript : MonoBehaviour
     public Button atkspeedUpgradeButton;
     public TMP_Text atkspeedCost;
 
+    public TMP_Text projcountcost;
+    public TMP_Text projspeedcost;
+
     public Button respawnButton;
+
+    public Button unlockAscensionButton;
+    public TMP_Text ascensionCost;
+    public GameObject ascensionLock;
+    public int ascensionPrice = 1_000_000;
 
     private void Start()
     {
@@ -39,6 +49,8 @@ public class UpgradeMenuScript : MonoBehaviour
         UpdateSpeedText();
         UpdateDamageText();
         UpdateAtkspeedText();
+        U
+        UpdateAscensionScreen();
     }
 
     void UpdateSoulsText()
@@ -65,7 +77,18 @@ public class UpgradeMenuScript : MonoBehaviour
         atkspeedText.text = GameManager.Instance.psd.atkspeed.ToString();
         atkspeedCost.text = GameManager.Instance.psd.atkspeedUpgradeCost.ToString();
     }
-
+    void UpdateProjCount()
+    {
+        projcountText.text = GameManager.Instance.psd.atkspeed.ToString();
+        projcountcost.text = GameManager.Instance.psd.atkspeedUpgradeCost.ToString();
+    }
+    void UpdateAscensionScreen()
+    {
+        if (GameManager.Instance.ascended)
+        {
+            ascensionLock.SetActive(false);
+        }
+    }
     public void UpgradeHP()
     {
         if (GameManager.Instance.playerSouls >= GameManager.Instance.psd.hpUpgradeCost)
@@ -123,7 +146,19 @@ public class UpgradeMenuScript : MonoBehaviour
             Debug.Log("Not enough souls!");
         }
     }
-
+    public void UnlockAscension()
+    {
+        if (GameManager.Instance.playerSouls >= ascensionPrice)
+        {
+            GameManager.Instance.playerSouls -= ascensionPrice;
+            GameManager.Instance.ascended = true;
+            UpdateAscensionScreen();
+        }
+        else
+        {
+            Debug.Log("Not enough souls!");
+        }
+    }
     public void TestButton()
     {
         Debug.Log("Test button");

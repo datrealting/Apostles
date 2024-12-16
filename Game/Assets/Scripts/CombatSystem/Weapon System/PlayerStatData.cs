@@ -28,6 +28,8 @@ public class PlayerStatData
     public int speedUpgradeCost = 150;
     public float speedUpgradeCostIncrease = 0.9f + statIncreaseBias;
 
+    public 
+
     public float invincibilityTime = 0.5f; // in s
 
     public float bleedChance;
@@ -44,6 +46,7 @@ public class PlayerStatData
         maxhp = pc.maxhp;
         currenthp = pc.maxhp;
         speed = pm.moveSpeed;
+        bleedChance = pc.bleedChance;
     }
     public void UpgradeDamage()
     {

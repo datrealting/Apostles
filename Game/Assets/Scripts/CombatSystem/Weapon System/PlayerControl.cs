@@ -118,11 +118,12 @@ public class PlayerControl : MonoBehaviour
     public delegate void OnStrike(GameObject target);
     public void Bleed(GameObject target)
     {
-        Debug.Log("Bleed added");
-        StatusEffectManager.ApplyEffect(target, null, new Bleeding(), Resources.Load<GameObject>("BleedingPrefab"));
-        if (Random.Range(0f, 1f) < bleedChance)
+        float randval = Random.Range(0f, 1f);
+        Debug.Log("Random value: " + randval);
+        Debug.Log("Bleed chance: " + bleedChance);
+        if (randval < bleedChance)
         {
-            
+            StatusEffectManager.ApplyEffect(target, null, new Bleeding(), Resources.Load<GameObject>("BleedingPrefab"));
         }
     }
     void HandleAttack()

@@ -26,6 +26,9 @@ public class GameManager : MonoBehaviour
     public AudioSource g1;
     public AudioSource g2;
 
+    // Ascension Variables
+    public bool ascended = false;
+
     // Cheat variables
     private int soulcheatincrease = 30000;
 
