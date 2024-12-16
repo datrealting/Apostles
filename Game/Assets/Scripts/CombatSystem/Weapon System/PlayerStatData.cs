@@ -28,7 +28,10 @@ public class PlayerStatData
     public int speedUpgradeCost = 150;
     public float speedUpgradeCostIncrease = 0.9f + statIncreaseBias;
 
-    public 
+    public int projcount;
+    private int projcountIncrement = 1;
+    public int projcountCost = 3000;
+    public float projectcountCostIncrease = 1.2f + statIncreaseBias;
 
     public float invincibilityTime = 0.5f; // in s
 
@@ -41,12 +44,15 @@ public class PlayerStatData
         Debug.Log("PSD formed from inspector player settings: " + GameObject.Find("Player"));
         PlayerControl pc = GameObject.Find("Player").GetComponent<PlayerControl>();
         PlayerMove pm = GameObject.Find("Player").GetComponent<PlayerMove>();
+        Weapon wep = GameObject.Find("Player").transform.Find("weaponHolder").GetChild(0).GetComponent<Weapon>();
+
         damage = pc.dmg;
         atkspeed = pc.atkspeed;
         maxhp = pc.maxhp;
         currenthp = pc.maxhp;
         speed = pm.moveSpeed;
         bleedChance = pc.bleedChance;
+        projcount = wep.weaponStats.projectilesCount;
     }
     public void UpgradeDamage()
     {
@@ -68,5 +74,10 @@ public class PlayerStatData
     {
         speed += speedIncrement;
         speedUpgradeCost = Mathf.RoundToInt(speedUpgradeCost * speedUpgradeCostIncrease);
+    }
+    public void UpgradeProjcount()
+    {
+        projcount += projcountIncrement;
+        projcountCost = Mathf.RoundToInt(projcountCost * projectcountCostIncrease);
     }
 }

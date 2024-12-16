@@ -73,7 +73,7 @@ public class PlayerControl : MonoBehaviour
         critChance = psd.critChance;
         invincibilityTime = psd.invincibilityTime;
         gameObject.GetComponent<PlayerMove>().moveSpeed = psd.speed;
-
+        transform.Find("weaponHolder").GetChild(0).GetComponent<Weapon>().weaponStats.projectilesCount = psd.projcount;
         Debug.Log("Player stats successfully loaded from psd!");
     }
     void HandlePlayerFlipToCursor()

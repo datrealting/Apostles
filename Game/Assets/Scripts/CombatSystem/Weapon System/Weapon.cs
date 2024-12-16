@@ -5,7 +5,7 @@ public abstract class Weapon : MonoBehaviour
 {
     public string Name;
 
-    [SerializeField] protected WeaponStats weaponStats;
+    [SerializeField] public WeaponStats weaponStats;
 
     public abstract void Attack();
     protected PlayerControl playerControlReference;

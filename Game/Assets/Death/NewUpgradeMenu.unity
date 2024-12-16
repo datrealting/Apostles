@@ -2569,7 +2569,7 @@ GameObject:
   - component: {fileID: 405504310}
   - component: {fileID: 405504309}
   m_Layer: 5
-  m_Name: AtkSpeedSoulCost
+  m_Name: ProjcountCost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9240,6 +9240,8 @@ MonoBehaviour:
   soulsText: {fileID: 1220173560}
   damageText: {fileID: 817929747}
   atkspeedText: {fileID: 1845892572}
+  projcountText: {fileID: 1079251769}
+  projspeedText: {fileID: 1480338084}
   hpText: {fileID: 682341926}
   speedText: {fileID: 819584860}
   hpUpgradeButton: {fileID: 221064379}
@@ -9250,6 +9252,8 @@ MonoBehaviour:
   damageCost: {fileID: 1224069549}
   atkspeedUpgradeButton: {fileID: 372917094}
   atkspeedCost: {fileID: 605304385}
+  projcountcost: {fileID: 405504309}
+  projspeedcost: {fileID: 0}
   respawnButton: {fileID: 764427774}
   unlockAscensionButton: {fileID: 0}
   ascensionCost: {fileID: 0}
@@ -10095,7 +10099,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1562087315}
         m_TargetAssemblyTypeName: UpgradeMenuScript, Assembly-CSharp
-        m_MethodName: UpgradeAttackSpeed
+        m_MethodName: UpgradeProjcount
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -49,7 +49,7 @@ public class UpgradeMenuScript : MonoBehaviour
         UpdateSpeedText();
         UpdateDamageText();
         UpdateAtkspeedText();
-        U
+        UpdateProjCountText();
         UpdateAscensionScreen();
     }
 
@@ -77,10 +77,10 @@ public class UpgradeMenuScript : MonoBehaviour
         atkspeedText.text = GameManager.Instance.psd.atkspeed.ToString();
         atkspeedCost.text = GameManager.Instance.psd.atkspeedUpgradeCost.ToString();
     }
-    void UpdateProjCount()
+    void UpdateProjCountText()
     {
-        projcountText.text = GameManager.Instance.psd.atkspeed.ToString();
-        projcountcost.text = GameManager.Instance.psd.atkspeedUpgradeCost.ToString();
+        projcountText.text = GameManager.Instance.psd.projcount.ToString();
+        projcountcost.text = GameManager.Instance.psd.projcountCost.ToString();
     }
     void UpdateAscensionScreen()
     {
@@ -144,6 +144,20 @@ public class UpgradeMenuScript : MonoBehaviour
         else
         {
             Debug.Log("Not enough souls!");
+        }
+    }
+    public void UpgradeProjcount()
+    {
+        if (GameManager.Instance.playerSouls >= GameManager.Instance.psd.projcountCost)
+        {
+            GameManager.Instance.playerSouls -= GameManager.Instance.psd.projcountCost;
+            GameManager.Instance.psd.UpgradeProjcount();
+            UpdateProjCountText();
+            UpdateSoulsText();
+        }
+        else
+        {
+            Debug.Log("Not enough souls");
         }
     }
     public void UnlockAscension()
