@@ -1,4 +1,4 @@
-using System;
+
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -39,6 +39,9 @@ public class PlayerControl : MonoBehaviour
         LoadFromGameManager();
         Cursor.lockState = CursorLockMode.Confined;
         originalScale = transform.localScale;
+
+        // Assign OnStrike delegates
+        onStrike += Bleed;
     }
 
     void Update()
@@ -113,7 +116,15 @@ public class PlayerControl : MonoBehaviour
     
     // Delegates + Event stuff
     public delegate void OnStrike(GameObject target);
-    
+    public void Bleed(GameObject target)
+    {
+        Debug.Log("Bleed added");
+        StatusEffectManager.ApplyEffect(target, null, new Bleeding(), Resources.Load<GameObject>("BleedingPrefab"));
+        if (Random.Range(0f, 1f) < bleedChance)
+        {
+            
+        }
+    }
     void HandleAttack()
     {
         if (Input.GetKeyDown(KeyCode.V))

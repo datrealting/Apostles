@@ -2,8 +2,15 @@ using UnityEngine;
 
 public class EnemyProjectileImpact : MonoBehaviour
 {
+
+    public PlayerControl player;
     private GameObject impactEffect;
     public int damage; // This will store projectile damage
+
+    private void Start()
+    {
+        player = FindObjectOfType<PlayerControl>();
+    }
 
     public void Setup(GameObject effect, int projectileDamage)
     {
@@ -20,6 +27,7 @@ public class EnemyProjectileImpact : MonoBehaviour
             {
                 other.GetComponent<NPCStats>()?.TakeDamage(damage);  // Use the damage passed from the weapon
                 GameObject.Find("Player").GetComponent<PlayerControl>().onStrike?.Invoke(other.gameObject);
+                player.TakeDamage(1);
 
             }
 
@@ -31,4 +39,6 @@ public class EnemyProjectileImpact : MonoBehaviour
             Destroy(gameObject); // Destroy the projectile after impact
         }
     }
+
+
 }

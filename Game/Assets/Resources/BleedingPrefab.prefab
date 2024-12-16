@@ -28,14 +28,14 @@ RectTransform:
   m_GameObject: {fileID: 3402773521503651499}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -1.5}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0.34, y: 0.55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &9201221541408079550
@@ -82,7 +82,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2126246720042785711, guid: 99b40ca3ca8c23b4aa6217f3ec77ae34, type: 3}
+  m_Sprite: {fileID: -621015903330714899, guid: dfa7c3a88724a814ea3591c9b0f26f53, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -107,6 +107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spritePrefab: {fileID: 0}
   sprite: {fileID: 0}
+  effectSprite: {fileID: 0}
   damagePerTick: 1
 --- !u!114 &4192151646192267169
 MonoBehaviour:

@@ -23,8 +23,8 @@ public class Bloodspark : BaseSE
         bleedPrefab = Resources.Load<GameObject>("BleedingPrefab");
     }
     public override void OnApply()
-    {;
-        sprite = Instantiate(spritePrefab, target.transform);
+    {
+
     }
     public override void OnTick()
     {

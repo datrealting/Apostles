@@ -65,7 +65,6 @@ public abstract class BaseSE : MonoBehaviour, SEInterface
                         }
                         else
                         {
-                            OnApply();
                         }
                     }
                 }
@@ -87,7 +86,6 @@ public abstract class BaseSE : MonoBehaviour, SEInterface
                         else
                         {
                            // Debug.Log("NEW EFFECT APPLIED");
-                            OnApply();
                         }         
                     }
                 }
@@ -101,25 +99,24 @@ public abstract class BaseSE : MonoBehaviour, SEInterface
                         effect.elapsed = 0f;         
                     }    
                 }
-                OnApply();
                 break;
 
             case OverrideType.Stack:
                 //Debug.Log("TYPE: STACK");
                 // Stack the effect (apply another one)
-                OnApply();
                 break;
 
             case OverrideType.Nothing:
                 //Debug.Log("TYPE: NOTHING");
                 // Destroy this effect if no action is needed
-                Destroy(this);
+                RemoveEffect();
                 break;
         }
         this.initialised = true;
         if (!alreadyFound)
         {
             targetHUD.AddStatusIcon(this);
+            OnApply();
         }
 
     }

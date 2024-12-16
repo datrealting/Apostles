@@ -14,18 +14,17 @@ public class Hellfire : BaseSE
 
     private GameObject nextNPC;
     private BaseSE nextEffect = null;
-    private GameObject spritePrefab = null;
+    private GameObject nextSpritePrefab = null;
 
 
     void Awake()
     {
         nextEffect = new Hellfire();
-        spritePrefab = Resources.Load<GameObject>("HellfirePrefab");
+        nextSpritePrefab = Resources.Load<GameObject>("HellfirePrefab");
     }
     public override void OnApply()
     {
-        Debug.Log("Additional logic for BURNING application!");
-        sprite = Instantiate(spritePrefab, target.transform);
+
     }
     public override void OnTick()
     {
@@ -40,7 +39,7 @@ public class Hellfire : BaseSE
     }
     public override void OnExpire()
     {
-        Debug.Log("Additional logic for BURNING running out!");
+
     }
     public override void OnDie()
     {
