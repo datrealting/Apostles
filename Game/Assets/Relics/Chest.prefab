@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2383744944756297342}
   - component: {fileID: 994199936535576342}
   - component: {fileID: 2989327416580714184}
+  - component: {fileID: 8372640146518991904}
   m_Layer: 0
   m_Name: Chest
   m_TagString: Untagged
@@ -131,9 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b07a9784d63585f438a8201d6f47c411, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TextUI: {fileID: 0}
-  OffSetPosY: -1
-  itemToDrop: {fileID: 9093704425621658516, guid: af58bcfab43c87a4eb09350320b21e3f, type: 3}
+  isOpen: 0
 --- !u!58 &2989327416580714184
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -170,3 +169,25 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 5
+--- !u!114 &8372640146518991904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4822270797679627774}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5232dff7c07f03d488717933aeb4eff3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabList:
+  - {fileID: 7569987317210849826, guid: bc0cb84cea0f2e94cb3ad2d34d109fc9, type: 3}
+  - {fileID: 7593367885547311129, guid: 54657bef2043d5744a96a88f3d147afd, type: 3}
+  - {fileID: 9093704425621658516, guid: af58bcfab43c87a4eb09350320b21e3f, type: 3}
+  - {fileID: 7202938757583814127, guid: f03ad0f7b2293bf458c54bd3bcd26a70, type: 3}
+  - {fileID: 6781476976173973839, guid: c7c1b690dcde75143a8c638239595615, type: 3}
+  - {fileID: 3547665442720048594, guid: 47e05ea94aa89dc429aec8c9937ecfa1, type: 3}
+  - {fileID: 9093704425621658516, guid: ee328388bc2b66b478eade6a68a7d170, type: 3}
+  - {fileID: 8292307283898492434, guid: 6c0c58e63fb1f604792d2b5f41a863eb, type: 3}
+  offSet: {x: 0, y: -2, z: 0}

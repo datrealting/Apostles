@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a82ad072ba3d4240925a96386c6a8e1, type: 3}
+  m_Name: Ghost_sword
+  m_EditorClassIdentifier: 
+  vName: Ghost Sword
+  description: An ethereal blade that orbits you, dealing damage to enemies that
+    come into contact with it
+  owner: {fileID: 0}
+  rarity: 1

@@ -87,6 +87,7 @@
     <Compile Include="Assets\Scripts\CombatSystem\StatusEffectSystem\Effects\Burning.cs" />
     <Compile Include="Assets\ProjectileRotation.cs" />
     <Compile Include="Assets\FloatingText.cs" />
+    <Compile Include="Assets\Relics\Relic_Scripts\Ghostly_sword.cs" />
     <Compile Include="Assets\Brick_Attributes.cs" />
     <Compile Include="Assets\Scripts\CombatSystem\StatusEffectSystem\Effects\Bloodspark.cs" />
     <Compile Include="Assets\Relics\ChestOpening.cs" />
@@ -125,6 +126,7 @@
     <Compile Include="Assets\Scripts\CombatSystem\Weapon System\HealthPickup.cs" />
     <Compile Include="Assets\Scripts\EnemyPathfind.cs" />
     <Compile Include="Assets\Enemies\IEnemy.cs" />
+    <Compile Include="Assets\Orbiting_behaivours.cs" />
     <Compile Include="Assets\Scripts\CombatSystem\StatusEffectSystem\BaseSE.cs" />
     <Compile Include="Assets\Scripts\CombatSystem\Weapon System\ProjectileWeapon.cs" />
     <Compile Include="Assets\Enemies\EnemyScript.cs" />
