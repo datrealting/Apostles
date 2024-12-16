@@ -53,6 +53,10 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.L))
         {
             AddSouls(soulcheatincrease);
+            if (GameObject.Find("Manager").GetComponent<UpgradeMenuScript>())
+            {
+                GameObject.Find("Manager").GetComponent<UpgradeMenuScript>().UpdateSoulsText();
+            }
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {

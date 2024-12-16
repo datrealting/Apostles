@@ -653,7 +653,7 @@ MonoBehaviour:
   dead: 0
   armour: 0
   FloatingTextPrefab: {fileID: 7680690382481572930, guid: c2efdbbe83bfd9041a9abaec5eaaa94b, type: 3}
-  soulsDropped: 0
+  soulsDropped: 200
   soulRandomSpreadMin: 0.9
   soulRandomSpreadMax: 1.2
   enemyUI: {fileID: 0}
@@ -674,7 +674,7 @@ MonoBehaviour:
   projectile: {fileID: 381423501142137705, guid: e3f458388c1851e4badf22f0a10e92c1, type: 3}
   projectilePos: {fileID: 6592432490094443400}
   currentPos: {fileID: 2415987520212339872}
-  marker: {fileID: 381423501142137705, guid: e3f458388c1851e4badf22f0a10e92c1, type: 3}
+  Bounds: {fileID: 0}
 --- !u!114 &-6531682094024206901
 MonoBehaviour:
   m_ObjectHideFlags: 0

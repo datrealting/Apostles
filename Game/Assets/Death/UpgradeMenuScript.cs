@@ -14,6 +14,7 @@ public class UpgradeMenuScript : MonoBehaviour
     public TMP_Text atkspeedText;
     public TMP_Text projcountText;
     public TMP_Text projspeedText;
+    public TMP_Text projrangeText;
 
     public TMP_Text hpText;
     public TMP_Text speedText;
@@ -34,13 +35,14 @@ public class UpgradeMenuScript : MonoBehaviour
 
     public TMP_Text projcountcost;
     public TMP_Text projspeedcost;
+    public TMP_Text projrangecost;
 
     public Button respawnButton;
 
     public Button unlockAscensionButton;
     public TMP_Text ascensionCost;
     public GameObject ascensionLock;
-    public int ascensionPrice = 1_000_000;
+    public int ascensionPrice = 300_000;
 
     private void Start()
     {
@@ -50,10 +52,12 @@ public class UpgradeMenuScript : MonoBehaviour
         UpdateDamageText();
         UpdateAtkspeedText();
         UpdateProjCountText();
+        UpdateProjSpeedText();
+        UpdateProjRangeText();
         UpdateAscensionScreen();
     }
 
-    void UpdateSoulsText()
+    public void UpdateSoulsText()
     {
         soulsText.text = $"Souls: {GameManager.Instance.playerSouls}";
     }
@@ -81,6 +85,16 @@ public class UpgradeMenuScript : MonoBehaviour
     {
         projcountText.text = GameManager.Instance.psd.projcount.ToString();
         projcountcost.text = GameManager.Instance.psd.projcountCost.ToString();
+    }
+    void UpdateProjSpeedText()
+    {
+        projspeedText.text = GameManager.Instance.psd.projspeed.ToString();
+        projspeedcost.text = GameManager.Instance.psd.projspeedCost.ToString();
+    }
+    void UpdateProjRangeText()
+    {
+        projrangeText.text = GameManager.Instance.psd.projrange.ToString();
+        projrangecost.text = GameManager.Instance.psd.projrangeCost.ToString();
     }
     void UpdateAscensionScreen()
     {
@@ -153,6 +167,34 @@ public class UpgradeMenuScript : MonoBehaviour
             GameManager.Instance.playerSouls -= GameManager.Instance.psd.projcountCost;
             GameManager.Instance.psd.UpgradeProjcount();
             UpdateProjCountText();
+            UpdateSoulsText();
+        }
+        else
+        {
+            Debug.Log("Not enough souls");
+        }
+    }
+    public void UpgradeProjspeed()
+    {
+        if (GameManager.Instance.playerSouls >= GameManager.Instance.psd.projspeedCost)
+        {
+            GameManager.Instance.playerSouls -= GameManager.Instance.psd.projspeedCost;
+            GameManager.Instance.psd.UpgradeProjspeed();
+            UpdateProjSpeedText();
+            UpdateSoulsText();
+        }
+        else
+        {
+            Debug.Log("Not enough souls");
+        }
+    }
+    public void UpgradeProjrange()
+    {
+        if (GameManager.Instance.playerSouls >= GameManager.Instance.psd.projrangeCost)
+        {
+            GameManager.Instance.playerSouls -= GameManager.Instance.psd.projrangeCost;
+            GameManager.Instance.psd.UpgradeProjrange();
+            UpdateProjRangeText();
             UpdateSoulsText();
         }
         else

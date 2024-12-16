@@ -33,6 +33,16 @@ public class PlayerStatData
     public int projcountCost = 3000;
     public float projectcountCostIncrease = 1.2f + statIncreaseBias;
 
+    public float projspeed;
+    private float projspeedIncrement = 0.5f;
+    public int projspeedCost = 300;
+    public float projectspeedCostIncrease = 1.2f + statIncreaseBias;
+
+    public float projrange;
+    private float projrangeIncrement = 1f;
+    public int projrangeCost = 300;
+    public float projectrangeCostIncrease = 1.2f + statIncreaseBias;
+
     public float invincibilityTime = 0.5f; // in s
 
     public float bleedChance;
@@ -53,6 +63,8 @@ public class PlayerStatData
         speed = pm.moveSpeed;
         bleedChance = pc.bleedChance;
         projcount = wep.weaponStats.projectilesCount;
+        projspeed = wep.weaponStats.projectileSpeed;
+        projrange = wep.weaponStats.projectileRange;
     }
     public void UpgradeDamage()
     {
@@ -79,5 +91,15 @@ public class PlayerStatData
     {
         projcount += projcountIncrement;
         projcountCost = Mathf.RoundToInt(projcountCost * projectcountCostIncrease);
+    }
+    public void UpgradeProjspeed()
+    {
+        projspeed += projspeedIncrement;
+        projspeedCost = Mathf.RoundToInt(projspeedCost * projectspeedCostIncrease);
+    }
+    public void UpgradeProjrange()
+    {
+        projrange += projrangeIncrement;
+        projrangeCost = Mathf.RoundToInt(projrangeCost * projectrangeCostIncrease);
     }
 }

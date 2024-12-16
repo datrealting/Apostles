@@ -141,7 +141,7 @@ MonoBehaviour:
   dead: 0
   armour: 0
   FloatingTextPrefab: {fileID: 7680690382481572930, guid: c2efdbbe83bfd9041a9abaec5eaaa94b, type: 3}
-  soulsDropped: 0
+  soulsDropped: 200
   soulRandomSpreadMin: 0.9
   soulRandomSpreadMax: 1.2
   enemyUI: {fileID: 0}

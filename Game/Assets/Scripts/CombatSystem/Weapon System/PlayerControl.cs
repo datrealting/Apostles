@@ -74,6 +74,8 @@ public class PlayerControl : MonoBehaviour
         invincibilityTime = psd.invincibilityTime;
         gameObject.GetComponent<PlayerMove>().moveSpeed = psd.speed;
         transform.Find("weaponHolder").GetChild(0).GetComponent<Weapon>().weaponStats.projectilesCount = psd.projcount;
+        transform.Find("weaponHolder").GetChild(0).GetComponent<Weapon>().weaponStats.projectileSpeed = psd.projspeed;
+        transform.Find("weaponHolder").GetChild(0).GetComponent<Weapon>().weaponStats.projectileRange = psd.projrange;
         Debug.Log("Player stats successfully loaded from psd!");
     }
     void HandlePlayerFlipToCursor()
