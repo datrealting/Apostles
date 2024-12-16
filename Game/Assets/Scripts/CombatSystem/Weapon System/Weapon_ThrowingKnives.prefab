@@ -113,14 +113,14 @@ MonoBehaviour:
     spread: 30
     spreadLevelIncrement: 5
     baseAtkSpeed: 1
-    atkSpeed: 0.3
+    atkSpeed: 0.35
     atkSpeedIncrement: 1
     baseProjectileSpeed: 20
     projectileSpeed: 20
     projectileSpeedIncrement: 5
-    baseProjectileRange: 10
-    projectileRange: 10
-    projectileRangeIncrement: 5
+    baseProjectileRange: 8
+    projectileRange: 8
+    projectileRangeIncrement: 3
   projectilePrefab: {fileID: 381423501142137705, guid: 69049014955d727f3999ef5f2ee28bd9, type: 3}
   projectileSpawnPoint: {fileID: 4905686281418230434}
   impactEffect: {fileID: 0}
