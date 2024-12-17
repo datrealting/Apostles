@@ -1,4 +1,3 @@
-
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -104,10 +103,12 @@ public class PlayerControl : MonoBehaviour
     public int GetActualDamage(float damageMultiplier)
     {
         float isCrit = UnityEngine.Random.Range(0.0f, 1.0f);
-        if (isCrit <= critChance){
-            return Mathf.RoundToInt(dmg * damageMultiplier * relicDamageMult *2);
+        if (isCrit <= critChance)
+        {
+            return Mathf.RoundToInt(dmg * damageMultiplier * relicDamageMult * 2);
         }
-        else{
+        else
+        {
             return Mathf.RoundToInt(dmg * damageMultiplier * relicDamageMult);
         }
     }
@@ -115,7 +116,7 @@ public class PlayerControl : MonoBehaviour
     {
         return Mathf.RoundToInt(atkspeed * atkspeedMultiplier * relicAtkspeedMult);
     }
-    
+
     // Delegates + Event stuff
     public delegate void OnStrike(GameObject target);
     public void Bleed(GameObject target)
@@ -128,6 +129,7 @@ public class PlayerControl : MonoBehaviour
             StatusEffectManager.ApplyEffect(target, null, new Bleeding(), Resources.Load<GameObject>("BleedingPrefab"));
         }
     }
+
     void HandleAttack()
     {
         if (Input.GetKeyDown(KeyCode.V))

@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using System.Collections.Generic;
 public class MeleeWeapon : Weapon
 {
     public float range = 0f;
@@ -7,15 +7,12 @@ public class MeleeWeapon : Weapon
     public int rayCount = 10; // Number of rays to cast within the quarter circle
     public Transform attackTransform;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-
-    }
+ 
 
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
+        base.Update();
         HandleAttackInput();
     }
 
@@ -23,24 +20,32 @@ public class MeleeWeapon : Weapon
     {
         float halfQuarterCircleAngle = quarterCircleAngle / 2f;
         float angleStep = quarterCircleAngle / (rayCount - 1);
+        int enemyLayer = LayerMask.GetMask("Enemy");
+        HashSet<Collider2D> hitEnemies = new HashSet<Collider2D>();
 
         for (int i = 0; i < rayCount; i++)
         {
             float angle = -halfQuarterCircleAngle + (angleStep * i);
             Vector2 direction = Quaternion.Euler(0, 0, angle) * attackTransform.up;
-            RaycastHit2D hit = Physics2D.Raycast(attackTransform.position, direction, range);
+            RaycastHit2D hit = Physics2D.Raycast(attackTransform.position, direction, range, enemyLayer);
 
             // Draw the ray for debugging purposes
-            Debug.DrawRay(attackTransform.position, direction * range, Color.red, 1.0f);
+            Debug.DrawRay(attackTransform.position, direction * range, Color.red, 0.2f);
 
-            if (hit.collider != null)
+            if (hit.collider != null && !hitEnemies.Contains(hit.collider))
             {
-                NPCStats npcStats = hit.collider.GetComponent<NPCStats>();
+                Debug.Log("[Attack] Hit: " + hit.collider.name + " at distance: " + hit.distance);
 
-                if (npcStats != null)
+                if (hit.collider.CompareTag("Enemy"))
                 {
-                    npcStats.TakeDamage(10);
+                    hit.collider.GetComponent<NPCStats>()?.TakeDamage(weaponStats.dmg);  // Use the damage passed from the weapon
+                    GameObject.Find("Player").GetComponent<PlayerControl>().onStrike?.Invoke(hit.collider.gameObject);
+                    hitEnemies.Add(hit.collider);
                 }
+            }
+            else
+            {
+                Debug.Log("[Attack] No hit detected for ray at angle: " + angle);
             }
         }
     }

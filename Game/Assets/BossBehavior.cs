@@ -67,9 +67,6 @@ public class BossBehavior : MonoBehaviour, IAoe
 
                 // Start the coroutine to handle projectile timing
                 StartCoroutine(SpawnProjectileAfterDelay(randomPosition, 1f)); // Spawn projectile after 1 second
-            } else if (distance < 5)
-            {
-
             }
         }
     }
