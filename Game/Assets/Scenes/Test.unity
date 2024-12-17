@@ -2730,6 +2730,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   specialRooms:
   - {fileID: 7395656425729254223, guid: 41bb6896d0d514a4ab28daf5c21a55ed, type: 3}
+  chestRoom: {fileID: 222994459501780815, guid: fb2072b107c6f1e438921ddad626834b, type: 3}
   rooms:
   - {fileID: 6331887278579643230, guid: cde9c740caf37f74c80703a2f2b2074f, type: 3}
   roomCount: 15

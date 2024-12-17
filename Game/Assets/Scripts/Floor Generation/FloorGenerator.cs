@@ -9,6 +9,8 @@ public class FloorGenerator : MonoBehaviour
     [SerializeField]
     private GameObject[] specialRooms;
     [SerializeField]
+    private GameObject chestRoom;
+    [SerializeField]
     private GameObject[] rooms;
     [SerializeField]
     private int roomCount = 15;
@@ -51,9 +53,13 @@ public class FloorGenerator : MonoBehaviour
 
         GameObject roomObject = rooms[Random.Range(0, rooms.Length)];
 
-        if(roomCount == 4)
+        if(roomCount == 8)
         {
             roomObject = specialRooms[0];
+        }
+        if (roomCount == 5)
+        {
+            roomObject = chestRoom;
         }
 
         GameObject roomInstance = Instantiate(roomObject, pos, Quaternion.identity);

@@ -23,9 +23,12 @@ public class Room : MonoBehaviour
         obstacle = Instantiate(obstacles[Random.Range(0, obstacles.Length)], this.transform.position, Quaternion.identity);
         obstacle.transform.SetParent(this.transform);
 
-        enemy = Instantiate(enemies[Random.Range(0, enemies.Length)], this.transform.position, Quaternion.identity);
-        enemy.transform.SetParent(this.transform);
-        enemy.SetActive(false);
+        if (enemies.Length > 0)
+        {
+            enemy = Instantiate(enemies[Random.Range(0, enemies.Length)], this.transform.position, Quaternion.identity);
+            enemy.transform.SetParent(this.transform);
+            enemy.SetActive(false);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -62,12 +65,13 @@ public class Room : MonoBehaviour
         walls[dirIndex].SetActive(false);
     }
 
-    public void SetEntranceExit(int exit=-1,int entrance = -1)
+    public void SetEntranceExit(int exit = -1, int entrance = -1)
     {
         entrances[exit].SetActive(true);
         walls[exit].SetActive(false);
 
-        if (entrance != -1) {
+        if (entrance != -1)
+        {
             entrances[entrance].SetActive(true);
             walls[entrance].SetActive(false);
         }
