@@ -69,11 +69,13 @@
     <Compile Include="Assets\Relics\RelicHandlerScript.cs" />
     <Compile Include="Assets\Scripts\CombatSystem\Weapon System\PlayerControl.cs" />
     <Compile Include="Assets\Death\DEMOPLEASEDELETE death maker.cs" />
+    <Compile Include="Assets\homerBullet.cs" />
     <Compile Include="Assets\lifetime.cs" />
     <Compile Include="Assets\Relics\Relic_Scripts\itemEffect.cs" />
     <Compile Include="Assets\Relics\Relic_Scripts\BurningBrand.cs" />
     <Compile Include="Assets\BossBehavior.cs" />
     <Compile Include="Assets\Scripts\CombatSystem\StatusEffectSystem\StatusEffectManager.cs" />
+    <Compile Include="Assets\Relics\Relic_Scripts\cultist_eye.cs" />
     <Compile Include="Assets\Player movement.cs" />
     <Compile Include="Assets\Scripts\CombatSystem\StatusEffectSystem\SE Interface.cs" />
     <Compile Include="Assets\Relics\Relic_Scripts\TBController.cs" />
@@ -95,6 +97,7 @@
     <Compile Include="Assets\Relics\Relic_Scripts\Ghostly_sword.cs" />
     <Compile Include="Assets\Brick_Attributes.cs" />
     <Compile Include="Assets\Scripts\CombatSystem\StatusEffectSystem\Effects\Bloodspark.cs" />
+    <Compile Include="Assets\Orbiter.cs" />
     <Compile Include="Assets\Relics\ChestOpening.cs" />
     <Compile Include="Assets\Scripts\CombatSystem\StatusEffectSystem\Effects\CallOfTheEye.cs" />
     <Compile Include="Assets\UI\Scripts\DEMOPLEASEDELET Elootboxscreen.cs" />
@@ -150,6 +153,7 @@
     <Compile Include="Assets\Scripts\CombatSystem\Weapon System\EnemyProjectileImpact1.cs" />
     <Compile Include="Assets\Scripts\CombatSystem\Weapon System\Weapon.cs" />
     <Compile Include="Assets\EnemyInitialiser.cs" />
+    <Compile Include="Assets\HomerBehavior.cs" />
     <Compile Include="Assets\Relics\Chest_interaction.cs" />
     <Compile Include="Assets\UI\Scripts\EnemyUI.cs" />
     <Compile Include="Assets\Crown_Of_Thorns_Behaivour.cs" />
