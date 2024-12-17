@@ -1,10 +1,8 @@
-using System.Collections;
 using UnityEngine;
-
+using System.Collections;
 public class PlayerMove : MonoBehaviour
 {
     // Variables
-
     public Animator animator;
 
     public float baseMoveSpeed = 3f;
@@ -21,39 +19,119 @@ public class PlayerMove : MonoBehaviour
     private bool isIdle = false; // Tracks if the character is in Idle state
     private Coroutine blinkCoroutine; // Reference to the blinking coroutine
 
-    // Update is called once per frame
+    // Dash variables
+    public float dashSpeed = 10f;
+    public float dashDuration = 0.2f;
+    public float dashCooldown = 1f;
+    private bool isDashing = false;
+    private float lastDashTime = -1f;
+
+    // Movement acceleration/deceleration variables
+    public float moveAcceleration = 5f; // Acceleration rate
+    public float moveDeceleration = 5f; // Deceleration rate
+    private float currentMoveSpeed = 0f; // Current speed of movement
+
     void Update()
     {
         Inputs();
         HandleBlinking();
-    } // Update based on FPS (variable)
+        HandleDashInput();
+    }
 
     void FixedUpdate()
     {
-        Move();
-    } // Update based on physics (constant)
+        if (!isDashing) // Prevent movement during dash
+        {
+            SmoothMovement();
+        }
+    }
 
     void Inputs()
     {
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
 
-        float moveSpeed = Mathf.Sqrt(moveX * moveX + moveY * moveY);
-
-        animator.SetFloat("Speed", moveSpeed);
+        float moveMagnitude = Mathf.Sqrt(moveX * moveX + moveY * moveY);
+        animator.SetFloat("Speed", moveMagnitude);
 
         moveDirection = new Vector2(moveX, moveY).normalized;
     }
 
-    void Move()
+    void SmoothMovement()
     {
-        rb.linearVelocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
+        // Handle acceleration if moving
+        if (moveDirection.magnitude > 0)
+        {
+            currentMoveSpeed = Mathf.MoveTowards(currentMoveSpeed, moveSpeed, moveAcceleration * Time.fixedDeltaTime);
+        }
+        // Handle deceleration if idle
+        else
+        {
+            currentMoveSpeed = Mathf.MoveTowards(currentMoveSpeed, 0, moveDeceleration * Time.fixedDeltaTime);
+        }
+
+        rb.linearVelocity = moveDirection * currentMoveSpeed;
+    }
+
+    // Dash logic
+    void HandleDashInput()
+    {
+        if (Input.GetMouseButtonDown(1) && Time.time >= lastDashTime + dashCooldown && !isDashing) // Right click
+        {
+            StartCoroutine(Dash());
+        }
+    }
+
+    private IEnumerator Dash()
+    {
+        Debug.Log("Dash started!");
+
+        isDashing = true;
+        lastDashTime = Time.time;
+
+        // Get the cursor position in world space
+        Vector2 cursorPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        // Calculate the direction from the player to the cursor
+        Vector2 dashDirection = (cursorPosition - (Vector2)transform.position).normalized;
+
+        if (dashDirection == Vector2.zero) // If no cursor movement, dash forward
+        {
+            dashDirection = Vector2.up;
+        }
+
+        float currentDashSpeed = 0f; // Start with no speed
+        float accelerationTime = dashDuration * 0.5f; // Half of the dash duration for acceleration
+        float decelerationTime = dashDuration * 0.5f; // The other half for deceleration
+        float dashEndTime = Time.time + dashDuration;
+
+        // Accelerate towards the dash speed
+        while (Time.time < dashEndTime - decelerationTime)
+        {
+            currentDashSpeed = Mathf.Lerp(0f, dashSpeed, (Time.time - lastDashTime) / accelerationTime);
+            rb.linearVelocity = dashDirection * currentDashSpeed;
+
+            yield return null;
+        }
+
+        // Decelerate towards zero
+        while (Time.time < dashEndTime)
+        {
+            currentDashSpeed = Mathf.Lerp(dashSpeed, 0f, (Time.time - (dashEndTime - decelerationTime)) / decelerationTime);
+            rb.linearVelocity = dashDirection * currentDashSpeed;
+
+            yield return null;
+        }
+
+        rb.linearVelocity = Vector2.zero; // Ensure to stop movement after dash
+        isDashing = false;
+
+        Debug.Log("Dash ended!");
     }
 
     // Handle idle state and blinking
     void HandleBlinking()
     {
-        // Check if the character is idle
         float speed = animator.GetFloat("Speed");
         if (speed < 0.01f)
         {
@@ -77,18 +155,16 @@ public class PlayerMove : MonoBehaviour
     {
         while (isIdle)
         {
-            // Wait for a random duration between 6 and 10 seconds
             float randomDelay = Random.Range(6f, 10f);
             yield return new WaitForSeconds(randomDelay);
 
-            // Trigger the BlinkTime animation
-            animator.SetFloat("BlinkTime", 1f); // Set the BlinkTime parameter to indicate blinking
-            yield return null; // Allow the animation to play for one frame
-            animator.SetFloat("BlinkTime", 0f); // Reset the BlinkTime parameter
+            animator.SetFloat("BlinkTime", 1f); // Start blink animation
+            yield return null; // Play for one frame
+            animator.SetFloat("BlinkTime", 0f); // Reset
         }
     }
 
-    // Call every time you want to adjust movement speed. Feed in the buff/debuff as flat percentage
+    // Movement speed adjustment methods
     public void AddAddSpeed(float speed)
     {
         moveSpeedAdd += speed;
@@ -111,16 +187,7 @@ public class PlayerMove : MonoBehaviour
     }
     public void AdjustMoveSpeed()
     {
-        /*
-        Debug.Log("Move Speed = " + moveSpeed);
-        Debug.Log("Base Move Speed = " + baseMoveSpeed);
-        Debug.Log("Move Speed Add = " + moveSpeedAdd);
-        Debug.Log("Move Speed Mult = " + moveSpeedMult);
-        Debug.Log("Relic Move Speed Add = " + relicMoveSpeedAdd);
-        Debug.Log("Relic Move Speed Mult = " + relicMoveSpeedMult);
-        */
         moveSpeed = (baseMoveSpeed + moveSpeedAdd + relicMoveSpeedAdd) * relicMoveSpeedMult * moveSpeedMult;
-        Debug.Log("Move Speed = " + moveSpeed);
         if (moveSpeed < 0)
         {
             moveSpeed = 0;
