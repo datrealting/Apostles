@@ -402,7 +402,7 @@ GameObject:
   - component: {fileID: 7096111644047463434}
   - component: {fileID: 77945301670475351}
   - component: {fileID: 8083592319473810537}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HomerHolder
   m_TagString: Enemy
   m_Icon: {fileID: 0}
