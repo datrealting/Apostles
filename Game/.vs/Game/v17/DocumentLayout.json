@@ -3,6 +3,7 @@
   "WorkspaceRootPath": "D:\\Main\\University\\KV6002\\Apostles\\Game\\",
   "Documents": [
     {
+<<<<<<< Updated upstream
       "AbsoluteMoniker": "D:0:0:{047771D7-7C7A-7D09-37F5-02C95309643E}|AstarPathfindingProjectEditor.csproj|d:\\main\\university\\kv6002\\apostles\\game\\assets\\astarpathfindingproject\\editor\\astarupdatechecker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{047771D7-7C7A-7D09-37F5-02C95309643E}|AstarPathfindingProjectEditor.csproj|solutionrelative:assets\\astarpathfindingproject\\editor\\astarupdatechecker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -12,6 +13,29 @@
     },
     {
       "AbsoluteMoniker": "D:0:0:{7D3C2763-44A0-D00A-6B7C-FC98E83EB1D3}|AstarPathfindingProject.csproj|D:\\Main\\University\\KV6002\\Apostles\\Game\\assets\\astarpathfindingproject\\behaviors\\aidestinationsetter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+=======
+      "AbsoluteMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|c:\\users\\james\\documents\\github\\apostles\\game\\assets\\death\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|solutionrelative:assets\\death\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|c:\\users\\james\\documents\\github\\apostles\\game\\assets\\bossbehavior.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|solutionrelative:assets\\bossbehavior.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\assets\\scripts\\combatsystem\\weapon system\\npc stats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\combatsystem\\weapon system\\npc stats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|c:\\users\\james\\documents\\github\\apostles\\game\\assets\\destroyoutofbounds.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|solutionrelative:assets\\destroyoutofbounds.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\assets\\enemies\\enemymelee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|solutionrelative:assets\\enemies\\enemymelee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D3C2763-44A0-D00A-6B7C-FC98E83EB1D3}|AstarPathfindingProject.csproj|C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\assets\\astarpathfindingproject\\behaviors\\aidestinationsetter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+>>>>>>> Stashed changes
       "RelativeMoniker": "D:0:0:{7D3C2763-44A0-D00A-6B7C-FC98E83EB1D3}|AstarPathfindingProject.csproj|solutionrelative:assets\\astarpathfindingproject\\behaviors\\aidestinationsetter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -19,7 +43,11 @@
       "RelativeMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|solutionrelative:assets\\orbiter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+<<<<<<< Updated upstream
       "AbsoluteMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|D:\\Main\\University\\KV6002\\Apostles\\Game\\assets\\scripts\\playermove.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+=======
+      "AbsoluteMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\assets\\scripts\\playermove.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+>>>>>>> Stashed changes
       "RelativeMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playermove.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -51,11 +79,15 @@
       "RelativeMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|solutionrelative:assets\\lifetime.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+<<<<<<< Updated upstream
       "AbsoluteMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|D:\\Main\\University\\KV6002\\Apostles\\Game\\assets\\enemies\\enemymelee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|solutionrelative:assets\\enemies\\enemymelee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|D:\\Main\\University\\KV6002\\Apostles\\Game\\assets\\homerbullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+=======
+      "AbsoluteMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\assets\\homerbullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+>>>>>>> Stashed changes
       "RelativeMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|solutionrelative:assets\\homerbullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -67,11 +99,15 @@
       "RelativeMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|solutionrelative:assets\\room.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+<<<<<<< Updated upstream
       "AbsoluteMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|D:\\Main\\University\\KV6002\\Apostles\\Game\\assets\\scripts\\combatsystem\\weapon system\\npc stats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\combatsystem\\weapon system\\npc stats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7D3C2763-44A0-D00A-6B7C-FC98E83EB1D3}|AstarPathfindingProject.csproj|D:\\Main\\University\\KV6002\\Apostles\\Game\\assets\\astarpathfindingproject\\core\\ai\\aipath.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+=======
+      "AbsoluteMoniker": "D:0:0:{7D3C2763-44A0-D00A-6B7C-FC98E83EB1D3}|AstarPathfindingProject.csproj|C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\assets\\astarpathfindingproject\\core\\ai\\aipath.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+>>>>>>> Stashed changes
       "RelativeMoniker": "D:0:0:{7D3C2763-44A0-D00A-6B7C-FC98E83EB1D3}|AstarPathfindingProject.csproj|solutionrelative:assets\\astarpathfindingproject\\core\\ai\\aipath.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -82,7 +118,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
+<<<<<<< Updated upstream
           "SelectedChildIndex": 0,
+=======
+          "SelectedChildIndex": 1,
+>>>>>>> Stashed changes
           "Children": [
             {
               "$type": "Document",
@@ -99,6 +139,7 @@
             },
             {
               "$type": "Document",
+<<<<<<< Updated upstream
               "DocumentIndex": 2,
               "Title": "AIDestinationSetter.cs",
               "DocumentMoniker": "D:\\Main\\University\\KV6002\\Apostles\\Game\\Assets\\AstarPathfindingProject\\Behaviors\\AIDestinationSetter.cs",
@@ -112,6 +153,35 @@
             {
               "$type": "Document",
               "DocumentIndex": 4,
+=======
+              "DocumentIndex": 0,
+              "Title": "GameManager.cs",
+              "DocumentMoniker": "C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\Assets\\Death\\GameManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Death\\GameManager.cs",
+              "ToolTip": "C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\Assets\\Death\\GameManager.cs",
+              "RelativeToolTip": "Assets\\Death\\GameManager.cs",
+              "ViewState": "AQIAADkAAAAAAAAAAAAwwEwAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-17T22:28:12.484Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DestroyOutOfBounds.cs",
+              "DocumentMoniker": "C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\Assets\\DestroyOutOfBounds.cs",
+              "RelativeDocumentMoniker": "Assets\\DestroyOutOfBounds.cs",
+              "ToolTip": "C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\Assets\\DestroyOutOfBounds.cs",
+              "RelativeToolTip": "Assets\\DestroyOutOfBounds.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-17T22:11:37.813Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+>>>>>>> Stashed changes
               "Title": "PlayerMove.cs",
               "DocumentMoniker": "D:\\Main\\University\\KV6002\\Apostles\\Game\\Assets\\Scripts\\PlayerMove.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerMove.cs",
@@ -123,7 +193,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< Updated upstream
               "DocumentIndex": 14,
+=======
+              "DocumentIndex": 16,
+>>>>>>> Stashed changes
               "Title": "HomerBehavior.cs",
               "DocumentMoniker": "D:\\Main\\University\\KV6002\\Apostles\\Game\\Assets\\HomerBehavior.cs",
               "RelativeDocumentMoniker": "Assets\\HomerBehavior.cs",
@@ -135,13 +209,17 @@
             },
             {
               "$type": "Document",
+<<<<<<< Updated upstream
               "DocumentIndex": 12,
+=======
+              "DocumentIndex": 4,
+>>>>>>> Stashed changes
               "Title": "EnemyMelee.cs",
               "DocumentMoniker": "D:\\Main\\University\\KV6002\\Apostles\\Game\\Assets\\Enemies\\EnemyMelee.cs",
               "RelativeDocumentMoniker": "Assets\\Enemies\\EnemyMelee.cs",
               "ToolTip": "D:\\Main\\University\\KV6002\\Apostles\\Game\\Assets\\Enemies\\EnemyMelee.cs",
               "RelativeToolTip": "Assets\\Enemies\\EnemyMelee.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACUAAAAFAAAA",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAQwBoAAAA5AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-15T18:38:52.066Z"
             },
@@ -153,14 +231,22 @@
               "RelativeDocumentMoniker": "Assets\\BossBehavior.cs",
               "ToolTip": "D:\\Main\\University\\KV6002\\Apostles\\Game\\Assets\\BossBehavior.cs",
               "RelativeToolTip": "Assets\\BossBehavior.cs",
+<<<<<<< Updated upstream
               "ViewState": "AQIAAGsAAAAAAAAAAAAxwI0AAAAAAAAA",
+=======
+              "ViewState": "AQIAAH8AAAAAAAAAAAAuwKQAAAAAAAAA",
+>>>>>>> Stashed changes
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-15T19:52:12.374Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+<<<<<<< Updated upstream
               "DocumentIndex": 11,
+=======
+              "DocumentIndex": 14,
+>>>>>>> Stashed changes
               "Title": "lifetime.cs",
               "DocumentMoniker": "D:\\Main\\University\\KV6002\\Apostles\\Game\\Assets\\lifetime.cs",
               "RelativeDocumentMoniker": "Assets\\lifetime.cs",
@@ -172,7 +258,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< Updated upstream
               "DocumentIndex": 10,
+=======
+              "DocumentIndex": 13,
+>>>>>>> Stashed changes
               "Title": "EnemyAttackScript.cs",
               "DocumentMoniker": "D:\\Main\\University\\KV6002\\Apostles\\Game\\Assets\\Enemies\\EnemyAttackScript.cs",
               "RelativeDocumentMoniker": "Assets\\Enemies\\EnemyAttackScript.cs",
@@ -184,7 +274,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< Updated upstream
               "DocumentIndex": 15,
+=======
+              "DocumentIndex": 17,
+>>>>>>> Stashed changes
               "Title": "Room.cs",
               "DocumentMoniker": "D:\\Main\\University\\KV6002\\Apostles\\Game\\Assets\\Room.cs",
               "RelativeDocumentMoniker": "Assets\\Room.cs",
@@ -196,7 +290,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< Updated upstream
               "DocumentIndex": 7,
+=======
+              "DocumentIndex": 10,
+>>>>>>> Stashed changes
               "Title": "EnemyProjectileImpact1.cs",
               "DocumentMoniker": "D:\\Main\\University\\KV6002\\Apostles\\Game\\Assets\\Scripts\\CombatSystem\\Weapon System\\EnemyProjectileImpact1.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\CombatSystem\\Weapon System\\EnemyProjectileImpact1.cs",
@@ -208,7 +306,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< Updated upstream
               "DocumentIndex": 8,
+=======
+              "DocumentIndex": 11,
+>>>>>>> Stashed changes
               "Title": "ProjectileImpact.cs",
               "DocumentMoniker": "D:\\Main\\University\\KV6002\\Apostles\\Game\\Assets\\Scripts\\CombatSystem\\Weapon System\\ProjectileImpact.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\CombatSystem\\Weapon System\\ProjectileImpact.cs",
@@ -220,7 +322,36 @@
             },
             {
               "$type": "Document",
+<<<<<<< Updated upstream
               "DocumentIndex": 9,
+=======
+              "DocumentIndex": 2,
+              "Title": "NPC Stats.cs",
+              "DocumentMoniker": "C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\Assets\\Scripts\\CombatSystem\\Weapon System\\NPC Stats.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\CombatSystem\\Weapon System\\NPC Stats.cs",
+              "ToolTip": "C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\Assets\\Scripts\\CombatSystem\\Weapon System\\NPC Stats.cs",
+              "RelativeToolTip": "Assets\\Scripts\\CombatSystem\\Weapon System\\NPC Stats.cs",
+              "ViewState": "AQIAAF4AAAAAAAAAAAAIwIAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-14T14:37:12.435Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AIDestinationSetter.cs",
+              "DocumentMoniker": "C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\Assets\\AstarPathfindingProject\\Behaviors\\AIDestinationSetter.cs",
+              "RelativeDocumentMoniker": "Assets\\AstarPathfindingProject\\Behaviors\\AIDestinationSetter.cs",
+              "ToolTip": "C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\Assets\\AstarPathfindingProject\\Behaviors\\AIDestinationSetter.cs",
+              "RelativeToolTip": "Assets\\AstarPathfindingProject\\Behaviors\\AIDestinationSetter.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAABKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-17T11:54:12.353Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+>>>>>>> Stashed changes
               "Title": "enemyBullet.cs",
               "DocumentMoniker": "D:\\Main\\University\\KV6002\\Apostles\\Game\\Assets\\enemyBullet.cs",
               "RelativeDocumentMoniker": "Assets\\enemyBullet.cs",
@@ -232,7 +363,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< Updated upstream
               "DocumentIndex": 5,
+=======
+              "DocumentIndex": 8,
+>>>>>>> Stashed changes
               "Title": "ShooterBehavior.cs",
               "DocumentMoniker": "D:\\Main\\University\\KV6002\\Apostles\\Game\\Assets\\ShooterBehavior.cs",
               "RelativeDocumentMoniker": "Assets\\ShooterBehavior.cs",
@@ -244,7 +379,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< Updated upstream
               "DocumentIndex": 3,
+=======
+              "DocumentIndex": 6,
+>>>>>>> Stashed changes
               "Title": "Orbiter.cs",
               "DocumentMoniker": "D:\\Main\\University\\KV6002\\Apostles\\Game\\Assets\\Orbiter.cs",
               "RelativeDocumentMoniker": "Assets\\Orbiter.cs",
@@ -256,7 +395,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< Updated upstream
               "DocumentIndex": 6,
+=======
+              "DocumentIndex": 9,
+>>>>>>> Stashed changes
               "Title": "PlayerControl.cs",
               "DocumentMoniker": "D:\\Main\\University\\KV6002\\Apostles\\Game\\Assets\\Scripts\\CombatSystem\\Weapon System\\PlayerControl.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\CombatSystem\\Weapon System\\PlayerControl.cs",
@@ -268,7 +411,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< Updated upstream
               "DocumentIndex": 13,
+=======
+              "DocumentIndex": 15,
+>>>>>>> Stashed changes
               "Title": "homerBullet.cs",
               "DocumentMoniker": "D:\\Main\\University\\KV6002\\Apostles\\Game\\Assets\\homerBullet.cs",
               "RelativeDocumentMoniker": "Assets\\homerBullet.cs",
@@ -280,7 +427,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< Updated upstream
               "DocumentIndex": 17,
+=======
+              "DocumentIndex": 18,
+>>>>>>> Stashed changes
               "Title": "AIPath.cs",
               "DocumentMoniker": "D:\\Main\\University\\KV6002\\Apostles\\Game\\Assets\\AstarPathfindingProject\\Core\\AI\\AIPath.cs",
               "RelativeDocumentMoniker": "Assets\\AstarPathfindingProject\\Core\\AI\\AIPath.cs",
@@ -289,6 +440,7 @@
               "ViewState": "AQIAAGYAAAAAAAAAAAAUwIAAAABGAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-14T15:17:47.602Z"
+<<<<<<< Updated upstream
             },
             {
               "$type": "Document",
@@ -301,6 +453,8 @@
               "ViewState": "AQIAAAgAAAAAAAAAAAAQwDgAAAAeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-14T14:37:12.435Z"
+=======
+>>>>>>> Stashed changes
             }
           ]
         }

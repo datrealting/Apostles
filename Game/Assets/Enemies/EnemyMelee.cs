@@ -24,7 +24,7 @@ public class EnemyMelee : MonoBehaviour, IAoe
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        target = GameObject.FindGameObjectWithTag("Player");
+        target = GameObject.FindGameObjectWithTag("Target");
     }
 
     // Update is called once per frame

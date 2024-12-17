@@ -633,7 +633,7 @@ RectTransform:
   m_Father: {fileID: 553658118514896441}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -691,11 +691,7 @@ GameObject:
   - component: {fileID: 470251189570585098}
   - component: {fileID: 2089969878572835346}
   - component: {fileID: 4069952810051693203}
-<<<<<<< Updated upstream
-  - component: {fileID: 347842787545618870}
-=======
   - component: {fileID: 3294439982623447177}
->>>>>>> Stashed changes
   m_Layer: 7
   m_Name: HomerHolder
   m_TagString: Enemy
@@ -907,11 +903,7 @@ MonoBehaviour:
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
   constrainInsideGraph: 0
-<<<<<<< Updated upstream
---- !u!114 &347842787545618870
-=======
 --- !u!114 &3294439982623447177
->>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

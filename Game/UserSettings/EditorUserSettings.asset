@@ -9,9 +9,12 @@ EditorUserSettings:
       value: 0755520055055c03090b0a7514215e44174e19787c7c23612e28196be6b0613e
       flags: 0
     RecentlyUsedSceneGuid-1:
+<<<<<<< Updated upstream
       value: 5204515552540a080c5a5a23117a0a4410164e7c7c2a76657f284d61b1e46469
       flags: 0
     RecentlyUsedSceneGuid-2:
+=======
+>>>>>>> Stashed changes
       value: 0100000707515e0a5a5d5b2414755d4445161a282829746628784860e3b7606a
       flags: 0
     vcSharedLogLevel:
