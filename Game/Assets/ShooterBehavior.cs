@@ -5,13 +5,14 @@ public class ShooterBehavior : MonoBehaviour
     public GameObject projectile;
     public Transform projectilePos;
     public Transform currentPos;
-    public Collider2D Bounds;
+    public float minTeleportRadius = 3f; // Minimum radius around the player
+    public float maxTeleportRadius = 7f; // Maximum radius around the player
 
     private GameObject player;
     private float distance;
     private float timer;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    // Start is called before the first execution of Update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Target");
@@ -51,18 +52,18 @@ public class ShooterBehavior : MonoBehaviour
 
             if (distance > 7.5f)
             {
-                // Use the bounds of the assigned collider to restrict relocation
-                Bounds b = Bounds.bounds;
+                // Generate a random angle
+                float angle = Random.Range(0f, 2f * Mathf.PI);
 
-                // Generate a random point within the bounds
+                // Generate a random distance within the min and max radius
+                float radius = Random.Range(minTeleportRadius, maxTeleportRadius);
+
+                // Calculate the random position
                 Vector3 randomPosition = new Vector3(
-                    Random.Range(b.min.x, b.max.x),
-                    Random.Range(b.min.y, b.max.y),
-                    currentPos.position.z // Keep the Z position unchanged for 2D
+                    player.transform.position.x + Mathf.Cos(angle) * radius,
+                    player.transform.position.y + Mathf.Sin(angle) * radius,
+                    currentPos.position.z // Keep Z unchanged for 2D
                 );
-
-                // Use ClosestPoint to ensure the random point is valid within the collider
-                randomPosition = Bounds.ClosestPoint(randomPosition);
 
                 // Set the new position
                 currentPos.position = randomPosition;

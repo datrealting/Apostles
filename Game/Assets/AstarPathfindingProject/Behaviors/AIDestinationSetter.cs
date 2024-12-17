@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using Mono.Cecil;
 
 namespace Pathfinding {
 	/// <summary>
@@ -16,7 +17,13 @@ namespace Pathfinding {
 	public class AIDestinationSetter : VersionedMonoBehaviour {
 		/// <summary>The object that the AI should move to</summary>
 		public Transform target;
-		IAstarAI ai;
+
+        private void Start()
+        {
+            target = GameObject.FindGameObjectWithTag("Target").transform;
+        }
+
+        IAstarAI ai;
 
 		void OnEnable () {
 			ai = GetComponent<IAstarAI>();

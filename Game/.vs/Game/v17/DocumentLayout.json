@@ -3,16 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\assets\\bossbehavior.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|solutionrelative:assets\\bossbehavior.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D3C2763-44A0-D00A-6B7C-FC98E83EB1D3}|AstarPathfindingProject.csproj|c:\\users\\james\\documents\\github\\apostles\\game\\assets\\astarpathfindingproject\\behaviors\\aidestinationsetter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D3C2763-44A0-D00A-6B7C-FC98E83EB1D3}|AstarPathfindingProject.csproj|solutionrelative:assets\\astarpathfindingproject\\behaviors\\aidestinationsetter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\assets\\orbiter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|solutionrelative:assets\\orbiter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|c:\\users\\james\\documents\\github\\apostles\\game\\assets\\scripts\\playermove.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playermove.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\assets\\scripts\\combatsystem\\weapon system\\playercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\combatsystem\\weapon system\\playercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\assets\\shooterbehavior.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|solutionrelative:assets\\shooterbehavior.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|c:\\users\\james\\documents\\github\\apostles\\game\\assets\\orbiter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|solutionrelative:assets\\orbiter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\assets\\scripts\\combatsystem\\weapon system\\playercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\combatsystem\\weapon system\\playercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\assets\\scripts\\combatsystem\\weapon system\\enemyprojectileimpact1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -35,16 +47,8 @@
       "RelativeMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|solutionrelative:assets\\lifetime.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\assets\\bossbehavior.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|solutionrelative:assets\\bossbehavior.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\assets\\enemies\\enemymelee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|solutionrelative:assets\\enemies\\enemymelee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\assets\\shooterbehavior.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|solutionrelative:assets\\shooterbehavior.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}|Assembly-CSharp.csproj|C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\assets\\homerbullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -74,7 +78,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -82,20 +86,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
+              "Title": "AIDestinationSetter.cs",
+              "DocumentMoniker": "C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\Assets\\AstarPathfindingProject\\Behaviors\\AIDestinationSetter.cs",
+              "RelativeDocumentMoniker": "Assets\\AstarPathfindingProject\\Behaviors\\AIDestinationSetter.cs",
+              "ToolTip": "C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\Assets\\AstarPathfindingProject\\Behaviors\\AIDestinationSetter.cs",
+              "RelativeToolTip": "Assets\\AstarPathfindingProject\\Behaviors\\AIDestinationSetter.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAABKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-17T11:54:12.353Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "PlayerMove.cs",
               "DocumentMoniker": "C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\Assets\\Scripts\\PlayerMove.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerMove.cs",
               "ToolTip": "C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\Assets\\Scripts\\PlayerMove.cs",
               "RelativeToolTip": "Assets\\Scripts\\PlayerMove.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAAAAAA",
+              "ViewState": "AQIAAEYAAAAAAAAAAAAIwGIAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-17T00:27:27.654Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "HomerBehavior.cs",
               "DocumentMoniker": "C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\Assets\\HomerBehavior.cs",
               "RelativeDocumentMoniker": "Assets\\HomerBehavior.cs",
@@ -107,7 +124,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "EnemyMelee.cs",
               "DocumentMoniker": "C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\Assets\\Enemies\\EnemyMelee.cs",
               "RelativeDocumentMoniker": "Assets\\Enemies\\EnemyMelee.cs",
@@ -119,19 +136,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 0,
               "Title": "BossBehavior.cs",
               "DocumentMoniker": "C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\Assets\\BossBehavior.cs",
               "RelativeDocumentMoniker": "Assets\\BossBehavior.cs",
               "ToolTip": "C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\Assets\\BossBehavior.cs",
               "RelativeToolTip": "Assets\\BossBehavior.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAZAAAA",
+              "ViewState": "AQIAAGwAAAAAAAAAAAAAAI0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-15T19:52:12.374Z"
+              "WhenOpened": "2024-12-15T19:52:12.374Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 10,
               "Title": "lifetime.cs",
               "DocumentMoniker": "C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\Assets\\lifetime.cs",
               "RelativeDocumentMoniker": "Assets\\lifetime.cs",
@@ -143,7 +161,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 9,
               "Title": "EnemyAttackScript.cs",
               "DocumentMoniker": "C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\Assets\\Enemies\\EnemyAttackScript.cs",
               "RelativeDocumentMoniker": "Assets\\Enemies\\EnemyAttackScript.cs",
@@ -155,7 +173,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "Room.cs",
               "DocumentMoniker": "C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\Assets\\Room.cs",
               "RelativeDocumentMoniker": "Assets\\Room.cs",
@@ -167,7 +185,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "EnemyProjectileImpact1.cs",
               "DocumentMoniker": "C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\Assets\\Scripts\\CombatSystem\\Weapon System\\EnemyProjectileImpact1.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\CombatSystem\\Weapon System\\EnemyProjectileImpact1.cs",
@@ -179,7 +197,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "ProjectileImpact.cs",
               "DocumentMoniker": "C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\Assets\\Scripts\\CombatSystem\\Weapon System\\ProjectileImpact.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\CombatSystem\\Weapon System\\ProjectileImpact.cs",
@@ -191,7 +209,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
               "Title": "enemyBullet.cs",
               "DocumentMoniker": "C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\Assets\\enemyBullet.cs",
               "RelativeDocumentMoniker": "Assets\\enemyBullet.cs",
@@ -203,19 +221,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 4,
               "Title": "ShooterBehavior.cs",
               "DocumentMoniker": "C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\Assets\\ShooterBehavior.cs",
               "RelativeDocumentMoniker": "Assets\\ShooterBehavior.cs",
               "ToolTip": "C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\Assets\\ShooterBehavior.cs",
               "RelativeToolTip": "Assets\\ShooterBehavior.cs",
-              "ViewState": "AQIAACUAAAAAAAAAAAAAwDYAAAAhAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAE4AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-14T16:11:02.815Z"
+              "WhenOpened": "2024-12-14T16:11:02.815Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
+              "Title": "Orbiter.cs",
+              "DocumentMoniker": "C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\Assets\\Orbiter.cs",
+              "RelativeDocumentMoniker": "Assets\\Orbiter.cs",
+              "ToolTip": "C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\Assets\\Orbiter.cs",
+              "RelativeToolTip": "Assets\\Orbiter.cs",
+              "ViewState": "AQIAADEAAAAAAAAAAAAuwFYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-16T22:53:49.544Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "PlayerControl.cs",
               "DocumentMoniker": "C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\Assets\\Scripts\\CombatSystem\\Weapon System\\PlayerControl.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\CombatSystem\\Weapon System\\PlayerControl.cs",
@@ -223,12 +255,11 @@
               "RelativeToolTip": "Assets\\Scripts\\CombatSystem\\Weapon System\\PlayerControl.cs",
               "ViewState": "AQIAAEYAAAAAAAAAAAAuwIIAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-14T17:35:40.039Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-14T17:35:40.039Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "homerBullet.cs",
               "DocumentMoniker": "C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\Assets\\homerBullet.cs",
               "RelativeDocumentMoniker": "Assets\\homerBullet.cs",
@@ -240,20 +271,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Orbiter.cs",
-              "DocumentMoniker": "C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\Assets\\Orbiter.cs",
-              "RelativeDocumentMoniker": "Assets\\Orbiter.cs",
-              "ToolTip": "C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\Assets\\Orbiter.cs",
-              "RelativeToolTip": "Assets\\Orbiter.cs",
-              "ViewState": "AQIAAAgAAAAAAAAAAAAQwAoAAAArAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-16T22:53:49.544Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "AIPath.cs",
               "DocumentMoniker": "C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\Assets\\AstarPathfindingProject\\Core\\AI\\AIPath.cs",
               "RelativeDocumentMoniker": "Assets\\AstarPathfindingProject\\Core\\AI\\AIPath.cs",
@@ -265,7 +283,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "NPC Stats.cs",
               "DocumentMoniker": "C:\\Users\\james\\Documents\\GitHub\\Apostles\\Game\\Assets\\Scripts\\CombatSystem\\Weapon System\\NPC Stats.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\CombatSystem\\Weapon System\\NPC Stats.cs",

@@ -2,10 +2,8 @@ using UnityEngine;
 
 public class OrbitPlayer : MonoBehaviour
 {
-    public PlayerControl player;
-
-
-    public Transform target; // Reference to the player
+    private PlayerControl player; // Reference to the PlayerControl script
+    private Transform target;     // Reference to the player's Transform
     public float orbitDistance = 5f; // Fixed distance from the player
     public float orbitSpeed = 50f; // Speed of the orbit in degrees per second
     private float orbitAcceleration = 1.005f; // Acceleration of the speed
@@ -18,6 +16,19 @@ public class OrbitPlayer : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
 
+        // Find the player object and assign its components
+        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+        if (playerObject != null)
+        {
+            player = playerObject.GetComponent<PlayerControl>();
+            target = playerObject.transform;
+        }
+        else
+        {
+            Debug.LogError("Player object with tag 'Player' not found!");
+            return;
+        }
+
         // Initialize the current angle with the angular offset
         currentAngle = angularOffset;
 
@@ -27,7 +38,7 @@ public class OrbitPlayer : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (player == null)
+        if (player == null || target == null)
             return;
 
         // Increment the current angle based on orbit speed and time
@@ -39,9 +50,11 @@ public class OrbitPlayer : MonoBehaviour
         // Update the position of the orbiter
         UpdatePosition();
 
-        orbitDistance = orbitDistance - 0.01f;
-        orbitSpeed = orbitSpeed * orbitAcceleration;
+        // Adjust orbit distance and speed over time
+        orbitDistance -= 0.01f;
+        orbitSpeed *= orbitAcceleration;
 
+        // Destroy the orbiter if it gets too close
         if (orbitDistance <= 0)
         {
             Destroy(gameObject);
@@ -54,20 +67,20 @@ public class OrbitPlayer : MonoBehaviour
         float angleRadians = currentAngle * Mathf.Deg2Rad;
         Vector2 offset = new Vector2(Mathf.Cos(angleRadians), Mathf.Sin(angleRadians)) * orbitDistance;
 
-        if (player != null)
-        {
-            rb.MovePosition((Vector2)target.position + offset);
-        }
+        // Update the orbiter's position relative to the player
+        rb.MovePosition((Vector2)target.position + offset);
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
-            {
-                other.GetComponent<NPCStats>()?.TakeDamage(1);  // Use the damage passed from the weapon
-                GameObject.Find("Player").GetComponent<PlayerControl>().onStrike?.Invoke(other.gameObject);
-                player.TakeDamage(1);
-                Destroy(gameObject);
-        } 
+        {
+            // Apply damage and invoke events
+            other.GetComponent<NPCStats>()?.TakeDamage(1);
+            player?.TakeDamage(1);
+            player?.onStrike?.Invoke(other.gameObject);
+
+            Destroy(gameObject);
+        }
     }
 }
