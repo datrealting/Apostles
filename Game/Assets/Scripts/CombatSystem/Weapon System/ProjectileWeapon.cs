@@ -7,9 +7,10 @@ public class ProjectileWeapon : Weapon
     [SerializeField] private Transform projectileSpawnPoint; // Spawn point for the projectile
     [SerializeField] private GameObject impactEffect; // Impact effect prefab
 
-    void Update()
+    protected override void Update()
     {
-        RotateWeaponTowardCursor(); // Rotate the weapon toward the cursor
+        base.Update();
+        //RotateWeaponTowardCursor(); // Rotate the weapon toward the cursor
         HandleAttackInput();    // Handle attack input
         HandleLevelUpInput();
     }
@@ -70,33 +71,11 @@ public class ProjectileWeapon : Weapon
     }
 
 
-    private void RotateWeaponTowardCursor()
+    protected override bool RotateWeaponTowardCursor()
     {
-        // Get the mouse position in world space
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.transform.position.z));
-        mousePosition.z = transform.position.z; // Make sure it stays in the same z-plane (not invisible lol)
+        // Call the base class method
+        bool shouldFlipWeaponSprite = base.RotateWeaponTowardCursor();
 
-        // Calculate direction from weapon to the mouse
-        Vector3 direction = (mousePosition - transform.position).normalized;
-
-        // Calculate the rotation angle in degrees
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-
-        // Check if the player is flipped (facing left)
-        if (playerTransform.localScale.x < 0)
-        {
-            // Adjust the angle for the flipped orientation
-            angle += 180f; // Mirror the weapon's rotation when flipped
-        }
-
-        // Apply rotation
-        transform.rotation = Quaternion.Euler(0f, 0f, angle);
-
-        // Flip the weapon's sprite if necessary
-        bool shouldFlipWeaponSprite = playerTransform.localScale.x < 0;
-        GetComponent<SpriteRenderer>().flipY = shouldFlipWeaponSprite;
-
-        // Rotate the projectile spawn point if necessary
         if (shouldFlipWeaponSprite)
         {
             projectileSpawnPoint.localRotation = Quaternion.Euler(0f, 0f, 180f);
@@ -104,8 +83,8 @@ public class ProjectileWeapon : Weapon
         else
         {
             projectileSpawnPoint.localRotation = Quaternion.identity;
-
         }
+        return shouldFlipWeaponSprite;
     }
 
 
