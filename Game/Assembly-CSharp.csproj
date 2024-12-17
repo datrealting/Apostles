@@ -65,6 +65,7 @@
     <Compile Include="Assets\Relics\RelicHandlerScript.cs" />
     <Compile Include="Assets\Scripts\CombatSystem\Weapon System\PlayerControl.cs" />
     <Compile Include="Assets\Death\DEMOPLEASEDELETE death maker.cs" />
+    <Compile Include="Assets\homerBullet.cs" />
     <Compile Include="Assets\lifetime.cs" />
     <Compile Include="Assets\Relics\Relic_Scripts\itemEffect.cs" />
     <Compile Include="Assets\Relics\Relic_Scripts\BurningBrand.cs" />
@@ -74,10 +75,6 @@
     <Compile Include="Assets\Scripts\CombatSystem\StatusEffectSystem\SE Interface.cs" />
     <Compile Include="Assets\Relics\Relic_Scripts\TBController.cs" />
     <Compile Include="Assets\Enemies\EnemyAttackScript.cs" />
-<<<<<<< Updated upstream
-=======
-    <Compile Include="Assets\ChestOpening.cs" />
->>>>>>> Stashed changes
     <Compile Include="Assets\EnemyGFX.cs" />
     <Compile Include="Assets\Scripts\CombatSystem\AOE System\TEMP AOE Spawner.cs" />
     <Compile Include="Assets\Death\GameManager.cs" />
@@ -85,6 +82,7 @@
     <Compile Include="Assets\Scripts\CombatSystem\Weapon System\WeaponLevelHandler.cs" />
     <Compile Include="Assets\Relics\Relic_Scripts\WhetstoneController.cs" />
     <Compile Include="Assets\Room.cs" />
+    <Compile Include="Assets\Scripts\CombatSystem\StatusEffectSystem\Effects\Exsanguinating.cs" />
     <Compile Include="Assets\Enemies\EnemyMelee.cs" />
     <Compile Include="Assets\Death\UpgradeMenuScript.cs" />
     <Compile Include="Assets\Scripts\CombatSystem\StatusEffectSystem\Effects\Burning.cs" />
@@ -93,7 +91,9 @@
     <Compile Include="Assets\Relics\Relic_Scripts\Ghostly_sword.cs" />
     <Compile Include="Assets\Brick_Attributes.cs" />
     <Compile Include="Assets\Scripts\CombatSystem\StatusEffectSystem\Effects\Bloodspark.cs" />
+    <Compile Include="Assets\Orbiter.cs" />
     <Compile Include="Assets\Relics\ChestOpening.cs" />
+    <Compile Include="Assets\Scripts\CombatSystem\StatusEffectSystem\Effects\CallOfTheEye.cs" />
     <Compile Include="Assets\UI\Scripts\DEMOPLEASEDELET Elootboxscreen.cs" />
     <Compile Include="Assets\Enemies\ALFIEBossScript.cs" />
     <Compile Include="Assets\UI\Scripts\MainMenu.cs" />
@@ -142,17 +142,12 @@
     <Compile Include="Assets\ShooterBehavior.cs" />
     <Compile Include="Assets\Scripts\CombatSystem\Weapon System\ProjectileImpact.cs" />
     <Compile Include="Assets\CameraFollow.cs" />
-<<<<<<< Updated upstream
     <Compile Include="Assets\Relics\Relic_Scripts\Enum_Rarity.cs" />
     <Compile Include="Assets\Scripts\CombatSystem\Weapon System\EnemyProjectileImpact1.cs" />
     <Compile Include="Assets\Scripts\CombatSystem\Weapon System\Weapon.cs" />
     <Compile Include="Assets\EnemyInitialiser.cs" />
+    <Compile Include="Assets\HomerBehavior.cs" />
     <Compile Include="Assets\Relics\Chest_interaction.cs" />
-=======
-    <Compile Include="Assets\Scripts\CombatSystem\Weapon System\EnemyProjectileImpact1.cs" />
-    <Compile Include="Assets\Scripts\CombatSystem\Weapon System\Weapon.cs" />
-    <Compile Include="Assets\EnemyInitialiser.cs" />
->>>>>>> Stashed changes
     <Compile Include="Assets\UI\Scripts\EnemyUI.cs" />
     <Compile Include="Assets\Crown_Of_Thorns_Behaivour.cs" />
   </ItemGroup>
@@ -1422,11 +1417,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-<<<<<<< Updated upstream
-    <ProjectReference Include="AstarPathfindingProjectEditor.csproj" />
-    <ProjectReference Include="AstarPathfindingProject.csproj" />
-    <ProjectReference Include="PackageToolsEditor.csproj" />
-=======
     <ProjectReference Include="AstarPathfindingProjectEditor.csproj">
       <Project>{047771D7-7C7A-7D09-37F5-02C95309643E}</Project>
       <Name>AstarPathfindingProjectEditor</Name>
@@ -1439,7 +1429,6 @@
       <Project>{83666AEF-5279-3B29-F698-F32901EC804F}</Project>
       <Name>PackageToolsEditor</Name>
     </ProjectReference>
->>>>>>> Stashed changes
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
