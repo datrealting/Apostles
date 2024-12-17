@@ -27,6 +27,11 @@ public abstract class Weapon : MonoBehaviour
         localOffset = transform.localPosition;
     }
 
+    protected virtual void Update()
+    {
+        RotateWeaponTowardCursor(); // Rotate the weapon toward the cursor
+    }
+
     public void LevelUp()
     {
         // Increase the weapon level
@@ -36,6 +41,12 @@ public abstract class Weapon : MonoBehaviour
 
     public void HandleAttackInput()
     {
+
+        if (playerControlReference == null)
+        {
+            Debug.LogError("PlayerControl reference is not set.");
+            return;
+        }
         // Check if the player clicks the left mouse button
         if (canAttack)
         {
@@ -67,5 +78,35 @@ public abstract class Weapon : MonoBehaviour
             LevelUp();
         }
 #endif
+    }
+
+
+    protected virtual bool RotateWeaponTowardCursor()
+    {
+        // Get the mouse position in world space
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.transform.position.z));
+        mousePosition.z = transform.position.z; // Make sure it stays in the same z-plane (not invisible lol)
+
+        // Calculate direction from weapon to the mouse
+        Vector3 direction = (mousePosition - transform.position).normalized;
+
+        // Calculate the rotation angle in degrees
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+        // Check if the player is flipped (facing left)
+        if (playerTransform.localScale.x < 0)
+        {
+            // Adjust the angle for the flipped orientation
+            angle += 180f; // Mirror the weapon's rotation when flipped
+        }
+
+        // Apply rotation
+        transform.rotation = Quaternion.Euler(0f, 0f, angle);
+
+        // Flip the weapon's sprite if necessary
+        bool shouldFlipWeaponSprite = playerTransform.localScale.x < 0;
+        GetComponent<SpriteRenderer>().flipY = shouldFlipWeaponSprite;
+        return shouldFlipWeaponSprite;
+        
     }
 }

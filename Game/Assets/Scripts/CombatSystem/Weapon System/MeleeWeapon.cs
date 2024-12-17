@@ -7,15 +7,12 @@ public class MeleeWeapon : Weapon
     public int rayCount = 10; // Number of rays to cast within the quarter circle
     public Transform attackTransform;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-
-    }
+ 
 
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
+        base.Update();
         HandleAttackInput();
     }
 
@@ -31,16 +28,21 @@ public class MeleeWeapon : Weapon
             RaycastHit2D hit = Physics2D.Raycast(attackTransform.position, direction, range);
 
             // Draw the ray for debugging purposes
-            Debug.DrawRay(attackTransform.position, direction * range, Color.red, 1.0f);
+            Debug.DrawRay(attackTransform.position, direction * range, Color.red, 0.2f);
 
             if (hit.collider != null)
             {
-                NPCStats npcStats = hit.collider.GetComponent<NPCStats>();
+                Debug.Log("[Attack] Hit: " + hit.collider.name + " at distance: " + hit.distance);
 
-                if (npcStats != null)
+                if (hit.collider.CompareTag("Enemy"))
                 {
-                    npcStats.TakeDamage(10);
+                    hit.collider.GetComponent<NPCStats>()?.TakeDamage(weaponStats.dmg);  // Use the damage passed from the weapon
+                    GameObject.Find("Player").GetComponent<PlayerControl>().onStrike?.Invoke(hit.collider.gameObject);
                 }
+            }
+            else
+            {
+                Debug.Log("[Attack] No hit detected for ray at angle: " + angle);
             }
         }
     }

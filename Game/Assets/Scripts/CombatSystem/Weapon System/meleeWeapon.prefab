@@ -28,8 +28,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0.174, y: -0.03, z: 0}
-  m_LocalScale: {x: 0.051118046, y: 0.36684904, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.52, y: 0.52, z: 0.52}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8641269924545786935}
   m_Father: {fileID: 0}
@@ -78,8 +78,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 0.06940616, g: 0.82162225, b: 0.8269616, a: 1}
+  m_Sprite: {fileID: 712035800519618848, guid: acf01c4f06d966c63be30fc1dda49b22, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -102,13 +102,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: 
-  Damage: 13
-  AttackRate: 0.5
-  Cooldown: 0
-  Level: 0
+  weaponStats:
+    baseDamage: 3
+    dmg: 3
+    dmgLevelIncrement: 2
+    baseProjectilesCount: 1
+    projectilesCount: 1
+    projectilesLevelIncrement: 1
+    baseSpread: 10
+    spread: 10
+    spreadLevelIncrement: 5
+    baseAtkSpeed: 1
+    atkSpeed: 0.0001
+    atkSpeedIncrement: 1
+    baseProjectileSpeed: 20
+    projectileSpeed: 20
+    projectileSpeedIncrement: 5
+    baseProjectileRange: 10
+    projectileRange: 10
+    projectileRangeIncrement: 5
   range: 1.75
   quarterCircleAngle: 90
-  rayCount: 10
+  rayCount: 80
   attackTransform: {fileID: 8641269924545786935}
 --- !u!1 &8575216818776354653
 GameObject:
@@ -134,10 +149,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8575216818776354653}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.561, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7090171, w: 0.7051914}
+  m_LocalPosition: {x: -0, y: -0.026, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1374981900990860200}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90.31}
