@@ -71,6 +71,7 @@
     <Compile Include="Assets\Relics\Relic_Scripts\BurningBrand.cs" />
     <Compile Include="Assets\BossBehavior.cs" />
     <Compile Include="Assets\Scripts\CombatSystem\StatusEffectSystem\StatusEffectManager.cs" />
+    <Compile Include="Assets\Relics\Relic_Scripts\cultist_eye.cs" />
     <Compile Include="Assets\Player movement.cs" />
     <Compile Include="Assets\Scripts\CombatSystem\StatusEffectSystem\SE Interface.cs" />
     <Compile Include="Assets\Relics\Relic_Scripts\TBController.cs" />

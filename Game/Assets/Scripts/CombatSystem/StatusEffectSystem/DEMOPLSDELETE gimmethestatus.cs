@@ -24,6 +24,8 @@ public class DEMOPLSDELETEgimmethestatus : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.G))
         {
+            GameObject.Find("Player").GetComponent<PlayerControl>().bleedChance += 0.5f;
+            /*
             if (effect != null)
             {
                 StatusEffectManager.ApplyEffect(target, caller, effect, spritePrefab);
@@ -40,6 +42,7 @@ public class DEMOPLSDELETEgimmethestatus : MonoBehaviour
             {
                 StatusEffectManager.ApplyEffect(target, caller, effect4, spritePrefab4);
             }
+            */
         }
     }
 }
