@@ -91,8 +91,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40279ebac81108947a2213f9d258adb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxhp: 100
-  currenthp: 100
+  maxhp: 25
+  currenthp: 25
   dead: 0
   armour: 0
   FloatingTextPrefab: {fileID: 7680690382481572930, guid: c2efdbbe83bfd9041a9abaec5eaaa94b, type: 3}
@@ -277,8 +277,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40279ebac81108947a2213f9d258adb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxhp: 100
-  currenthp: 100
+  maxhp: 25
+  currenthp: 25
   dead: 0
   armour: 0
   FloatingTextPrefab: {fileID: 7680690382481572930, guid: c2efdbbe83bfd9041a9abaec5eaaa94b, type: 3}
@@ -1856,8 +1856,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40279ebac81108947a2213f9d258adb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxhp: 100
-  currenthp: 100
+  maxhp: 25
+  currenthp: 25
   dead: 0
   armour: 0
   FloatingTextPrefab: {fileID: 7680690382481572930, guid: c2efdbbe83bfd9041a9abaec5eaaa94b, type: 3}
@@ -1994,8 +1994,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40279ebac81108947a2213f9d258adb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxhp: 100
-  currenthp: 100
+  maxhp: 25
+  currenthp: 25
   dead: 0
   armour: 0
   FloatingTextPrefab: {fileID: 7680690382481572930, guid: c2efdbbe83bfd9041a9abaec5eaaa94b, type: 3}

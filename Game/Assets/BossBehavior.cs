@@ -14,17 +14,19 @@ public class BossBehavior : MonoBehaviour, IAoe
     private float timer;
     private float nextTime;
 
-    // AOE 
+    // AOE
     public GameObject aoePrefab;
-
     public float attackCD = 3f;
     public float attackSize = 3f;
     public float attackRange = 1.5f;
     public float attackDelay = 5f;
 
-
     // Public Collider2D to assign via the inspector
     public Collider2D spawnAreaCollider;
+
+    // Orbiter Enemy Spawning
+    public GameObject orbiterEnemyParentPrefab; // Prefab to spawn
+    private bool hasSpawnedOrbiter = false; // Ensure it spawns only once
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -38,6 +40,7 @@ public class BossBehavior : MonoBehaviour, IAoe
         getDistanceToTarget();
         rangedAttack();
         meleeAttack();
+        CheckHealthForSpawn();
     }
 
     void rangedAttack()
@@ -71,27 +74,17 @@ public class BossBehavior : MonoBehaviour, IAoe
         }
     }
 
-
     void meleeAttack()
     {
         if (Time.time < nextTime)
             return; // Exit if attack is on cooldown
 
-        //Debug.Log($"Attack called. Distance: {distance}");
-
         if (distance < 5f)
         {
-            //Debug.Log("Within attack range");
             Swipe();
             nextTime = Time.time + attackCD; // Set the cooldown
         }
-        else
-        {
-            //Debug.Log("Out of range");
-        }
     }
-
-
 
     IEnumerator SpawnProjectileAfterDelay(Vector3 spawnPosition, float delay)
     {
@@ -128,14 +121,44 @@ public class BossBehavior : MonoBehaviour, IAoe
             }
         }
     }
+
     public void AOEEffect(Collider2D[] hits)
     {
         SwipeEffect(hits);
     }
+
     private Vector2 GetVectorToTarget()
     {
         var heading = target.transform.position - transform.position;
         var direction = heading.normalized;
         return direction;
+    }
+
+    // Check if the boss's health has reached 50% or less
+    void CheckHealthForSpawn()
+    {
+        NPCStats stats = GetComponent<NPCStats>(); // Get NPCStats component
+
+        if (stats != null && !hasSpawnedOrbiter)
+        {
+            if (stats.currenthp <= stats.maxhp * 0.5f) // Check if health is 50% or less
+            {
+                SpawnOrbiter();
+                hasSpawnedOrbiter = true; // Prevent multiple spawns
+            }
+        }
+    }
+
+    // Spawn the OrbiterEnemyParent prefab
+    void SpawnOrbiter()
+    {
+        if (orbiterEnemyParentPrefab != null)
+        {
+            Instantiate(orbiterEnemyParentPrefab, transform.position, Quaternion.identity); // Spawn at the boss's position
+        }
+        else
+        {
+            Debug.LogWarning("OrbiterEnemyParentPrefab is not assigned in the Inspector!");
+        }
     }
 }
