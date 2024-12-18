@@ -65,7 +65,7 @@ MonoBehaviour:
   - {fileID: 2408127692213959859}
   - {fileID: 5379707056753447639}
   obstacles:
-  - {fileID: 4080340503184733614, guid: 60bcdc969ee1b2d438ff689f7dc0136d, type: 3}
+  - {fileID: 1445235843384670996, guid: 24cb8e79ca4dea64497dfb76c14ae498, type: 3}
   enemies: []
 --- !u!212 &8265934473373886223
 SpriteRenderer:
