@@ -5,6 +5,7 @@ public class ChestOpening : MonoBehaviour
 
 {
     public bool isOpen;
+    public Animator animator;
     private void OnTriggerEnter2D(Collider2D collision){
         if (collision.CompareTag("Player"))
         {
