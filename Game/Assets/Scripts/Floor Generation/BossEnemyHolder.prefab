@@ -149,7 +149,7 @@ MonoBehaviour:
   telegraphPos: {fileID: 7433477426901396911, guid: c234397a937d82644abb51fa79c7ab16, type: 3}
   projectile: {fileID: 381423501142137705, guid: a091d6252297dc545aea503e45cdb272, type: 3}
   currentPos: {fileID: 2425312620797087535}
-  spawnRate: 0.3
+  spawnRate: 0.5
   aoePrefab: {fileID: 3992563610131000863, guid: fe2a707090758264bba3a8f6b098f6db, type: 3}
   attackCD: 2
   attackSize: 3

@@ -20,16 +20,26 @@ public class Room : MonoBehaviour
 
     private void Awake()
     {
-        obstacle = Instantiate(obstacles[Random.Range(0, obstacles.Length)], this.transform.position, Quaternion.identity);
-        obstacle.transform.SetParent(this.transform);
+        if (obstacles.Length > 0)
+        {
+            obstacle = Instantiate(obstacles[Random.Range(0, obstacles.Length)], this.transform.position, Quaternion.identity);
+            obstacle.transform.SetParent(this.transform);
+        }
 
         if (enemies.Length > 0)
         {
             enemy = Instantiate(enemies[Random.Range(0, enemies.Length)], this.transform.position, Quaternion.identity);
             enemy.transform.SetParent(this.transform);
             enemy.SetActive(false);
+
+            Debug.Log($"Spawned enemy {enemy.name} in room {this.name}");
+        }
+        else
+        {
+            Debug.LogWarning($"No enemies assigned to the enemies[] array in room {this.name}");
         }
     }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
